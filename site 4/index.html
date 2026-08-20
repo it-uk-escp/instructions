@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IT Setup Guides — ESCP London</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;background:#1B0066;color:#fff;font-family:Karla,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;display:flex;align-items:center;justify-content:center;padding:52px 28px}
+  .blobs{position:fixed;inset:0;pointer-events:none;z-index:0}
+  .blobs div{position:absolute;border-radius:50%}
+  .b1{top:-14%;left:-8%;width:640px;height:640px;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9}
+  .b2{bottom:-20%;right:-10%;width:720px;height:720px;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85}
+  .b3{top:38%;left:42%;width:520px;height:520px;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8}
+  .veil{position:absolute;inset:0;border-radius:0 !important;background:linear-gradient(180deg,rgba(27,0,102,.34) 0%,rgba(27,0,102,.62) 100%)}
+  .wrap{position:relative;z-index:1;max-width:720px;width:100%;display:flex;flex-direction:column;gap:28px}
+  a{text-decoration:none;color:inherit}
+  .rise{opacity:0;transform:translateY(16px);animation:rise .75s cubic-bezier(.2,.7,.3,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .pill{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 15px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09)}
+  .pill span:first-child{width:6px;height:6px;border-radius:50%;background:#EEC242}
+  .pill span:last-child{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+  h1{margin:16px 0 0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(40px,6.4vw,72px);line-height:.96;letter-spacing:-.038em}
+  .sub{margin:14px 0 0;font-size:18px;line-height:1.55;color:rgba(255,255,255,.72);max-width:460px;text-wrap:pretty}
+  .card{position:relative;display:flex;align-items:center;justify-content:space-between;gap:22px;border-radius:22px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.11);box-shadow:0 18px 44px -28px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.3);padding:26px 28px;transition:background .25s ease,border-color .25s ease,transform .25s cubic-bezier(.2,.7,.3,1)}
+  .card:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.36);transform:translateY(-3px)}
+  .num{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#EEC242}
+  .t{font-family:Montserrat,sans-serif;font-weight:700;font-size:21px;letter-spacing:-.024em;margin-top:8px}
+  .s{font-size:15px;font-weight:500;color:rgba(255,255,255,.72);margin-top:6px;line-height:1.45}
+  .arrow{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:18px;color:#EEC242;transition:background .25s ease,border-color .25s ease,color .25s ease,transform .25s ease}
+  .card:hover .arrow{background:#EEC242;border-color:#EEC242;color:#1B0066;transform:translateX(3px)}
+  .foot{display:flex;align-items:flex-start;justify-content:space-between;gap:12px 28px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.16);padding-top:22px;font-size:15px;font-weight:500;color:rgba(255,255,255,.72);line-height:1.5}
+  .foot span{flex:1 1 240px}
+  .foot span:last-child{text-align:right}
+  @media(max-width:620px){body{padding:32px 20px;align-items:flex-start}.wrap{gap:26px}.card{padding:22px}.arrow{width:38px;height:38px}.foot span:last-child{text-align:left}.foot span{flex:1 1 100%}}
+  .foot a{color:#EEC242;border-bottom:1px solid rgba(238,194,66,.4)}
+  .foot a:hover{border-bottom-color:#EEC242}
+  @media(max-width:640px){
+    body{padding:34px 20px;align-items:flex-start}
+    .wrap{gap:26px}
+    h1{margin-top:14px;font-size:clamp(34px,10vw,46px)}
+    .sub{font-size:16.5px;margin-top:12px}
+    .card{padding:20px 20px;gap:16px;border-radius:18px}
+    .t{font-size:18.5px}
+    .s{font-size:14.5px}
+    .arrow{width:38px;height:38px;font-size:16px}
+    .foot{flex-direction:column;align-items:flex-start;gap:10px;font-size:14.5px}
+    img[alt="ESCP"]{width:92px;margin:0 0 0 auto}
+  }
+  @media(prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+  <div class="blobs"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="veil"></div></div>
+  <div class="wrap">
+    <div class="rise" style="display:flex;align-items:center;justify-content:flex-end;gap:18px">
+      <img src="assets/escp-logo.png" alt="ESCP" style="width:112px;height:auto;flex:none;margin:0 6px 0 0">
+    </div>
+
+    <div class="rise" style="animation-delay:.06s">
+      <div class="pill"><span></span><span data-i="eyebrow">London Campus · IT Services</span></div>
+      <h1 data-i="h1">Setup guides.</h1>
+      <p class="sub" data-i="sub">Everything you need running on your own laptop. Pick one and click through it.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:13px">
+      <a class="card rise" href="./microsoft-365.html" style="animation-delay:.1s">
+        <div>
+          <div class="num" data-i="c1n">Windows, macOS, iPadOS &amp; Android</div>
+          <div class="t" data-i="c1t">Install Microsoft 365</div>
+          <div class="s" data-i="c1s">Word, Excel, PowerPoint and Teams, free with your ESCP email</div>
+        </div>
+        <div class="arrow">&#8594;</div>
+      </a>
+      <a class="card rise" href="./papercut.html" style="animation-delay:.2s">
+        <div>
+          <div class="num" data-i="c2n">macOS, Windows &amp; ChromeOS</div>
+          <div class="t" data-i="c2t">Set up printing</div>
+          <div class="s" data-i="c2s">Print from your own laptop anywhere on campus</div>
+        </div>
+        <div class="arrow">&#8594;</div>
+      </a>
+      <a class="card rise" href="./eduroam.html" style="animation-delay:.3s">
+        <div>
+          <div class="num" data-i="c3n">macOS, iOS, Android &amp; Windows</div>
+          <div class="t" data-i="c3t">Connect to eduroam WiFi</div>
+          <div class="s" data-i="c3s">One login, every ESCP campus and hundreds of universities worldwide</div>
+        </div>
+        <div class="arrow">&#8594;</div>
+      </a>
+    </div>
+
+    <div class="foot rise" style="animation-delay:.4s">
+      <span><span data-i="help1">Account problems:</span> <a href="mailto:assistance.dtd@escp.eu">assistance.dtd@escp.eu</a></span>
+      <span><span data-i="help2a">Need more help? Email</span> <a href="mailto:ITUK@escp.eu">ITUK@escp.eu</a> <span data-i="help2b">or visit the IT office on the ground floor, G12</span></span>
+    </div>
+  </div>
+</body>
+</html>
