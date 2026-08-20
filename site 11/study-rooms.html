@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{background:#1B0066;margin:0}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1B0066;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(max-width:620px){.pgwrap{padding:16px 18px 48px !important;gap:12px !important}.stepcard{border-radius:22px !important}.stepcol{padding:24px 22px 26px !important}.illo{min-height:210px !important;padding:18px 0 !important;border-left:0 !important;border-top:1px solid rgba(255,255,255,.16)}.helpcard{padding:24px 22px 26px !important;border-radius:22px !important}.navrow{gap:10px !important}}
+a{color:#EEC242}a:hover{color:#fff}
+@keyframes rcursorIn{0%,10%{transform:translate(46px,26px);opacity:0}22%{opacity:1}40%,100%{transform:translate(0,0);opacity:1}}
+@keyframes rclickRing{0%,40%{transform:scale(0);opacity:.8}52%{transform:scale(2.2);opacity:0}100%{transform:scale(0);opacity:0}}
+@keyframes rpickL{0%,20%{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.18)}38%,100%{background:rgba(238,194,66,.18);border-color:rgba(238,194,66,.6)}}
+@keyframes rtileIn{0%,14%{opacity:0;transform:translateY(9px)}34%,100%{opacity:1;transform:translateY(0)}}
+@keyframes rdayPick{0%,26%{background:transparent;color:rgba(255,255,255,.75)}42%,100%{background:#EEC242;color:#1B0066}}
+@keyframes rslotPop{0%,40%{transform:scale(1)}50%{transform:scale(1.12)}60%,100%{transform:scale(1)}}
+@keyframes rslotFade{0%,44%{opacity:1}62%,100%{opacity:.22}}
+@keyframes remptyPulse{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes rtypeA{0%,8%{width:0%}30%,100%{width:100%}}
+@keyframes rtypeB{0%,32%{width:0%}54%,100%{width:100%}}
+@keyframes rcaret{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes rtick{0%,52%{opacity:0;transform:scale(.4)}68%,100%{opacity:1;transform:scale(1)}}
+@keyframes rrowIn{0%,20%{opacity:0;transform:translateY(10px)}40%,92%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(10px)}}
+@view-transition{navigation:auto}
+@keyframes vtOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.985)}}
+@keyframes vtIn{from{opacity:0;transform:scale(1.012) translateY(8px)}to{opacity:1;transform:none}}
+::view-transition-old(root){animation:vtOut .22s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vtIn .34s cubic-bezier(.2,.7,.3,1) both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+@supports (view-transition-name:none){[style*="pagein"]{animation:none !important}}
+@media(prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="animation:pagein .3s ease both;position:relative;min-height:100vh;background:#1B0066;font-family:Karla,system-ui,sans-serif;overflow:hidden">
+
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0">
+    <div style="position:absolute;top:-14%;left:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9"></div>
+    <div style="position:absolute;bottom:-20%;right:-10%;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85"></div>
+    <div style="position:absolute;top:38%;left:42%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8"></div>
+  </div>
+
+  <div class="pgwrap" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:28px 40px 72px;display:flex;flex-direction:column;gap:20px">
+
+    <div style="display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap">
+      <a href="./index.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:9px 16px 9px 13px;border:1px solid rgba(255,255,255,.2);border-radius:99px;background:rgba(255,255,255,.08);transition:background .25s ease,color .25s ease,border-color .25s ease" style-hover="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)"><span style="font-size:14px;line-height:1">&#8592;</span>All setup guides</a>
+      <div style="display:flex;align-items:center;margin-left:auto">
+        <img src="assets/escp-logo.png" alt="ESCP" style="width:112px;height:auto;flex:none;margin:10px 6px 0 0">
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;padding-top:4px">
+      <div style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 16px 8px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1)">
+        <span style="width:7px;height:7px;border-radius:50%;background:#EEC242"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)">London Campus · Study Rooms</span>
+      </div>
+      <h1 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.96;letter-spacing:-.038em;color:#fff;max-width:900px;text-wrap:balance">Book a study room.</h1>
+      <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:560px;text-wrap:pretty">Pick a duration, pick a room, pick a time. Booking one takes about a minute.</p>
+    </div>
+
+    <a href="https://escplondonstudyrooms.simplybook.it/v2/" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;text-decoration:none;background:#EEC242;color:#1B0066;padding:16px 28px;border-radius:99px;box-shadow:0 12px 26px -16px rgba(238,194,66,.6);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 32px -16px rgba(238,194,66,.75)">
+      <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.012em">Open the booking site</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(27,0,102,.65);letter-spacing:.06em">simplybook.it</span>
+    </a>
+
+    <div style="display:flex;flex-direction:column;gap:13px;padding:4px">
+      <div style="display:flex;gap:7px;align-items:stretch">
+        <sc-for list="{{ segments }}" as="seg" hint-placeholder-count="6">
+          <button type="button" onClick="{{ seg.go }}" title="{{ seg.title }}" style="flex:1;height:7px;padding:0;border:0;border-radius:99px;cursor:pointer;background:{{ seg.bg }};box-shadow:{{ seg.glow }};transition:background .35s ease,transform .2s ease,box-shadow .35s ease" style-hover="transform:scaleY(1.8)"></button>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.58)">
+        <span>Step {{ humanIndex }} / {{ total }}</span>
+        <span style="color:#EEC242">{{ phaseLabel }}</span>
+      </div>
+    </div>
+
+    <div style="opacity:{{ cardOpacity }};transform:translateY({{ cardShift }}) scale({{ cardScale }});transition:opacity .22s ease,transform .3s cubic-bezier(.2,.7,.3,1)">
+      <div class="stepcard" style="position:relative;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.13);box-shadow:0 34px 80px -28px rgba(0,0,0,.66),inset 0 1px 0 rgba(255,255,255,.35);display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))">
+
+        <div class="stepcol" style="padding:26px 34px 28px;display:flex;flex-direction:column;gap:13px;min-width:0">
+          <div style="display:flex;align-items:center;gap:14px">
+            <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;color:#EEC242;letter-spacing:-.01em">{{ step.num }}</span>
+            <span style="height:1px;flex:1;max-width:34px;background:rgba(255,255,255,.3)"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)">{{ step.kicker }}</span>
+          </div>
+          <h2 style="margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(23px,2.1vw,29px);line-height:1.08;letter-spacing:-.028em;color:#fff;text-wrap:balance">{{ step.title }}</h2>
+          <p style="margin:0;font-size:16.5px;line-height:1.55;color:rgba(255,255,255,.82);text-wrap:pretty">{{ step.body }}</p>
+
+          <sc-if value="{{ step.hasWarn }}" hint-placeholder-val="{{ true }}">
+            <div style="border-radius:14px;border:1px solid rgba(238,194,66,.55);background:rgba(238,194,66,.14);padding:15px 18px;display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#EEC242">Do not skip this</span>
+              <span style="font-size:15px;font-weight:500;line-height:1.5;color:#fff">{{ step.warn }}</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ step.hasAside }}" hint-placeholder-val="{{ true }}">
+            <div style="border-radius:16px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);padding:15px 17px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.8)">{{ step.aside }}</div>
+          </sc-if>
+        </div>
+
+        <div class="illo" style="position:relative;min-width:0;min-height:250px;display:flex;align-items:flex-start;justify-content:center;padding:24px 0;border-left:1px solid rgba(255,255,255,.16);background:linear-gradient(150deg,rgba(255,255,255,.1),rgba(255,255,255,.02));overflow:hidden">
+
+          <div style="display:{{ vis1 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:256px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.1);box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+              <div style="height:22px;background:rgba(255,255,255,.14);display:flex;align-items:center;gap:6px;padding:0 10px">
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4)"></div>
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4)"></div>
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4)"></div>
+              </div>
+              <div style="height:66px;background:linear-gradient(120deg,rgba(118,208,233,.4),rgba(255,255,255,.12));display:flex;align-items:center;justify-content:center">
+                <div style="font-family:Montserrat,sans-serif;font-size:9.5px;font-weight:800;letter-spacing:.1em;color:#fff">ESCP BUSINESS SCHOOL</div>
+              </div>
+              <div style="padding:16px;display:flex;flex-direction:column;align-items:center;gap:13px">
+                <div style="display:flex;gap:8px">
+                  <div style="font-size:10px;font-weight:500;color:rgba(255,255,255,.5);padding:7px 12px;border-radius:8px;background:rgba(255,255,255,.09)">Show on map</div>
+                  <div style="position:relative">
+                    <div style="font-family:Montserrat,sans-serif;font-size:10px;font-weight:700;color:#1B0066;background:#EEC242;padding:7px 14px;border-radius:8px">Book Now</div>
+                    <div style="position:absolute;inset:0;border-radius:8px;border:2px solid #EEC242;animation:rclickRing 4.6s ease-in-out infinite"></div>
+                  </div>
+                </div>
+                <div style="width:12px;height:12px;border-radius:50% 50% 50% 0;background:#fff;transform:rotate(-8deg);animation:rcursorIn 4.6s ease-in-out infinite"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis2 }};align-items:center;justify-content:center;width:100%">
+            <div style="display:flex;gap:12px">
+              <div style="width:104px;border-radius:16px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);padding:16px 12px;display:flex;flex-direction:column;align-items:center;gap:11px">
+                <div style="width:44px;height:44px;border-radius:50%;border:3px solid rgba(255,255,255,.4);display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-size:15px;font-weight:800;color:rgba(255,255,255,.7)">2h</div>
+                <div style="font-size:10px;font-weight:500;color:rgba(255,255,255,.6);text-align:center;line-height:1.35">Duration:<br>2 Hours</div>
+                <div style="width:100%;text-align:center;font-size:9.5px;font-weight:700;color:rgba(255,255,255,.5);padding:6px 0;border-radius:7px;background:rgba(255,255,255,.09)">Select</div>
+              </div>
+              <div style="width:104px;border-radius:16px;padding:16px 12px;display:flex;flex-direction:column;align-items:center;gap:11px;border:1px solid rgba(238,194,66,.6);background:rgba(238,194,66,.18);animation:rpickL 4.4s ease-in-out infinite">
+                <div style="width:44px;height:44px;border-radius:50%;border:3px solid #EEC242;display:flex;align-items:center;justify-content:center;font-family:Montserrat,sans-serif;font-size:15px;font-weight:800;color:#EEC242">1h</div>
+                <div style="font-size:10px;font-weight:500;color:rgba(255,255,255,.85);text-align:center;line-height:1.35">Duration:<br>1 Hour</div>
+                <div style="width:100%;text-align:center;font-family:Montserrat,sans-serif;font-size:9.5px;font-weight:700;color:#1B0066;padding:6px 0;border-radius:7px;background:#EEC242">Select</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis3 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:250px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+              <div style="border-radius:11px;overflow:hidden;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);animation:rtileIn 4.6s ease-in-out infinite">
+                <div style="height:34px;background:linear-gradient(140deg,rgba(118,208,233,.5),rgba(118,208,233,.15))"></div>
+                <div style="padding:7px 7px 8px;font-family:Montserrat,sans-serif;font-size:8.5px;font-weight:700;color:#fff">Berlin</div>
+              </div>
+              <div style="border-radius:11px;overflow:hidden;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);animation:rtileIn 4.6s ease-in-out .12s infinite">
+                <div style="height:34px;background:linear-gradient(140deg,rgba(238,194,66,.5),rgba(238,194,66,.15))"></div>
+                <div style="padding:7px 7px 8px;font-family:Montserrat,sans-serif;font-size:8.5px;font-weight:700;color:#fff">Madrid</div>
+              </div>
+              <div style="border-radius:11px;overflow:hidden;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);animation:rtileIn 4.6s ease-in-out .24s infinite">
+                <div style="height:34px;background:linear-gradient(140deg,rgba(160,120,255,.5),rgba(160,120,255,.15))"></div>
+                <div style="padding:7px 7px 8px;font-family:Montserrat,sans-serif;font-size:8.5px;font-weight:700;color:#fff">Torino 1</div>
+              </div>
+              <div style="border-radius:11px;overflow:hidden;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);animation:rtileIn 4.6s ease-in-out .36s infinite">
+                <div style="height:34px;background:linear-gradient(140deg,rgba(120,220,150,.45),rgba(120,220,150,.12))"></div>
+                <div style="padding:7px 7px 8px;font-family:Montserrat,sans-serif;font-size:8.5px;font-weight:700;color:#fff">Warsaw 1</div>
+              </div>
+              <div style="border-radius:11px;overflow:hidden;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);animation:rtileIn 4.6s ease-in-out .48s infinite">
+                <div style="height:34px;background:linear-gradient(140deg,rgba(255,140,120,.45),rgba(255,140,120,.12))"></div>
+                <div style="padding:7px 7px 8px;font-family:Montserrat,sans-serif;font-size:8.5px;font-weight:700;color:#fff">Camden</div>
+              </div>
+              <div style="border-radius:11px;overflow:hidden;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);animation:rtileIn 4.6s ease-in-out .6s infinite">
+                <div style="height:34px;background:linear-gradient(140deg,rgba(200,200,210,.4),rgba(200,200,210,.1))"></div>
+                <div style="padding:7px 7px 8px;font-family:Montserrat,sans-serif;font-size:8.5px;font-weight:700;color:#fff">Belsize</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis4 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:256px;border-radius:18px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.11);padding:15px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+              <div style="display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)">
+                <span>&#8592; Prev</span><span style="color:#fff;font-weight:700">August</span><span>Next &#8594;</span>
+              </div>
+              <div style="margin-top:11px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center">
+                <div style="font-size:8px;font-weight:500;color:rgba(255,255,255,.4);padding:2px 0">M</div>
+                <div style="font-size:8px;font-weight:500;color:rgba(255,255,255,.4);padding:2px 0">T</div>
+                <div style="font-size:8px;font-weight:500;color:rgba(255,255,255,.4);padding:2px 0">W</div>
+                <div style="font-size:8px;font-weight:500;color:rgba(255,255,255,.4);padding:2px 0">T</div>
+                <div style="font-size:8px;font-weight:500;color:rgba(255,255,255,.4);padding:2px 0">F</div>
+                <div style="font-size:8px;font-weight:500;color:rgba(255,140,140,.55);padding:2px 0">S</div>
+                <div style="font-size:8px;font-weight:500;color:rgba(255,140,140,.55);padding:2px 0">S</div>
+                <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.25);padding:4px 0">17</div>
+                <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.25);padding:4px 0">18</div>
+                <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.25);padding:4px 0">19</div>
+                <div style="font-family:Montserrat,sans-serif;font-size:9px;font-weight:700;border-radius:6px;padding:4px 0;animation:rdayPick 5s ease-in-out infinite">20</div>
+                <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.75);padding:4px 0">21</div>
+                <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.75);padding:4px 0">22</div>
+                <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.25);padding:4px 0">23</div>
+              </div>
+              <div style="margin-top:13px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)">Available start times</div>
+              <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">
+                <div style="font-family:Montserrat,sans-serif;font-size:9.5px;font-weight:700;color:#1B0066;background:#EEC242;padding:6px 10px;border-radius:7px;animation:rslotPop 5s ease-in-out infinite">14:00</div>
+                <div style="font-size:9.5px;font-weight:500;color:rgba(255,255,255,.8);background:rgba(255,255,255,.14);padding:6px 10px;border-radius:7px">15:00</div>
+                <div style="font-size:9.5px;font-weight:500;color:rgba(255,255,255,.8);background:rgba(255,255,255,.14);padding:6px 10px;border-radius:7px">16:00</div>
+                <div style="font-size:9.5px;font-weight:500;color:rgba(255,255,255,.8);background:rgba(255,255,255,.14);padding:6px 10px;border-radius:7px">17:00</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis5 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:248px;border-radius:18px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.11);padding:17px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)">Available start times</div>
+              <div style="margin-top:9px;display:flex;gap:6px;animation:rslotFade 4.8s ease-in-out infinite">
+                <div style="font-size:9.5px;font-weight:500;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);padding:6px 10px;border-radius:7px">14:00</div>
+                <div style="font-size:9.5px;font-weight:500;color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);padding:6px 10px;border-radius:7px">15:00</div>
+              </div>
+              <div style="margin-top:14px;border-radius:12px;border:1px dashed rgba(255,255,255,.3);background:rgba(255,255,255,.05);padding:18px 14px;text-align:center;animation:remptyPulse 3.4s ease-in-out infinite">
+                <div style="font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.8)">No times shown</div>
+                <div style="margin-top:5px;font-size:9.5px;font-weight:500;color:rgba(255,255,255,.55);line-height:1.4">Every slot in this room is taken</div>
+              </div>
+              <div style="margin-top:12px;display:flex;align-items:center;gap:7px">
+                <div style="width:8px;height:8px;border-radius:50%;background:#EEC242"></div>
+                <div style="font-size:9.5px;font-weight:500;color:rgba(255,255,255,.6)">Try another room or another day</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis6 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:246px;position:relative">
+              <div style="border-radius:18px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.11);padding:17px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)">Your details</div>
+                <div style="margin-top:11px;height:15px;border-radius:5px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 6px;overflow:hidden">
+                  <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:rtypeA 4.6s steps(10,end) infinite"></div>
+                </div>
+                <div style="margin-top:7px;height:15px;border-radius:5px;background:rgba(238,194,66,.16);border:1px solid rgba(238,194,66,.45);display:flex;align-items:center;padding:0 6px;gap:3px;overflow:hidden">
+                  <div style="height:3px;border-radius:2px;background:#EEC242;animation:rtypeB 4.6s steps(13,end) infinite"></div>
+                  <div style="width:1.5px;height:8px;background:#EEC242;animation:rcaret .9s steps(1) infinite"></div>
+                </div>
+                <div style="margin-top:13px;padding:9px 11px;border-radius:9px;background:rgba(255,255,255,.06);animation:rrowIn 4.6s ease-in-out infinite">
+                  <div style="font-family:Montserrat,sans-serif;font-size:9.5px;font-weight:700;color:#fff">Camden Square · 14:00</div>
+                  <div style="margin-top:3px;font-size:8.5px;font-weight:500;color:rgba(255,255,255,.55)">Thu 20 August · 1 hour</div>
+                </div>
+              </div>
+              <div style="position:absolute;right:-14px;bottom:-10px;width:34px;height:34px;border-radius:50%;background:#EEC242;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -10px rgba(238,194,66,.7);animation:rtick 4.6s ease-in-out infinite">
+                <span style="font-family:Montserrat,sans-serif;font-size:17px;font-weight:800;color:#1B0066;line-height:1">&#10003;</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="navrow" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 4px">
+      <button type="button" onClick="{{ prev }}" disabled="{{ atStart }}" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:15px 26px;border-radius:99px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.09);color:#fff;cursor:pointer;opacity:{{ prevOpacity }};transition:background .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(255,255,255,.18);transform:translateY(-1px)">Back</button>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)">Arrow keys work too</div>
+      <button type="button" onClick="{{ next }}" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:16px 32px;border-radius:99px;border:0;background:#fff;color:#1B0066;cursor:pointer;box-shadow:0 10px 24px -16px rgba(255,255,255,.3);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(255,255,255,.42)">{{ nextLabel }}</button>
+    </div>
+
+    <div class="helpcard" style="margin-top:4px;border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.11);padding:32px 44px 36px;display:flex;flex-direction:column;gap:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28)">
+      <div style="display:flex;align-items:center;gap:13px">
+        <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.028em;color:#fff">The rules</span>
+        <span style="height:1px;flex:1;background:rgba(255,255,255,.18)"></span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px">
+        <sc-for list="{{ rules }}" as="r" hint-placeholder-count="5">
+          <div style="border-radius:16px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);padding:18px 19px;display:flex;flex-direction:column;gap:8px">
+            <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.014em;color:#fff;line-height:1.3">{{ r.q }}</div>
+            <div style="font-size:15px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.76);text-wrap:pretty">{{ r.a }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:14px">
+        <div style="flex:1 1 240px;border-radius:16px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);padding:18px 19px">
+          <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;color:#fff">Opening hours</div>
+          <div style="margin-top:11px;display:flex;flex-direction:column;gap:7px">
+            <sc-for list="{{ hours }}" as="h" hint-placeholder-count="3">
+              <div style="display:flex;justify-content:space-between;gap:14px;font-size:14.5px;font-weight:500;color:rgba(255,255,255,.76)">
+                <span>{{ h.d }}</span><span style="color:#fff">{{ h.t }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.16);padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.78)"><span style="flex:1 1 250px">Booking problems: <a href="mailto:info@escp.eu" style="color:#EEC242">info@escp.eu</a></span><span style="flex:1 1 250px">Need more help? Email <a href="mailto:ITUK@escp.eu" style="color:#EEC242">ITUK@escp.eu</a> or visit the IT office on the ground floor, G12</span></div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEC242&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEC242&quot;,&quot;#76D0E9&quot;,&quot;#0E00FF&quot;,&quot;#FFFFFF&quot;]},&quot;showAsides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+const STEPS = [
+  {
+    num: "01", kicker: "Start",
+    title: "Open the booking site and click Book Now",
+    body: "Go to the study rooms site and click Book Now. Sign in with your ESCP account when it asks.",
+    aside: "My Bookings at the top right shows what you have already booked, and lets you cancel."
+  },
+  {
+    num: "02", kicker: "Duration",
+    title: "Choose one hour or two",
+    body: "The first screen asks how long you want the room for. Pick 1 Hour or 2 Hours and click Select.",
+    aside: "Two hours is the daily maximum, so choosing 2 Hours uses your whole allowance for the day."
+  },
+  {
+    num: "03", kicker: "Room",
+    title: "Pick a room",
+    body: "Next you see every bookable room — Fortune Green, Belsize Park, Camden Square, Berlin, Torino 1, Torino 2, Madrid, Warsaw 1 and Warsaw 2. Click Select under the one you want.",
+    aside: "Read more under a room name shows what is in it before you commit."
+  },
+  {
+    num: "04", kicker: "Time",
+    title: "Choose a date, then a start time",
+    body: "Pick a day in the calendar. Available start times appear underneath. Click the one you want.",
+    aside: "Grey dates are closed or in the past. Use Next Month to look further ahead."
+  },
+  {
+    num: "05", kicker: "Time",
+    title: "If no times appear, the room is fully booked",
+    body: "An empty list does not mean the system is broken. It means every slot in that room, on that day, has already been taken by another student.",
+    warn: "Go back and try a different room, or a different day. Rooms are booked individually, so one being full says nothing about the others.",
+    aside: "Popular slots go early. If you need a specific afternoon, book it a few days ahead."
+  },
+  {
+    num: "06", kicker: "Confirm",
+    title: "Enter your details and confirm",
+    body: "Fill in your name and ESCP email address, then confirm the booking. You get a confirmation email, and the booking appears under My Bookings.",
+    aside: "Cancel through My Bookings if your plans change, so somebody else can take the slot."
+  }
+];
+
+const RULES = [
+  { q: "Two hours a day, maximum", a: "You can book up to two hours per day across the whole system." },
+  { q: "One room per day", a: "You cannot hold two different rooms on the same day." },
+  { q: "Bookings are individual", a: "Every booking is made by one person, in their own name." },
+  { q: "Group work means everyone books", a: "There is no group booking. Each person in the group makes their own booking." },
+  { q: "Misuse gets bookings cancelled", a: "Abusing the system, or complaints about behaviour in a room, can lead to bookings being cancelled." }
+];
+
+const HOURS = [
+  { d: "Monday to Friday", t: "08:00 – 20:00" },
+  { d: "Saturday", t: "09:00 – 18:00" },
+  { d: "Sunday", t: "Closed" }
+];
+
+class Component extends DCLogic {
+  state = { i: 0, out: false };
+
+  componentDidMount() {
+    this._key = (e) => {
+      if (e.key === "ArrowRight") this.go(this.state.i + 1);
+      if (e.key === "ArrowLeft") this.go(this.state.i - 1);
+    };
+    window.addEventListener("keydown", this._key);
+  }
+  componentWillUnmount() { window.removeEventListener("keydown", this._key); clearTimeout(this._t); }
+
+  go(n) {
+    const t = Math.max(0, Math.min(STEPS.length - 1, n));
+    if (t === this.state.i) return;
+    this.setState({ out: true });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ i: t, out: false }), 190);
+  }
+
+  renderVals() {
+    const i = this.state.i, step = STEPS[i], total = STEPS.length;
+    const accent = this.props.accent ?? "#EEC242";
+    const vis = (n) => (i === n ? "flex" : "none");
+    return {
+      total, humanIndex: String(i + 1).padStart(2, "0"),
+      phaseLabel: step.kicker,
+      segments: STEPS.map((s, n) => ({
+        title: s.title,
+        bg: n < i ? accent : n === i ? "#fff" : "rgba(255,255,255,.2)",
+        glow: n === i ? "0 0 8px 1px rgba(255,255,255,.32)" : "none",
+        go: () => this.go(n)
+      })),
+      step: {
+        num: step.num, kicker: step.kicker, title: step.title, body: step.body,
+        hasAside: !!step.aside && (this.props.showAsides ?? true), aside: step.aside || "",
+        hasWarn: !!step.warn, warn: step.warn || ""
+      },
+      vis1: vis(0), vis2: vis(1), vis3: vis(2), vis4: vis(3), vis5: vis(4), vis6: vis(5),
+      cardOpacity: this.state.out ? 0 : 1,
+      cardShift: this.state.out ? "10px" : "0px",
+      cardScale: this.state.out ? "0.985" : "1",
+      atStart: i === 0, prevOpacity: i === 0 ? 0.35 : 1,
+      nextLabel: i === total - 1 ? "Start over" : "Next step",
+      prev: () => this.go(i - 1),
+      next: () => (i === total - 1 ? this.go(0) : this.go(i + 1)),
+      rules: RULES,
+      hours: HOURS
+    };
+  }
+}
+</script>
+
+</body>
+</html>

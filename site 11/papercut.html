@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{background:#1B0066;margin:0}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1B0066;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(max-width:620px){.pgwrap{padding:16px 18px 48px !important;gap:12px !important}.stepcard{border-radius:22px !important}.stepcol{padding:24px 22px 26px !important}.illo{min-height:210px !important;padding:18px 0 !important;border-left:0 !important;border-top:1px solid rgba(255,255,255,.16)}.helpcard{padding:24px 22px 26px !important;border-radius:22px !important}.navrow{gap:10px !important}}
+a{color:#EEC242}a:hover{color:#fff}
+@keyframes pdlFill{0%,8%{width:0%}55%,100%{width:100%}}
+@keyframes pdlArrow{0%,6%{transform:translateY(-14px);opacity:0}20%,46%{transform:translateY(0);opacity:1}60%,100%{transform:translateY(10px);opacity:0}}
+@keyframes pcursorIn{0%,10%{transform:translate(52px,30px);opacity:0}22%{opacity:1}40%,100%{transform:translate(0,0);opacity:1}}
+@keyframes pclickRing{0%,40%{transform:scale(0);opacity:.8}52%{transform:scale(2.2);opacity:0}100%{transform:scale(0);opacity:0}}
+@keyframes pbtnPress{0%,40%{transform:scale(1)}46%{transform:scale(.94)}54%,100%{transform:scale(1)}}
+@keyframes pdialogDrop{0%,46%{opacity:0;transform:translateY(-12px)}58%,92%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(-12px)}}
+@keyframes prowIn{0%,20%{opacity:0;transform:translateY(10px)}40%,92%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(10px)}}
+@keyframes pdocFly{0%,10%{transform:translateY(46px) scale(1);opacity:1}55%{transform:translateY(-30px) scale(.72);opacity:1}70%,100%{transform:translateY(-44px) scale(.6);opacity:0}}
+@keyframes pcloudPulse{0%,45%{opacity:.45}62%{opacity:1}100%{opacity:.45}}
+@keyframes ptypeA{0%,6%{width:0%}24%,100%{width:100%}}
+@keyframes ptypeB{0%,30%{width:0%}50%,100%{width:100%}}
+@keyframes pgoBtn{0%,56%{background:rgba(255,255,255,.28)}64%,80%{background:#EEC242}88%,100%{background:rgba(255,255,255,.28)}}
+@keyframes ppaperOut{0%,70%{height:0px;opacity:0}84%,94%{height:32px;opacity:1}100%{height:0px;opacity:0}}
+@keyframes pcaret{0%,49%{opacity:1}50%,100%{opacity:0}}
+@view-transition{navigation:auto}
+@keyframes vtOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.985)}}
+@keyframes vtIn{from{opacity:0;transform:scale(1.012) translateY(8px)}to{opacity:1;transform:none}}
+::view-transition-old(root){animation:vtOut .22s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vtIn .34s cubic-bezier(.2,.7,.3,1) both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+@supports (view-transition-name:none){[style*="pagein"]{animation:none !important}}
+@media(prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="animation:pagein .3s ease both;position:relative;min-height:100vh;background:#1B0066;font-family:Karla,system-ui,sans-serif;overflow:hidden">
+
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0">
+    <div style="position:absolute;top:-14%;left:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9"></div>
+    <div style="position:absolute;bottom:-20%;right:-10%;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85"></div>
+    <div style="position:absolute;top:38%;left:42%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,0,102,.34) 0%,rgba(27,0,102,.62) 100%)"></div>
+  </div>
+
+  <div class="pgwrap" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:20px 28px 60px;display:flex;flex-direction:column;gap:13px">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+      <a href="./index.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:9px 16px 9px 13px;border:1px solid rgba(255,255,255,.2);border-radius:99px;background:rgba(255,255,255,.08);transition:background .25s ease,color .25s ease,border-color .25s ease" style-hover="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)"><span style="font-size:14px;line-height:1">&#8592;</span>{{ t.back }}</a>
+      <div style="display:flex;align-items:center;margin-left:auto">
+        <img src="assets/escp-logo.png" alt="ESCP" style="width:112px;height:auto;flex:none;margin:10px 6px 0 0">
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px;padding:0 4px">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 15px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09)">
+        <span style="width:6px;height:6px;border-radius:50%;background:#EEC242"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)">{{ t.eyebrow }}</span>
+      </div>
+      <h1 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.96;letter-spacing:-.038em;color:#fff;max-width:900px;text-wrap:balance">{{ t.h1 }}</h1>
+      <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:520px;text-wrap:pretty">{{ t.sub }}</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:13px;padding:4px">
+      <div style="display:flex;gap:7px;align-items:stretch">
+        <sc-for list="{{ segments }}" as="seg" hint-placeholder-count="6">
+          <button type="button" onClick="{{ seg.go }}" title="{{ seg.title }}" style="flex:1;height:7px;padding:0;border:0;border-radius:99px;cursor:pointer;background:{{ seg.bg }};box-shadow:{{ seg.glow }};transition:background .35s ease,transform .2s ease,box-shadow .35s ease" style-hover="transform:scaleY(1.8)"></button>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.58)">
+        <span>{{ t.step }} {{ humanIndex }} / {{ total }}</span>
+        <span style="color:#EEC242">{{ phaseLabel }}</span>
+      </div>
+    </div>
+
+    <div style="opacity:{{ cardOpacity }};transform:translateY({{ cardShift }}) scale({{ cardScale }});transition:opacity .22s ease,transform .3s cubic-bezier(.2,.7,.3,1)">
+      <div class="stepcard" style="position:relative;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.13);box-shadow:0 34px 80px -28px rgba(0,0,0,.66),inset 0 1px 0 rgba(255,255,255,.35);display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))">
+
+        <div class="stepcol" style="padding:26px 34px 28px;display:flex;flex-direction:column;gap:13px;min-width:0">
+          <div style="display:flex;align-items:center;gap:14px">
+            <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;color:#EEC242;letter-spacing:-.01em">{{ step.num }}</span>
+            <span style="height:1px;flex:1;max-width:34px;background:rgba(255,255,255,.3)"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)">{{ step.kicker }}</span>
+          </div>
+          <h2 style="margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(23px,2.1vw,29px);line-height:1.08;letter-spacing:-.028em;color:#fff;text-wrap:balance">{{ step.title }}</h2>
+          <p style="margin:0;font-size:16.5px;line-height:1.55;color:rgba(255,255,255,.82);text-wrap:pretty">{{ step.body }}</p>
+
+          <sc-if value="{{ step.hasWarn }}" hint-placeholder-val="{{ true }}">
+            <div style="border-radius:14px;border:1px solid rgba(238,194,66,.55);background:rgba(238,194,66,.14);padding:15px 18px;display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#EEC242">{{ t.warnLabel }}</span>
+              <span style="font-size:15px;font-weight:500;line-height:1.5;color:#fff">{{ step.warn }}</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ step.hasActions }}" hint-placeholder-val="{{ true }}">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(96px,1fr));gap:9px;margin-top:2px">
+              <sc-for list="{{ step.actions }}" as="act" hint-placeholder-count="3">
+                <a href="{{ act.href }}" style="min-width:0;display:flex;align-items:center;justify-content:center;gap:9px;background:#EEC242;color:#1B0066;text-decoration:none;padding:15px 18px;border-radius:14px;box-shadow:0 10px 22px -14px rgba(238,194,66,.35);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(238,194,66,.5)">
+                  <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15.5px;letter-spacing:-.012em">{{ act.label }}</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(27,0,102,.65);letter-spacing:.06em">{{ act.hint }}</span>
+                </a>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ step.hasAside }}" hint-placeholder-val="{{ true }}">
+            <div style="border-radius:16px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);padding:15px 17px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.8)">{{ step.aside }}</div>
+          </sc-if>
+        </div>
+
+        <div class="illo" style="position:relative;min-width:0;min-height:250px;display:flex;align-items:flex-start;justify-content:center;padding:24px 0;border-left:1px solid rgba(255,255,255,.16);background:linear-gradient(150deg,rgba(255,255,255,.1),rgba(255,255,255,.02));overflow:hidden">
+
+          <div style="display:{{ vis1 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:200px">
+              <div style="height:118px;border:1.5px solid rgba(255,255,255,.45);border-radius:16px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08)">
+                <div style="width:120px;display:flex;flex-direction:column;align-items:center;gap:14px">
+                  <div style="width:0;height:0;border-left:11px solid transparent;border-right:11px solid transparent;border-top:15px solid #EEC242;animation:pdlArrow 4s ease-in-out infinite"></div>
+                  <div style="width:120px;height:8px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden">
+                    <div style="height:100%;background:#EEC242;border-radius:99px;animation:pdlFill 4s ease-in-out infinite"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="height:7px;width:232px;margin:7px 0 0 -16px;border-radius:0 0 99px 99px;background:rgba(255,255,255,.45)"></div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis2 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:268px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.12);box-shadow:0 20px 44px -18px rgba(0,0,0,.6);position:relative">
+              <div style="height:24px;background:rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;padding:0 11px">
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45)"></div>
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45)"></div>
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45)"></div>
+              </div>
+              <div style="padding:24px 16px 26px;display:flex;flex-direction:column;align-items:center;gap:15px">
+                <div style="height:5px;width:140px;border-radius:3px;background:rgba(255,255,255,.2)"></div>
+                <div style="position:relative;animation:pbtnPress 5s ease-in-out infinite">
+                  <div style="background:#EEC242;color:#1B0066;font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;padding:9px 16px;border-radius:11px">Get printers</div>
+                  <div style="position:absolute;inset:0;border-radius:11px;border:2px solid #EEC242;animation:pclickRing 5s ease-in-out infinite"></div>
+                </div>
+                <div style="width:12px;height:12px;border-radius:50% 50% 50% 0;background:#fff;transform:rotate(-8deg);animation:pcursorIn 5s ease-in-out infinite"></div>
+              </div>
+              <div style="position:absolute;top:32px;left:26px;right:26px;border-radius:14px;border:1px solid rgba(255,255,255,.3);background:rgba(40,10,110,.9);padding:12px 14px;box-shadow:0 16px 32px -12px rgba(0,0,0,.6);animation:pdialogDrop 5s ease-in-out infinite">
+                <div style="font-size:11px;font-weight:500;color:rgba(255,255,255,.85);line-height:1.4">Open PaperCut Mobility Print?</div>
+                <div style="display:flex;justify-content:flex-end;gap:7px;margin-top:10px">
+                  <div style="font-size:10px;font-weight:500;color:rgba(255,255,255,.5);padding:3px 6px">Cancel</div>
+                  <div style="font-size:10px;font-weight:700;color:#1B0066;background:#EEC242;padding:4px 10px;border-radius:7px">Open</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis3 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:262px;border-radius:20px;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.12);padding:15px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);padding:2px 4px 11px">Printer</div>
+              <div style="display:flex;flex-direction:column;gap:7px">
+                <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:11px;background:rgba(255,255,255,.06)">
+                  <div style="width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3)"></div>
+                  <div style="font-size:12.5px;font-weight:500;color:rgba(255,255,255,.45)">Save as PDF</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:11px;background:rgba(255,255,255,.14);animation:prowIn 4.4s ease-in-out infinite">
+                  <div style="width:9px;height:9px;border-radius:50%;background:#EEC242"></div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:12.5px;font-weight:700;color:#fff">Student Colour</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:11px;background:rgba(255,255,255,.14);animation:prowIn 4.4s ease-in-out .35s infinite">
+                  <div style="width:9px;height:9px;border-radius:50%;background:#76D0E9"></div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:12.5px;font-weight:700;color:#fff">Student Black &amp; White</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis4 }};align-items:flex-end;justify-content:center;position:relative;width:100%;height:100%">
+            <div style="position:absolute;top:64px;left:50%;margin-left:-62px;width:124px;height:46px;animation:pcloudPulse 4s ease-in-out infinite">
+              <div style="position:absolute;bottom:0;left:0;width:124px;height:28px;border-radius:99px;background:rgba(255,255,255,.5)"></div>
+              <div style="position:absolute;bottom:12px;left:24px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.5)"></div>
+              <div style="position:absolute;bottom:14px;left:60px;width:31px;height:31px;border-radius:50%;background:rgba(255,255,255,.5)"></div>
+            </div>
+            <div style="width:66px;height:82px;margin-bottom:74px;border-radius:8px;background:#fff;padding:11px 9px;box-sizing:border-box;display:flex;flex-direction:column;gap:6px;box-shadow:0 14px 30px -12px rgba(0,0,0,.5);animation:pdocFly 4s ease-in-out infinite">
+              <div style="height:4px;border-radius:2px;background:#D5D2DE"></div>
+              <div style="height:4px;border-radius:2px;background:#D5D2DE"></div>
+              <div style="height:4px;width:60%;border-radius:2px;background:#D5D2DE"></div>
+              <div style="height:4px;border-radius:2px;background:#EEC242"></div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis5 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:236px;border-radius:20px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.13);padding:18px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6);animation:pdialogDrop 4.6s ease-in-out infinite">
+              <div style="font-family:Montserrat,sans-serif;font-size:13px;font-weight:700;color:#fff">Sign In</div>
+              <div style="margin-top:4px;font-size:10.5px;font-weight:500;color:rgba(255,255,255,.6)">Enter your printing credentials.</div>
+              <div style="margin-top:12px;height:16px;border-radius:6px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 7px;gap:3px;overflow:hidden">
+                <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:ptypeA 4.6s steps(9,end) infinite"></div>
+                <div style="width:1.5px;height:9px;background:#fff;animation:pcaret .9s steps(1) infinite"></div>
+              </div>
+              <div style="margin-top:7px;height:16px;border-radius:6px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 7px;overflow:hidden">
+                <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:ptypeB 4.6s steps(7,end) infinite"></div>
+              </div>
+              <div style="margin-top:12px;display:flex;justify-content:center">
+                <div style="font-size:10px;font-weight:700;color:#1B0066;background:#EEC242;padding:6px 14px;border-radius:8px">Sign in and print</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis6 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:178px">
+              <div style="height:26px;border-radius:12px 12px 0 0;background:rgba(255,255,255,.3);margin:0 16px"></div>
+              <div style="border-radius:18px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.14);padding:13px;box-shadow:0 20px 40px -18px rgba(0,0,0,.6)">
+                <div style="border-radius:12px;background:rgba(27,0,102,.55);padding:12px">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)">Sign in</div>
+                  <div style="margin-top:9px;height:15px;border-radius:6px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 6px;gap:3px;overflow:hidden">
+                    <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:ptypeA 5s steps(9,end) infinite"></div>
+                    <div style="width:1.5px;height:9px;background:#fff;animation:pcaret .9s steps(1) infinite"></div>
+                  </div>
+                  <div style="margin-top:7px;height:15px;border-radius:6px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 6px;overflow:hidden">
+                    <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:ptypeB 5s steps(7,end) infinite"></div>
+                  </div>
+                  <div style="margin-top:9px;height:13px;border-radius:6px;animation:pgoBtn 5s ease-in-out infinite"></div>
+                </div>
+                <div style="margin-top:10px;height:5px;border-radius:3px;background:rgba(255,255,255,.2)"></div>
+              </div>
+              <div style="margin:0 20px;overflow:hidden;animation:ppaperOut 5s ease-in-out infinite">
+                <div style="height:32px;background:#fff;border-radius:0 0 8px 8px"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="navrow" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 4px">
+      <button type="button" onClick="{{ prev }}" disabled="{{ atStart }}" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:15px 26px;border-radius:99px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.09);color:#fff;cursor:pointer;opacity:{{ prevOpacity }};transition:background .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(255,255,255,.18);transform:translateY(-1px)">{{ t.back2 }}</button>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)">{{ t.keys }}</div>
+      <button type="button" onClick="{{ next }}" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:16px 32px;border-radius:99px;border:0;background:#fff;color:#1B0066;cursor:pointer;box-shadow:0 10px 24px -16px rgba(255,255,255,.3);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(255,255,255,.42)">{{ nextLabel }}</button>
+    </div>
+
+    <sc-if value="{{ showHelp }}" hint-placeholder-val="{{ true }}">
+      <div class="helpcard" style="margin-top:4px;border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.11);padding:32px 44px 36px;display:flex;flex-direction:column;gap:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28)">
+        <div style="display:flex;align-items:center;gap:13px">
+          <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.028em;color:#fff">{{ t.faqTitle }}</span>
+          <span style="height:1px;flex:1;background:rgba(255,255,255,.18)"></span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+          <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="7">
+            <div style="border-radius:16px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);padding:18px 19px;display:flex;flex-direction:column;gap:8px;transition:background .22s ease,border-color .22s ease" style-hover="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)">
+              <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.014em;color:#fff;line-height:1.3">{{ faq.q }}</div>
+              <div style="font-size:15px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.76);text-wrap:pretty">{{ faq.a }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.16);padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.78)"><span style="flex:1 1 250px">{{ t.help1 }} <a href="mailto:assistance.dtd@escp.eu" style="color:#EEC242">assistance.dtd@escp.eu</a></span><span style="flex:1 1 250px">{{ t.help2a }} <a href="mailto:ITUK@escp.eu" style="color:#EEC242">ITUK@escp.eu</a> {{ t.help2b }}</span></div>
+      </div>
+    </sc-if>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEC242&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEC242&quot;,&quot;#76D0E9&quot;,&quot;#0E00FF&quot;,&quot;#FFFFFF&quot;]},&quot;showTroubleshooting&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showAsides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+const GET_PRINTERS = "mobilityprint://mp.cloud.papercut.com?token=eyJhbGciOiJSUzI1NiIsIm9yZyI6Im9yZy1GNUM3MUFRMSIsInNydiI6InNydi1TTUNRNFpLTCIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDY2MDEwMTAsImlzcyI6InNydi1TTUNRNFpLTCIsImp0aSI6IlcxQjVKN0NHIiwibG5rIjoiVzFCNUo3Q0ciLCJvcmciOiJvcmctRjVDNzFBUTEiLCJzcnYiOiJzcnYtU01DUTRaS0wiLCJzdWIiOiJ0b2tlbkNyZWF0aW9uIn0.XdXXA2MJEzebKtgB-0ud15nnQaI-TUBZ6o4AXlO2fJ1LxrbMBc-U_q-TVc1kn_ilNM8cQLS_4Gp9YMiTDKdJXTvjlT49Nd12wfb0Oa8AyeMaI_dk66iJAYAfiJ-PGiaHdIhBUNhGXX7M9qkg8zgiNS5KxMi0UbIIjF4LJzqdB_EIJbyhXFS16sIUpFT06oDfYws-iXUz_t8a712jqzdGy5yFrZCSdq9KcUfDQOWgBTK_f7629DM82JpGFjXSRH1be2sbPLovZpQ1Oi7Mi2HpY-XeFMIuxUEZTaMVkZWDz6vineF5N-4onpcwB2VVjq3ZlIfcFHwMm0BBOGvfxx6PVLO8iQFHb-bKW1Ud0ZLA4hfGrUokluQpG0E_-aSKDE_FTYjr7owxOJ1zutdmHqVaHn6G6nUdegowPGWj5rVbrGm3NfzAD1EQYzbt9v_WU5ultZIkGIdrdv8KSptGwOWbL78eL-indwtWaNdOqs-H9hQFAnpzskmMNvDxLKA1ETkeL-2WqpOWK5-0slqYSTw3nfQrtJ8tSWpxg6L35UzTQU91ZUXdPRzYPuHQU24RvS6N6LkncWpfHWZNJ9eBChQPeFCRD-QFuyN9dXn21W8hc4QLpNYsGno9ALLjhRYfcaEFZY5ckxUMDYmUOPaAtu2uydZsU0gN_IEQpVg3v3KHM18";
+
+const UI = {
+  en: {
+    back: "All setup guides", back2: "Back", keys: "Arrow keys work too",
+    eyebrow: "London Campus · PaperCut Mobility Print",
+    h1: "Campus printing.",
+    sub: "Install the software, come back here to get your printers, then sign in when it asks.",
+    step: "Step", warnLabel: "Do not skip this", faqTitle: "If something goes wrong",
+    nextStep: "Next step", startOver: "Start over",
+    help1: "Account problems:", help2a: "Need more help? Email", help2b: "or visit the IT office on the ground floor, G12"
+  },
+  fr: {
+    back: "Tous les guides", back2: "Retour", keys: "Les flèches marchent aussi",
+    eyebrow: "Campus de Londres · PaperCut Mobility Print",
+    h1: "Impression sur le campus.",
+    sub: "Installez le logiciel, revenez ici pour récupérer les imprimantes, puis connectez-vous quand on vous le demande.",
+    step: "Étape", warnLabel: "À ne pas manquer", faqTitle: "En cas de problème",
+    nextStep: "Étape suivante", startOver: "Recommencer",
+    help1: "Problèmes de compte :", help2a: "Besoin d'aide ? Écrivez à", help2b: "ou passez au bureau IT au rez-de-chaussée, G12"
+  }
+};
+
+const STEPS_EN = [
+  {
+    num: "01", kicker: "Install",
+    title: "Download and run the installer",
+    body: "Download the installer for your laptop and run it. When it finishes, leave it running and come back to this page for step 2.",
+    warn: "Steps 1 and 2 go together. The download alone does not give you the printers — you have to come back here and click Get printers.",
+    actions: [
+      { label: "Mac", hint: ".pkg", href: "https://papercut.com/api/product/mobility-print/latest/client/macos-cloud" },
+      { label: "Windows", hint: ".exe", href: "https://papercut.com/api/product/mobility-print/latest/client/windows-cloud" },
+      { label: "ChromeOS", hint: "store", href: "https://chrome.google.com/webstore/detail/mobility-print/ndakideadaglgpbblmppfonobpdgggin" }
+    ],
+  },
+  {
+    num: "02", kicker: "Connect",
+    title: "Come back here and get your printers",
+    body: "This is the step people miss. Return to this page and click the button below. When your browser asks, choose Open PaperCut Mobility Print.",
+    actions: [{ label: "Get printers", hint: "opens Mobility Print", href: GET_PRINTERS }],
+    aside: "You may be asked for a username and password. Use your ESCP login, the same one you use for everything else."
+  },
+  {
+    num: "03", kicker: "Check",
+    title: "Check the two printers appeared",
+    body: "Open any document and go to Print. Student Colour and Student Black & White should now be in your printer list. If they are not, step 2 did not complete — go back and click Get printers again."
+  },
+  {
+    num: "04", kicker: "Print",
+    title: "Send your document",
+    body: "Print as normal, choosing one of the two Student printers. Nothing comes out yet — the job waits in the cloud."
+  },
+  {
+    num: "05", kicker: "Print",
+    title: "Sign in when the window appears",
+    body: "A PaperCut Sign In window opens on your laptop. Enter your ESCP username and password, then click Sign in and print. This links the job to your account.",
+    warn: "Dismiss this window and the job never reaches your account. Nothing will be waiting at the printer.",
+    aside: "It can open behind your document — check your taskbar or Dock. Username only, not your full email address."
+  },
+  {
+    num: "06", kicker: "Collect",
+    title: "Type your ESCP login at the printer",
+    body: "Walk to any printer on campus. On its touchscreen, type your ESCP username and password. There is no card to tap. Your waiting jobs appear. Select them and they print."
+  }
+];
+
+const STEPS_FR = [
+  {
+    num: "01", kicker: "Installation",
+    title: "Téléchargez et lancez l'installateur",
+    body: "Téléchargez l'installateur correspondant à votre ordinateur et exécutez-le. À la fin, laissez-le tourner et revenez sur cette page pour l'étape 2.",
+    warn: "Les étapes 1 et 2 vont ensemble. Le téléchargement seul ne vous donne pas les imprimantes — vous devez revenir ici et cliquer sur Get printers.",
+    actions: [
+      { label: "Mac", hint: ".pkg", href: "https://papercut.com/api/product/mobility-print/latest/client/macos-cloud" },
+      { label: "Windows", hint: ".exe", href: "https://papercut.com/api/product/mobility-print/latest/client/windows-cloud" },
+      { label: "ChromeOS", hint: "store", href: "https://chrome.google.com/webstore/detail/mobility-print/ndakideadaglgpbblmppfonobpdgggin" }
+    ]
+  },
+  {
+    num: "02", kicker: "Connexion",
+    title: "Revenez ici pour récupérer vos imprimantes",
+    body: "C'est l'étape que tout le monde oublie. Revenez sur cette page et cliquez sur le bouton ci-dessous. Quand le navigateur le demande, choisissez Ouvrir PaperCut Mobility Print.",
+    actions: [{ label: "Get printers", hint: "ouvre Mobility Print", href: GET_PRINTERS }],
+    aside: "Un nom d'utilisateur et un mot de passe peuvent être demandés. Utilisez vos identifiants ESCP, les mêmes que partout ailleurs."
+  },
+  {
+    num: "03", kicker: "Vérification",
+    title: "Vérifiez que les deux imprimantes apparaissent",
+    body: "Ouvrez n'importe quel document et allez dans Imprimer. Student Colour et Student Black & White doivent désormais figurer dans la liste. Sinon, l'étape 2 n'a pas abouti : revenez cliquer sur Get printers."
+  },
+  {
+    num: "04", kicker: "Impression",
+    title: "Envoyez votre document",
+    body: "Imprimez normalement en choisissant l'une des deux imprimantes Student. Rien ne sort encore — le travail attend dans le cloud."
+  },
+  {
+    num: "05", kicker: "Impression",
+    title: "Connectez-vous dans la fenêtre qui s'ouvre",
+    body: "Une fenêtre PaperCut Sign In s'ouvre sur votre ordinateur. Saisissez votre identifiant et votre mot de passe ESCP, puis cliquez sur Sign in and print. Le travail est alors rattaché à votre compte.",
+    warn: "Si vous fermez cette fenêtre, le travail n'atteint jamais votre compte. Rien ne vous attendra à l'imprimante.",
+    aside: "Elle peut s'ouvrir derrière votre document — vérifiez la barre des tâches ou le Dock. Identifiant seul, pas l'adresse e-mail complète."
+  },
+  {
+    num: "06", kicker: "Récupération",
+    title: "Saisissez vos identifiants ESCP sur l'imprimante",
+    body: "Rendez-vous à n'importe quelle imprimante du campus. Sur son écran tactile, saisissez votre identifiant et votre mot de passe ESCP. Il n'y a pas de carte à badger. Vos travaux en attente apparaissent : sélectionnez-les et l'impression démarre."
+  }
+];
+
+const FAQS_FR = [
+  { q: "L'installateur est bloqué", a: "Sur Windows, un encadré bleu « Windows protected your PC » : choisissez More info, puis Run anyway. Sur Mac, le mot de passe de la machine peut être demandé." },
+  { q: "Les imprimantes Student n'apparaissent pas", a: "Vous vous êtes probablement arrêté après le téléchargement. Revenez sur cette page, cliquez sur Get printers, puis choisissez Ouvrir PaperCut Mobility Print." },
+  { q: "Rien ne se passe quand je clique sur Get printers", a: "L'installateur doit être en cours d'exécution. Relancez Mobility Print, vérifiez que vous êtes sur le réseau du campus, puis recliquez sur Get printers." },
+  { q: "On me demande un identifiant et un mot de passe", a: "C'est normal. Saisissez vos identifiants ESCP, les mêmes que pour le portail étudiant." },
+  { q: "Aucune fenêtre Sign In après l'impression", a: "Regardez derrière votre document, dans la barre des tâches ou le Dock. Sans connexion sur votre appareil, le travail n'est jamais rattaché à votre compte." },
+  { q: "« Invalid username or password »", a: "Saisissez votre identifiant ESCP seul, sans @escp.eu, avec le mot de passe du portail étudiant." },
+  { q: "J'ai envoyé un document mais rien n'est sorti", a: "Rien ne s'imprime avant que vous ne vous identifiiez à l'imprimante pour libérer le travail. Les travaux sont conservés un temps limité : récupérez-les le jour même." }
+];
+
+const FAQS_EN = [
+  { q: "The installer is blocked", a: "On Windows, a blue “Windows protected your PC” box means choose More info, then Run anyway. On a Mac you may be asked for your Mac password." },
+  { q: "The Student printers are not in my list", a: "You most likely stopped after the download. Come back to this page and click Get printers, then choose Open PaperCut Mobility Print when the browser asks." },
+  { q: "Nothing happened when I clicked Get printers", a: "The installer has to be running. Reopen Mobility Print on your laptop, make sure you are on the campus network, then click Get printers again." },
+  { q: "It is asking for a username and password", a: "That is expected. Enter your ESCP login, the same one you use for the student portal." },
+  { q: "No Sign In window appeared after printing", a: "Check behind your document window and in the taskbar or Dock. Without signing in on your device, the job is never linked to your account." },
+  { q: "“Invalid username or password”", a: "Enter your ESCP username on its own, without @escp.eu, and the password you use for the student portal." },
+  { q: "I sent a job but nothing came out", a: "Nothing prints until you log in at a printer and release it. Jobs are held for a limited time, so collect them the same day." }
+];
+
+const STEPS = { en: STEPS_EN, fr: STEPS_FR };
+const FAQS = { en: FAQS_EN, fr: FAQS_FR };
+const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzéèàçôûêÉÀ@#%&/\\{}[]<>0123456789";
+
+class Component extends DCLogic {
+  state = { i: 0, out: false, lang: "en", p: 1 };
+
+  componentDidMount() {
+    this._key = (e) => {
+      if (e.key === "ArrowRight") this.go(this.state.i + 1);
+      if (e.key === "ArrowLeft") this.go(this.state.i - 1);
+    };
+    window.addEventListener("keydown", this._key);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this._key);
+    clearTimeout(this._t);
+    cancelAnimationFrame(this._raf);
+  }
+
+  setLang(lang) {
+    if (lang === this.state.lang) return;
+    cancelAnimationFrame(this._raf);
+    this.setState({ lang, p: 0 });
+    const start = performance.now(), dur = 760;
+    const tick = (now) => {
+      const p = Math.min(1, (now - start) / dur);
+      this.setState({ p });
+      if (p < 1) this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+
+  scr(str, p) {
+    if (p >= 1 || !str) return str;
+    const n = str.length;
+    let out = "";
+    for (let i = 0; i < n; i++) {
+      const c = str[i];
+      if (c === " ") { out += c; continue; }
+      out += p > (i / n) * 0.62 + 0.14 ? c : GLYPHS[(Math.random() * GLYPHS.length) | 0];
+    }
+    return out;
+  }
+
+  go(n) {
+    const t = Math.max(0, Math.min(STEPS[this.state.lang].length - 1, n));
+    if (t === this.state.i) return;
+    this.setState({ out: true });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ i: t, out: false }), 190);
+  }
+
+  renderVals() {
+    const { lang, p } = this.state;
+    const ui = UI[lang], list = STEPS[lang];
+    const i = Math.min(this.state.i, list.length - 1), step = list[i], total = list.length;
+    const accent = this.props.accent ?? "#EEC242";
+    const vis = (n) => (i === n ? "flex" : "none");
+    const sc = (str) => this.scr(str, p);
+    const t = {};
+    for (const k in ui) t[k] = sc(ui[k]);
+    return {
+      t,
+      total, humanIndex: String(i + 1).padStart(2, "0"),
+      phaseLabel: sc(step.kicker),
+      segments: list.map((s, n) => ({
+        title: s.title,
+        bg: n < i ? accent : n === i ? "#fff" : "rgba(255,255,255,.2)",
+        glow: n === i ? "0 0 8px 1px rgba(255,255,255,.32)" : "none",
+        go: () => this.go(n)
+      })),
+      step: {
+        num: step.num, kicker: sc(step.kicker), title: sc(step.title), body: sc(step.body),
+        hasActions: !!step.actions,
+        actions: (step.actions || []).map(a => ({ label: sc(a.label), hint: a.hint, href: a.href })),
+        hasAside: !!step.aside && (this.props.showAsides ?? true), aside: sc(step.aside || ""),
+        hasWarn: !!step.warn, warn: sc(step.warn || "")
+      },
+      vis1: vis(0), vis2: vis(1), vis3: vis(2), vis4: vis(3), vis5: vis(4), vis6: vis(5),
+      cardOpacity: this.state.out ? 0 : 1,
+      cardShift: this.state.out ? "10px" : "0px",
+      cardScale: this.state.out ? "0.985" : "1",
+      atStart: i === 0, prevOpacity: i === 0 ? 0.35 : 1,
+      nextLabel: i === total - 1 ? t.startOver : t.nextStep,
+      prev: () => this.go(i - 1),
+      next: () => (i === total - 1 ? this.go(0) : this.go(i + 1)),
+      showHelp: this.props.showTroubleshooting ?? true,
+      faqs: FAQS[lang].map(f => ({ q: sc(f.q), a: sc(f.a) }))
+    };
+  }
+}
+
+</script>
+
+</body>
+</html>

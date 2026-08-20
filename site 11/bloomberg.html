@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{background:#1B0066;margin:0}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1B0066;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(max-width:620px){.pgwrap{padding:16px 18px 48px !important;gap:12px !important}.stepcard{border-radius:22px !important}.stepcol{padding:24px 22px 26px !important}.illo{min-height:210px !important;padding:18px 0 !important;border-left:0 !important;border-top:1px solid rgba(255,255,255,.16)}.helpcard{padding:24px 22px 26px !important;border-radius:22px !important}.navrow{gap:10px !important}}
+a{color:#EEC242}a:hover{color:#fff}
+@keyframes bcursorIn{0%,10%{transform:translate(48px,26px);opacity:0}22%{opacity:1}40%,100%{transform:translate(0,0);opacity:1}}
+@keyframes bclickRing{0%,40%{transform:scale(0);opacity:.8}52%{transform:scale(2.2);opacity:0}100%{transform:scale(0);opacity:0}}
+@keyframes bkeyGlow{0%,40%{background:rgba(255,255,255,.2)}50%,66%{background:#EEC242}78%,100%{background:rgba(255,255,255,.2)}}
+@keyframes bscreenWake{0%,14%{opacity:.25}34%,100%{opacity:1}}
+@keyframes btypeA{0%,8%{width:0%}30%,100%{width:100%}}
+@keyframes btypeB{0%,32%{width:0%}54%,100%{width:100%}}
+@keyframes btypeC{0%,56%{width:0%}78%,100%{width:100%}}
+@keyframes bcaret{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes bpickRow{0%,18%{background:rgba(255,255,255,.06)}34%,100%{background:rgba(255,255,255,.16)}}
+@keyframes bpickDot{0%,18%{background:rgba(255,255,255,.3);transform:scale(1)}30%{transform:scale(1.5)}38%,100%{background:#EEC242;transform:scale(1)}}
+@keyframes bsmsIn{0%,30%{opacity:0;transform:translateY(14px)}48%,92%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(14px)}}
+@keyframes bcodeFlash{0%,46%{color:rgba(255,255,255,.9)}58%,74%{color:#EEC242}86%,100%{color:rgba(255,255,255,.9)}}
+@keyframes btickDraw{0%,52%{opacity:0;transform:scale(.4)}68%,100%{opacity:1;transform:scale(1)}}
+@keyframes bbarFill{0%,10%{width:0%}62%,100%{width:100%}}
+@keyframes bpromptRun{0%,20%{opacity:.35}36%,78%{opacity:1}100%{opacity:.35}}
+@keyframes bcardLift{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@view-transition{navigation:auto}
+@keyframes vtOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.985)}}
+@keyframes vtIn{from{opacity:0;transform:scale(1.012) translateY(8px)}to{opacity:1;transform:none}}
+::view-transition-old(root){animation:vtOut .22s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vtIn .34s cubic-bezier(.2,.7,.3,1) both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+@supports (view-transition-name:none){[style*="pagein"]{animation:none !important}}
+@media(prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="animation:pagein .3s ease both;position:relative;min-height:100vh;background:#1B0066;font-family:Karla,system-ui,sans-serif;overflow:hidden">
+
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0">
+    <div style="position:absolute;top:-14%;left:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9"></div>
+    <div style="position:absolute;bottom:-20%;right:-10%;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85"></div>
+    <div style="position:absolute;top:38%;left:42%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8"></div>
+  </div>
+
+  <div class="pgwrap" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:28px 40px 72px;display:flex;flex-direction:column;gap:20px">
+
+    <div style="display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap">
+      <a href="./index.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:9px 16px 9px 13px;border:1px solid rgba(255,255,255,.2);border-radius:99px;background:rgba(255,255,255,.08);transition:background .25s ease,color .25s ease,border-color .25s ease" style-hover="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)"><span style="font-size:14px;line-height:1">&#8592;</span>All setup guides</a>
+      <div style="display:flex;align-items:center;margin-left:auto">
+        <img src="assets/escp-logo.png" alt="ESCP" style="width:112px;height:auto;flex:none;margin:10px 6px 0 0">
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;padding-top:4px">
+      <div style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 16px 8px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1)">
+        <span style="width:7px;height:7px;border-radius:50%;background:#EEC242"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)">London Campus · Bloomberg Terminal</span>
+      </div>
+      <h1 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.96;letter-spacing:-.038em;color:#fff;max-width:900px;text-wrap:balance">Bloomberg login.</h1>
+      <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:560px;text-wrap:pretty">Create your own Bloomberg account at a campus terminal. You keep it for the rest of your studies.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:13px;padding:4px">
+      <div style="display:flex;gap:7px;align-items:stretch">
+        <sc-for list="{{ segments }}" as="seg" hint-placeholder-count="7">
+          <button type="button" onClick="{{ seg.go }}" title="{{ seg.title }}" style="flex:1;height:7px;padding:0;border:0;border-radius:99px;cursor:pointer;background:{{ seg.bg }};box-shadow:{{ seg.glow }};transition:background .35s ease,transform .2s ease,box-shadow .35s ease" style-hover="transform:scaleY(1.8)"></button>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.58)">
+        <span>Step {{ humanIndex }} / {{ total }}</span>
+        <span style="color:#EEC242">{{ phaseLabel }}</span>
+      </div>
+    </div>
+
+    <div style="opacity:{{ cardOpacity }};transform:translateY({{ cardShift }}) scale({{ cardScale }});transition:opacity .22s ease,transform .3s cubic-bezier(.2,.7,.3,1)">
+      <div class="stepcard" style="position:relative;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.13);box-shadow:0 34px 80px -28px rgba(0,0,0,.66),inset 0 1px 0 rgba(255,255,255,.35);display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))">
+
+        <div class="stepcol" style="padding:26px 34px 28px;display:flex;flex-direction:column;gap:13px;min-width:0">
+          <div style="display:flex;align-items:center;gap:14px">
+            <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;color:#EEC242;letter-spacing:-.01em">{{ step.num }}</span>
+            <span style="height:1px;flex:1;max-width:34px;background:rgba(255,255,255,.3)"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)">{{ step.kicker }}</span>
+          </div>
+          <h2 style="margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(23px,2.1vw,29px);line-height:1.08;letter-spacing:-.028em;color:#fff;text-wrap:balance">{{ step.title }}</h2>
+          <p style="margin:0;font-size:16.5px;line-height:1.55;color:rgba(255,255,255,.82);text-wrap:pretty">{{ step.body }}</p>
+
+          <sc-if value="{{ step.hasWarn }}" hint-placeholder-val="{{ true }}">
+            <div style="border-radius:14px;border:1px solid rgba(238,194,66,.55);background:rgba(238,194,66,.14);padding:15px 18px;display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#EEC242">Do not skip this</span>
+              <span style="font-size:15px;font-weight:500;line-height:1.5;color:#fff">{{ step.warn }}</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ step.hasAside }}" hint-placeholder-val="{{ true }}">
+            <div style="border-radius:16px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);padding:15px 17px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.8)">{{ step.aside }}</div>
+          </sc-if>
+        </div>
+
+        <div class="illo" style="position:relative;min-width:0;min-height:250px;display:flex;align-items:flex-start;justify-content:center;padding:24px 0;border-left:1px solid rgba(255,255,255,.16);background:linear-gradient(150deg,rgba(255,255,255,.1),rgba(255,255,255,.02));overflow:hidden">
+
+          <div style="display:{{ vis1 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:236px">
+              <div style="height:112px;border-radius:12px;border:1.5px solid rgba(255,255,255,.4);background:rgba(0,0,0,.34);padding:10px;box-sizing:border-box;display:flex;gap:7px;animation:bscreenWake 4.4s ease-in-out infinite">
+                <div style="flex:1;border-radius:6px;background:rgba(238,194,66,.16);display:flex;flex-direction:column;gap:5px;padding:8px">
+                  <div style="height:3px;width:70%;border-radius:2px;background:#EEC242"></div>
+                  <div style="height:3px;width:50%;border-radius:2px;background:rgba(255,255,255,.35)"></div>
+                  <div style="height:3px;width:62%;border-radius:2px;background:rgba(255,255,255,.35)"></div>
+                </div>
+                <div style="flex:1;border-radius:6px;background:rgba(118,208,233,.14);display:flex;flex-direction:column;gap:5px;padding:8px">
+                  <div style="height:3px;width:60%;border-radius:2px;background:#76D0E9"></div>
+                  <div style="height:3px;width:76%;border-radius:2px;background:rgba(255,255,255,.35)"></div>
+                  <div style="height:3px;width:44%;border-radius:2px;background:rgba(255,255,255,.35)"></div>
+                </div>
+              </div>
+              <div style="margin-top:10px;border-radius:9px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);padding:8px;display:grid;grid-template-columns:repeat(9,1fr);gap:3px">
+                <div style="height:9px;border-radius:2px;background:rgba(238,194,66,.75)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(118,208,233,.7)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(238,194,66,.75)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(118,208,233,.7)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(238,194,66,.75)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="grid-column:span 3;height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                <div style="grid-column:span 3;height:9px;border-radius:2px;background:#EEC242;animation:bkeyGlow 3.4s ease-in-out infinite"></div>
+                <div style="grid-column:span 3;height:9px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis2 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:250px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.38);box-shadow:0 20px 44px -18px rgba(0,0,0,.6);position:relative">
+              <div style="height:22px;background:rgba(255,255,255,.1);display:flex;align-items:center;padding:0 10px">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;color:rgba(255,255,255,.55)">BLOOMBERG</div>
+              </div>
+              <div style="padding:20px 18px 22px;display:flex;flex-direction:column;gap:11px">
+                <div style="height:14px;border-radius:5px;background:rgba(255,255,255,.12)"></div>
+                <div style="height:14px;border-radius:5px;background:rgba(255,255,255,.12)"></div>
+                <div style="position:relative;align-self:flex-start;margin-top:4px">
+                  <div style="font-family:Montserrat,sans-serif;font-size:11.5px;font-weight:700;color:#EEC242;text-decoration:underline">Create a New Login</div>
+                  <div style="position:absolute;left:-6px;right:-6px;top:-5px;bottom:-5px;border-radius:8px;border:2px solid #EEC242;animation:bclickRing 4.6s ease-in-out infinite"></div>
+                </div>
+                <div style="width:12px;height:12px;border-radius:50% 50% 50% 0;background:#fff;transform:rotate(-8deg);animation:bcursorIn 4.6s ease-in-out infinite"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis3 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:254px;border-radius:20px;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.12);padding:16px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6);display:flex;flex-direction:column;gap:14px">
+              <div>
+                <div style="font-size:10.5px;font-weight:500;color:rgba(255,255,255,.6);line-height:1.4">Who are you creating this login for?</div>
+                <div style="margin-top:7px;display:flex;flex-direction:column;gap:5px">
+                  <div style="display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:9px;animation:bpickRow 4.6s ease-in-out infinite">
+                    <div style="width:8px;height:8px;border-radius:50%;animation:bpickDot 4.6s ease-in-out infinite"></div>
+                    <div style="font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;color:#fff">Myself</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:9px;background:rgba(255,255,255,.05)">
+                    <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)"></div>
+                    <div style="font-size:11px;font-weight:500;color:rgba(255,255,255,.45)">Someone else</div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:10.5px;font-weight:500;color:rgba(255,255,255,.6);line-height:1.4">Have you used Bloomberg before?</div>
+                <div style="margin-top:7px;display:flex;gap:6px">
+                  <div style="flex:1;text-align:center;padding:7px 0;border-radius:9px;background:rgba(255,255,255,.05);font-size:11px;font-weight:500;color:rgba(255,255,255,.45)">Yes</div>
+                  <div style="flex:1;text-align:center;padding:7px 0;border-radius:9px;background:#EEC242;font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;color:#1B0066">No</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis4 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:252px;border-radius:20px;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.12);padding:17px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6);display:flex;flex-direction:column;gap:10px">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55)">Contact details</div>
+              <div>
+                <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:4px">Company phone</div>
+                <div style="height:15px;border-radius:5px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 6px;overflow:hidden">
+                  <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:btypeA 5s steps(11,end) infinite"></div>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:4px">Mobile phone</div>
+                <div style="height:15px;border-radius:5px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 6px;overflow:hidden">
+                  <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:btypeB 5s steps(11,end) infinite"></div>
+                </div>
+              </div>
+              <div>
+                <div style="font-size:9px;font-weight:500;color:#EEC242;margin-bottom:4px">Corporate email address</div>
+                <div style="height:15px;border-radius:5px;background:rgba(238,194,66,.18);border:1px solid rgba(238,194,66,.5);display:flex;align-items:center;padding:0 6px;gap:3px;overflow:hidden">
+                  <div style="height:3px;border-radius:2px;background:#EEC242;animation:btypeC 5s steps(14,end) infinite"></div>
+                  <div style="width:1.5px;height:8px;background:#EEC242;animation:bcaret .9s steps(1) infinite"></div>
+                </div>
+                <div style="margin-top:5px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.06em;color:rgba(238,194,66,.85)">@escp.eu</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis5 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:150px;position:relative">
+              <div style="border-radius:20px;border:1.5px solid rgba(255,255,255,.34);background:rgba(0,0,0,.34);padding:9px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+                <div style="height:5px;width:34px;margin:0 auto 9px;border-radius:99px;background:rgba(255,255,255,.28)"></div>
+                <div style="border-radius:12px;background:rgba(255,255,255,.1);padding:11px 10px;animation:bsmsIn 4.8s ease-in-out infinite">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)">Bloomberg</div>
+                  <div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:17px;font-weight:500;letter-spacing:.12em;animation:bcodeFlash 4.8s ease-in-out infinite">418 209</div>
+                </div>
+                <div style="margin-top:9px;height:5px;border-radius:3px;background:rgba(255,255,255,.14)"></div>
+                <div style="margin-top:5px;height:5px;width:60%;border-radius:3px;background:rgba(255,255,255,.14)"></div>
+              </div>
+              <div style="position:absolute;right:-16px;bottom:22px;width:34px;height:34px;border-radius:50%;background:#EEC242;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -10px rgba(238,194,66,.7);animation:btickDraw 4.8s ease-in-out infinite">
+                <span style="font-family:Montserrat,sans-serif;font-size:17px;font-weight:800;color:#1B0066;line-height:1">&#10003;</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis6 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:250px;border-radius:20px;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.12);padding:17px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6);display:flex;flex-direction:column;gap:13px;animation:bcardLift 5.4s ease-in-out infinite">
+              <div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55)">Your login name</div>
+                <div style="margin-top:7px;padding:9px 11px;border-radius:10px;background:rgba(238,194,66,.16);border:1px solid rgba(238,194,66,.45);font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.1em;color:#EEC242">JSMITH42</div>
+              </div>
+              <div>
+                <div style="font-size:9px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:5px">Password</div>
+                <div style="height:15px;border-radius:5px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 6px;gap:3px;overflow:hidden">
+                  <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:btypeA 4.4s steps(10,end) infinite"></div>
+                  <div style="width:1.5px;height:8px;background:#fff;animation:bcaret .9s steps(1) infinite"></div>
+                </div>
+                <div style="margin-top:8px;height:4px;border-radius:99px;background:rgba(255,255,255,.14);overflow:hidden">
+                  <div style="height:100%;border-radius:99px;background:#EEC242;animation:bbarFill 4.4s ease-in-out infinite"></div>
+                </div>
+                <div style="margin-top:6px;font-size:9px;font-weight:500;color:rgba(255,255,255,.5)">8&#8211;12 characters</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ vis7 }};align-items:center;justify-content:center;width:100%">
+            <div style="width:252px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.4);box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+              <div style="padding:16px 16px 18px;display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;align-items:center;gap:7px;font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.08em;color:#EEC242;animation:bpromptRun 4.2s ease-in-out infinite">
+                  <span style="color:rgba(255,255,255,.4)">&gt;</span>BCER
+                  <span style="padding:1px 5px;border-radius:4px;background:rgba(238,194,66,.2);font-size:9px;letter-spacing:.1em">GO</span>
+                </div>
+                <div style="height:1px;background:rgba(255,255,255,.14)"></div>
+                <div style="display:flex;flex-direction:column;gap:6px">
+                  <div style="display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:9px;background:rgba(255,255,255,.14)">
+                    <div style="width:7px;height:7px;border-radius:50%;background:#EEC242"></div>
+                    <div style="font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;color:#fff">Sign Up</div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:9px;background:rgba(255,255,255,.05)">
+                    <div style="width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25)"></div>
+                    <div style="font-size:11px;font-weight:500;color:rgba(255,255,255,.45)">Log In</div>
+                  </div>
+                </div>
+                <div style="margin-top:2px;padding:8px 10px;border-radius:9px;border:1px solid rgba(118,208,233,.45);background:rgba(118,208,233,.12);font-size:10.5px;font-weight:500;color:#fff">I am a Learner</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="navrow" style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 4px">
+      <button type="button" onClick="{{ prev }}" disabled="{{ atStart }}" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:15px 26px;border-radius:99px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.09);color:#fff;cursor:pointer;opacity:{{ prevOpacity }};transition:background .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(255,255,255,.18);transform:translateY(-1px)">Back</button>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)">Arrow keys work too</div>
+      <button type="button" onClick="{{ next }}" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:16px 32px;border-radius:99px;border:0;background:#fff;color:#1B0066;cursor:pointer;box-shadow:0 10px 24px -16px rgba(255,255,255,.3);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(255,255,255,.42)">{{ nextLabel }}</button>
+    </div>
+
+    <sc-if value="{{ showHelp }}" hint-placeholder-val="{{ true }}">
+      <div class="helpcard" style="margin-top:4px;border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.11);padding:32px 44px 36px;display:flex;flex-direction:column;gap:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28)">
+        <div style="display:flex;align-items:center;gap:13px">
+          <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.028em;color:#fff">If something goes wrong</span>
+          <span style="height:1px;flex:1;background:rgba(255,255,255,.18)"></span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+          <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="8">
+            <div style="border-radius:16px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);padding:18px 19px;display:flex;flex-direction:column;gap:8px;transition:background .22s ease,border-color .22s ease" style-hover="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)">
+              <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.014em;color:#fff;line-height:1.3">{{ faq.q }}</div>
+              <div style="font-size:15px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.76);text-wrap:pretty">{{ faq.a }}</div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.16);padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.78)"><span style="flex:1 1 250px">Bloomberg account problems: press the HELP key twice at the terminal to reach a Bloomberg analyst</span><span style="flex:1 1 250px">Need more help? Email <a href="mailto:ITUK@escp.eu" style="color:#EEC242">ITUK@escp.eu</a> or visit the IT office on the ground floor, G12</span></div>
+      </div>
+    </sc-if>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEC242&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEC242&quot;,&quot;#76D0E9&quot;,&quot;#0E00FF&quot;,&quot;#FFFFFF&quot;]},&quot;showTroubleshooting&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showAsides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+const STEPS = [
+  {
+    num: "01", kicker: "Before you start",
+    title: "Go to the Bloomberg room in F51",
+    body: "The terminals are in the Bloomberg room, F51. Bloomberg only works at the terminal itself — there is no remote access and no app, so everything below happens in that room. Sit down at a terminal and log into the computer as normal.",
+    warn: "You need your mobile phone in front of you. Bloomberg sends a verification code partway through and the code expires.",
+    aside: "You will also need your ESCP email address. A personal Gmail or Hotmail address will be rejected."
+  },
+  {
+    num: "02", kicker: "Launch",
+    title: "Open Bloomberg and choose Create a New Login",
+    body: "Double-click the green Bloomberg icon on the desktop. It takes about fifteen seconds to load. When the panel appears, press the green <GO> key or click the blue link, then click Create a New Login below the login and password boxes.",
+    aside: "No Create a New Login link? Press the red <CONN DFLT> key — Connect Default, top left of the Bloomberg keyboard — then the green <GO> key. The prompt should appear."
+  },
+  {
+    num: "03", kicker: "Two questions",
+    title: "Answer Myself, then No",
+    body: "Bloomberg asks who the login is for and whether you have used Bloomberg before. Choose Myself, then No, then continue.",
+    aside: "Answer Yes to the second question only if you genuinely held a Bloomberg account before — at a previous university or an internship. It sends you down a recovery path instead."
+  },
+  {
+    num: "04", kicker: "Your details",
+    title: "Fill in your details and your ESCP email",
+    body: "Enter your first and last name, then your contact details. Both a company phone and a mobile phone are required — put the same mobile number in both. Enter your ESCP address in the Corporate Email Address field.",
+    warn: "It must be your ESCP email. If you use a personal address you will not be able to join the class codes your professors set up, and the account may be rejected outright.",
+    aside: "Title and focus can be left blank."
+  },
+  {
+    num: "05", kicker: "Verify",
+    title: "Enter the code Bloomberg texts you",
+    body: "Choose to receive the code by text — it is the fastest. Type it into the field, then press <GO> or Enter to activate the Next button.",
+    warn: "The Next button stays greyed out until you press <GO> or Enter after typing the code. This is the step that stalls most people.",
+    aside: "You have ten minutes to use the code. If nothing arrives after five, go back and request it again."
+  },
+  {
+    num: "06", kicker: "Finish",
+    title: "Set a password and write down your login name",
+    body: "Bloomberg assigns you a login name — it is not your email address. Then set a password of 8 to 12 characters containing at least three of: an uppercase letter, a lowercase letter, a number, a special character.",
+    warn: "Write the login name down before you leave the terminal. It is assigned to you, not chosen, and it is the part people forget.",
+    aside: "Log in at least once a term. Unused accounts are deleted after a few months, along with any saved searches and settings."
+  },
+  {
+    num: "07", kicker: "Certificates",
+    title: "Sign up for Bloomberg for Education",
+    body: "If a professor has asked you to complete Bloomberg Market Concepts or another certificate, type BCER and press <GO>. Click Sign Up at the top left, choose I am a Learner, tick the boxes, then click Sign Up.",
+    aside: "To learn the terminal itself: type HELP and press <ENTER> for the getting started page, or press the HELP key once on any screen for guidance on what you are looking at."
+  }
+];
+
+const FAQS = [
+  { q: "There is no Create a New Login link", a: "Press the red <CONN DFLT> key — short for Connect Default, top left of the Bloomberg keyboard — then the green <GO> key. This resets the terminal to the login screen and the prompt should appear." },
+  { q: "The Next button is greyed out", a: "After typing the verification code you have to press <GO> or Enter. The button only activates then." },
+  { q: "No verification code arrives", a: "Wait five minutes and check your phone signal. Then use the <MENU> to Return button at the top of the screen and request the code again." },
+  { q: "The email address is rejected", a: "Bloomberg requires an institutional address. Use your ESCP email, not a personal one." },
+  { q: "You cannot join your class code", a: "This happens when the account was created with a personal email address. Contact the IT office — the address on the account has to be changed." },
+  { q: "The password will not be accepted", a: "It must be 8 to 12 characters and contain at least three of: uppercase, lowercase, a number, a special character. Longer passwords are refused." },
+  { q: "Your login stopped working", a: "Accounts unused for several months are deleted. Bloomberg emails a warning first. If it has gone, create a new login the same way." },
+  { q: "You forgot your login name", a: "Press the HELP key twice at any terminal to reach a Bloomberg analyst — they can recover it. The IT office cannot, as the account is held by Bloomberg." }
+];
+
+class Component extends DCLogic {
+  state = { i: 0, out: false };
+
+  componentDidMount() {
+    this._key = (e) => {
+      if (e.key === "ArrowRight") this.go(this.state.i + 1);
+      if (e.key === "ArrowLeft") this.go(this.state.i - 1);
+    };
+    window.addEventListener("keydown", this._key);
+  }
+  componentWillUnmount() { window.removeEventListener("keydown", this._key); clearTimeout(this._t); }
+
+  go(n) {
+    const t = Math.max(0, Math.min(STEPS.length - 1, n));
+    if (t === this.state.i) return;
+    this.setState({ out: true });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ i: t, out: false }), 190);
+  }
+
+  renderVals() {
+    const i = this.state.i, step = STEPS[i], total = STEPS.length;
+    const accent = this.props.accent ?? "#EEC242";
+    const vis = (n) => (i === n ? "flex" : "none");
+    return {
+      total, humanIndex: String(i + 1).padStart(2, "0"),
+      phaseLabel: step.kicker,
+      segments: STEPS.map((s, n) => ({
+        title: s.title,
+        bg: n < i ? accent : n === i ? "#fff" : "rgba(255,255,255,.2)",
+        glow: n === i ? "0 0 8px 1px rgba(255,255,255,.32)" : "none",
+        go: () => this.go(n)
+      })),
+      step: {
+        num: step.num, kicker: step.kicker, title: step.title, body: step.body,
+        hasAside: !!step.aside && (this.props.showAsides ?? true), aside: step.aside || "",
+        hasWarn: !!step.warn, warn: step.warn || ""
+      },
+      vis1: vis(0), vis2: vis(1), vis3: vis(2), vis4: vis(3), vis5: vis(4), vis6: vis(5), vis7: vis(6),
+      cardOpacity: this.state.out ? 0 : 1,
+      cardShift: this.state.out ? "10px" : "0px",
+      cardScale: this.state.out ? "0.985" : "1",
+      atStart: i === 0, prevOpacity: i === 0 ? 0.35 : 1,
+      nextLabel: i === total - 1 ? "Start over" : "Next step",
+      prev: () => this.go(i - 1),
+      next: () => (i === total - 1 ? this.go(0) : this.go(i + 1)),
+      showHelp: this.props.showTroubleshooting ?? true,
+      faqs: FAQS
+    };
+  }
+}
+</script>
+
+</body>
+</html>

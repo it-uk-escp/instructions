@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{background:#1B0066;margin:0}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1B0066;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#EEC242}a:hover{color:#fff}
+@keyframes etype{0%,6%{width:0%}30%,100%{width:100%}}
+@keyframes etypeB{0%,32%{width:0%}54%,100%{width:100%}}
+@keyframes ecaret{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes ebtn{0%,58%{background:rgba(255,255,255,.2)}66%,84%{background:#EEC242}92%,100%{background:rgba(255,255,255,.2)}}
+@keyframes erowIn{0%,20%{opacity:0;transform:translateY(9px)}40%,92%{opacity:1;transform:none}100%{opacity:0;transform:translateY(9px)}}
+@keyframes epick{0%,25%{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06)}45%,88%{border-color:rgba(238,194,66,.9);background:rgba(238,194,66,.18)}100%{border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.06)}}
+@keyframes edlFill{0%,8%{width:0%}55%,100%{width:100%}}
+@keyframes edlArrow{0%,6%{transform:translateY(-13px);opacity:0}22%,50%{transform:none;opacity:1}66%,100%{transform:translateY(9px);opacity:0}}
+@keyframes epop{0%,12%{opacity:0;transform:scale(.55)}34%,88%{opacity:1;transform:none}100%{opacity:0;transform:scale(.55)}}
+@keyframes ewifi1{0%,20%{opacity:.2}34%,100%{opacity:1}}
+@keyframes ewifi2{0%,34%{opacity:.2}48%,100%{opacity:1}}
+@keyframes ewifi3{0%,48%{opacity:.2}62%,100%{opacity:1}}
+@keyframes etick{0%,62%{opacity:0;transform:scale(.4)}74%,100%{opacity:1;transform:scale(1)}}
+@keyframes ecursor{0%,12%{transform:translate(46px,30px);opacity:0}26%{opacity:1}44%,100%{transform:translate(0,0);opacity:1}}
+@media(max-width:620px){.pgwrap{padding:16px 18px 48px !important;gap:12px !important}.stepcard{border-radius:22px !important}.stepcol{padding:24px 22px 26px !important}.illo{min-height:206px !important;padding:18px 0 !important;border-left:0 !important;border-top:1px solid rgba(255,255,255,.16)}.helpcard{padding:24px 22px 26px !important;border-radius:22px !important}}
+@view-transition{navigation:auto}
+@keyframes vtOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.985)}}
+@keyframes vtIn{from{opacity:0;transform:scale(1.012) translateY(8px)}to{opacity:1;transform:none}}
+::view-transition-old(root){animation:vtOut .22s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vtIn .34s cubic-bezier(.2,.7,.3,1) both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+@supports (view-transition-name:none){[style*="pagein"]{animation:none !important}}
+@media(prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="animation:pagein .3s ease both;position:relative;min-height:100vh;background:#1B0066;font-family:Karla,system-ui,sans-serif;overflow:hidden">
+
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0">
+    <div style="position:absolute;top:-14%;left:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9"></div>
+    <div style="position:absolute;bottom:-20%;right:-10%;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85"></div>
+    <div style="position:absolute;top:38%;left:42%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,0,102,.34) 0%,rgba(27,0,102,.62) 100%)"></div>
+  </div>
+
+  <div class="pgwrap" style="position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:20px 28px 60px;display:flex;flex-direction:column;gap:13px">
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
+      <a href="./index.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:9px 16px 9px 13px;border:1px solid rgba(255,255,255,.2);border-radius:99px;background:rgba(255,255,255,.08);transition:background .25s ease,color .25s ease,border-color .25s ease" style-hover="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)"><span style="font-size:14px;line-height:1">&#8592;</span>{{ t.back }}</a>
+
+      <div style="display:flex;align-items:center;margin-left:auto">
+        <img src="assets/escp-logo.png" alt="ESCP" style="width:112px;height:auto;flex:none;margin:10px 6px 0 0">
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:12px;padding:0 4px">
+      <div style="display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:8px 15px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09)">
+        <span style="width:6px;height:6px;border-radius:50%;background:#EEC242"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)">{{ t.eyebrow }}</span>
+      </div>
+      <h1 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.96;letter-spacing:-.038em;color:#fff;max-width:900px;text-wrap:balance">{{ t.h1 }}</h1>
+      <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:560px;text-wrap:pretty">{{ t.sub }}</p>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:2px 4px">
+      <sc-for list="{{ platforms }}" as="p" hint-placeholder-count="3">
+        <button type="button" onClick="{{ p.go }}" style="border:1px solid {{ p.border }};background:{{ p.bg }};color:{{ p.color }};cursor:pointer;font-family:Montserrat,sans-serif;font-weight:700;font-size:13.5px;letter-spacing:-.01em;padding:11px 20px;border-radius:99px;transition:background .25s ease,border-color .25s ease,color .25s ease">{{ p.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:13px;padding:4px">
+      <div style="display:flex;gap:7px;align-items:stretch">
+        <sc-for list="{{ segments }}" as="seg" hint-placeholder-count="9">
+          <button type="button" onClick="{{ seg.go }}" title="{{ seg.title }}" style="flex:1;height:7px;padding:0;border:0;border-radius:99px;cursor:pointer;background:{{ seg.bg }};box-shadow:{{ seg.glow }};transition:background .35s ease,transform .2s ease,box-shadow .35s ease" style-hover="transform:scaleY(1.8)"></button>
+        </sc-for>
+      </div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.58)">
+        <span>{{ t.step }} {{ humanIndex }} / {{ total }}</span>
+        <span style="color:#EEC242">{{ step.kicker }}</span>
+      </div>
+    </div>
+
+    <div style="opacity:{{ cardOpacity }};transform:translateY({{ cardShift }}) scale({{ cardScale }});transition:opacity .22s ease,transform .3s cubic-bezier(.2,.7,.3,1)">
+      <div class="stepcard" style="position:relative;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.13);box-shadow:0 34px 80px -28px rgba(0,0,0,.66),inset 0 1px 0 rgba(255,255,255,.35);display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))">
+
+        <div class="stepcol" style="padding:26px 34px 28px;display:flex;flex-direction:column;gap:13px;min-width:0">
+          <div style="display:flex;align-items:center;gap:14px">
+            <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;color:#EEC242;letter-spacing:-.01em">{{ step.num }}</span>
+            <span style="height:1px;flex:1;max-width:34px;background:rgba(255,255,255,.3)"></span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)">{{ step.kicker }}</span>
+          </div>
+          <h2 style="margin:0;font-family:Montserrat,sans-serif;font-weight:700;font-size:clamp(23px,2.1vw,29px);line-height:1.08;letter-spacing:-.028em;color:#fff;text-wrap:balance">{{ step.title }}</h2>
+          <p style="margin:0;font-size:16.5px;line-height:1.55;color:rgba(255,255,255,.82);text-wrap:pretty">{{ step.body }}</p>
+
+          <sc-if value="{{ step.hasWarn }}" hint-placeholder-val="{{ true }}">
+            <div style="border-radius:14px;border:1px solid rgba(238,194,66,.55);background:rgba(238,194,66,.14);padding:15px 18px;display:flex;flex-direction:column;gap:6px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#EEC242">{{ t.warnLabel }}</span>
+              <span style="font-size:15px;font-weight:500;line-height:1.5;color:#fff">{{ step.warn }}</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ step.hasAction }}" hint-placeholder-val="{{ true }}">
+            <a href="https://cat.eduroam.org/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:space-between;gap:14px;background:#EEC242;color:#1B0066;text-decoration:none;padding:13px 18px;border-radius:13px;box-shadow:0 10px 22px -14px rgba(238,194,66,.35);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 28px -14px rgba(238,194,66,.5)">
+              <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15.5px;letter-spacing:-.012em">{{ t.catBtn }}</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(27,0,102,.65);letter-spacing:.06em">cat.eduroam.org</span>
+            </a>
+          </sc-if>
+
+          <sc-if value="{{ step.hasAside }}" hint-placeholder-val="{{ true }}">
+            <div style="border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07);padding:13px 16px;font-size:14.5px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.8)">{{ step.aside }}</div>
+          </sc-if>
+        </div>
+
+        <div class="illo" style="position:relative;min-width:0;min-height:216px;display:flex;align-items:flex-start;justify-content:center;padding:22px 0;border-left:1px solid rgba(255,255,255,.16);background:linear-gradient(150deg,rgba(255,255,255,.1),rgba(255,255,255,.02));overflow:hidden">
+
+          <div style="display:{{ iBrowser }};align-items:center;justify-content:center;width:100%">
+            <div style="width:256px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.12);box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+              <div style="height:26px;background:rgba(255,255,255,.12);display:flex;align-items:center;gap:6px;padding:0 11px">
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45)"></div>
+                <div style="width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.45)"></div>
+                <div style="flex:1"></div>
+                <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.06em;color:rgba(255,255,255,.6)">cat.eduroam.org</div>
+              </div>
+              <div style="padding:22px 18px 24px;display:flex;flex-direction:column;align-items:center;gap:14px">
+                <div style="height:5px;width:130px;border-radius:3px;background:rgba(255,255,255,.2)"></div>
+                <div style="border-radius:11px;background:#EEC242;padding:10px 14px;text-align:center;font-family:Montserrat,sans-serif;font-size:9.5px;font-weight:700;color:#1B0066;animation:epop 3.6s ease-in-out infinite">{{ t.illoDownload }}</div>
+                <div style="height:4px;width:96px;border-radius:3px;background:rgba(255,255,255,.14)"></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ iPicker }};align-items:center;justify-content:center;width:100%">
+            <div style="width:258px;border-radius:20px;border:1px solid rgba(255,255,255,.26);background:rgba(255,255,255,.12);padding:15px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+              <div style="height:20px;border-radius:7px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 8px;gap:3px;overflow:hidden">
+                <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:etype 4.4s steps(4,end) infinite"></div>
+                <div style="width:1.5px;height:9px;background:#fff;animation:ecaret .9s steps(1) infinite"></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:6px;margin-top:11px">
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:10px;background:rgba(255,255,255,.14);animation:erowIn 4.4s ease-in-out infinite">
+                  <div style="width:8px;height:8px;border-radius:50%;background:#EEC242"></div>
+                  <div style="font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;color:#fff">ESCP Business School</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:10px;background:rgba(255,255,255,.05)">
+                  <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)"></div>
+                  <div style="height:3px;width:88px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                </div>
+                <div style="display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:10px;background:rgba(255,255,255,.05)">
+                  <div style="width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25)"></div>
+                  <div style="height:3px;width:70px;border-radius:2px;background:rgba(255,255,255,.2)"></div>
+                </div>
+              </div>
+              <div style="margin-top:12px;padding-top:11px;border-top:1px solid rgba(255,255,255,.14);display:flex;align-items:center;gap:8px">
+                <div style="font-size:8.5px;font-weight:500;color:rgba(255,255,255,.45)">Show organisations in</div>
+                <div style="font-size:8.5px;font-weight:500;color:rgba(255,255,255,.6);padding:3px 7px;border-radius:5px;background:rgba(255,255,255,.1)">United Kingdom</div>
+                <div style="font-size:8.5px;font-weight:700;color:#EEC242;text-decoration:underline;animation:epop 3.6s ease-in-out infinite">show all countries</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ iProfile }};align-items:center;justify-content:center;width:100%">
+            <div style="width:252px;position:relative">
+              <div style="display:flex;gap:10px">
+                <div style="flex:1;border:1.5px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);border-radius:14px;padding:14px 8px;text-align:center;animation:epick 4s ease-in-out infinite">
+                  <div style="font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;color:#fff">{{ t.illoStudent }}</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(255,255,255,.55);margin-top:4px">@edu.escp.eu</div>
+                </div>
+                <div style="flex:1;border:1.5px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);border-radius:14px;padding:14px 8px;text-align:center">
+                  <div style="font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.4)">{{ t.illoStaff }}</div>
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(255,255,255,.3);margin-top:4px">@escp.eu</div>
+                </div>
+              </div>
+              <div style="position:absolute;top:52px;left:22%;width:12px;height:12px;border-radius:50% 50% 50% 0;background:#EEC242;transform:rotate(-8deg);animation:ecursor 4s ease-in-out infinite"></div>
+            </div>
+          </div>
+
+          <div style="display:{{ iDownload }};align-items:center;justify-content:center;width:100%">
+            <div style="width:200px;display:flex;flex-direction:column;align-items:center;gap:16px">
+              <div style="width:150px;height:96px;border:1.5px solid rgba(255,255,255,.45);border-radius:16px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08)">
+                <div style="width:112px;display:flex;flex-direction:column;align-items:center;gap:13px">
+                  <div style="width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:14px solid #EEC242;animation:edlArrow 4s ease-in-out infinite"></div>
+                  <div style="width:112px;height:8px;border-radius:99px;background:rgba(255,255,255,.16);overflow:hidden">
+                    <div style="height:100%;background:#EEC242;border-radius:99px;animation:edlFill 4s ease-in-out infinite"></div>
+                  </div>
+                </div>
+              </div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.1em;color:rgba(255,255,255,.6)">{{ t.illoFile }}</div>
+            </div>
+          </div>
+
+          <div style="display:{{ iInstall }};align-items:center;justify-content:center;width:100%">
+            <div style="width:240px;border-radius:18px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.13);padding:18px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div style="width:26px;height:32px;border-radius:5px;border:1.5px solid #EEC242;display:flex;align-items:center;justify-content:center;flex:none">
+                  <div style="width:10px;height:10px;border-radius:50%;border:2px solid #EEC242"></div>
+                </div>
+                <div style="min-width:0">
+                  <div style="font-family:Montserrat,sans-serif;font-size:12px;font-weight:700;color:#fff">eduroam</div>
+                  <div style="font-size:9.5px;font-weight:500;color:rgba(255,255,255,.55);margin-top:2px">ESCP Business School</div>
+                </div>
+              </div>
+              <div style="margin-top:13px;height:3px;border-radius:2px;background:rgba(255,255,255,.16)"></div>
+              <div style="margin-top:7px;height:3px;width:72%;border-radius:2px;background:rgba(255,255,255,.16)"></div>
+              <div style="margin-top:15px;display:flex;justify-content:flex-end">
+                <div style="font-size:10px;font-weight:700;color:#1B0066;background:#EEC242;padding:6px 16px;border-radius:8px;animation:epop 3.4s ease-in-out infinite">{{ t.illoInstall }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ iCreds }};align-items:center;justify-content:center;width:100%">
+            <div style="width:240px;border-radius:18px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.13);padding:18px;box-shadow:0 20px 44px -18px rgba(0,0,0,.6)">
+              <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)">{{ t.illoUsername }}</div>
+              <div style="margin-top:6px;height:20px;border-radius:7px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 8px;gap:3px;overflow:hidden">
+                <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:etype 5s steps(16,end) infinite"></div>
+                <div style="width:1.5px;height:9px;background:#fff;animation:ecaret .9s steps(1) infinite"></div>
+              </div>
+              <div style="margin-top:11px;font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55)">{{ t.illoPassword }}</div>
+              <div style="margin-top:6px;height:20px;border-radius:7px;background:rgba(255,255,255,.14);display:flex;align-items:center;padding:0 8px;overflow:hidden">
+                <div style="height:3px;border-radius:2px;background:rgba(255,255,255,.85);animation:etypeB 5s steps(9,end) infinite"></div>
+              </div>
+              <div style="margin-top:15px;height:22px;border-radius:8px;animation:ebtn 5s ease-in-out infinite;display:flex;align-items:center;justify-content:center">
+                <span style="font-family:Montserrat,sans-serif;font-size:10px;font-weight:700;color:#1B0066">{{ t.illoInstall }}</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:{{ iWifi }};align-items:center;justify-content:center;width:100%">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:18px">
+              <div style="display:flex;align-items:flex-end;gap:5px;height:52px">
+                <div style="width:11px;height:18px;border-radius:3px;background:#EEC242;animation:ewifi1 3.2s ease-in-out infinite"></div>
+                <div style="width:11px;height:32px;border-radius:3px;background:#EEC242;animation:ewifi2 3.2s ease-in-out infinite"></div>
+                <div style="width:11px;height:46px;border-radius:3px;background:#EEC242;animation:ewifi3 3.2s ease-in-out infinite"></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:10px 16px;border-radius:99px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.1)">
+                <div style="width:18px;height:18px;border-radius:50%;background:#EEC242;display:flex;align-items:center;justify-content:center;flex:none;animation:etick 3.2s ease-in-out infinite">
+                  <div style="width:7px;height:4px;border-left:2px solid #1B0066;border-bottom:2px solid #1B0066;transform:rotate(-45deg);margin-top:-2px"></div>
+                </div>
+                <span style="font-family:Montserrat,sans-serif;font-size:12.5px;font-weight:700;color:#fff">eduroam</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:0 4px">
+      <button type="button" onClick="{{ prev }}" disabled="{{ atStart }}" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:15px 26px;border-radius:99px;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.09);color:#fff;cursor:pointer;opacity:{{ prevOpacity }};transition:background .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(255,255,255,.18);transform:translateY(-1px)">{{ t.back2 }}</button>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)">{{ t.keys }}</div>
+      <button type="button" onClick="{{ next }}" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:16px 32px;border-radius:99px;border:0;background:#fff;color:#1B0066;cursor:pointer;box-shadow:0 10px 24px -16px rgba(255,255,255,.3);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(255,255,255,.42)">{{ nextLabel }}</button>
+    </div>
+
+    <div class="helpcard" style="margin-top:4px;border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.11);padding:32px 44px 36px;display:flex;flex-direction:column;gap:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28)">
+      <div style="display:flex;align-items:center;gap:13px">
+        <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.028em;color:#fff">{{ t.faqTitle }}</span>
+        <span style="height:1px;flex:1;background:rgba(255,255,255,.18)"></span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+        <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="6">
+          <div style="border-radius:16px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);padding:18px 19px;display:flex;flex-direction:column;gap:8px;transition:background .22s ease,border-color .22s ease" style-hover="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)">
+            <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.014em;color:#fff;line-height:1.3">{{ faq.q }}</div>
+            <div style="font-size:15px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.76);text-wrap:pretty">{{ faq.a }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="border-top:1px solid rgba(255,255,255,.16);padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.78)">
+        <span style="flex:1 1 250px">{{ t.help1 }} <a href="mailto:assistance.dtd@escp.eu" style="color:#EEC242">assistance.dtd@escp.eu</a></span>
+        <span style="flex:1 1 250px">{{ t.help2a }} <a href="mailto:ITUK@escp.eu" style="color:#EEC242">ITUK@escp.eu</a> {{ t.help2b }}</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEC242&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEC242&quot;,&quot;#76D0E9&quot;,&quot;#0E00FF&quot;,&quot;#FFFFFF&quot;]},&quot;showAsides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
+const UI = {
+  en: {
+    back: "All setup guides", back2: "Back", keys: "Arrow keys work too",
+    eyebrow: "London Campus · eduroam WiFi",
+    h1: "eduroam.",
+    sub: "One login, every ESCP campus and hundreds of universities worldwide. Set it up once.",
+    step: "Step", warnLabel: "Do not skip this",
+    catBtn: "Open the eduroam CAT site",
+    nextStep: "Next step", startOver: "Start over",
+    faqTitle: "If it goes wrong",
+    help1: "Account problems:", help2a: "Need more help? Email", help2b: "or visit the IT office on the ground floor, G12",
+    illoDownload: "Download your installer", illoStudent: "Student", illoStaff: "Staff",
+    illoFile: "eduroam-ESCP.mobileconfig", illoInstall: "Install",
+    illoUsername: "Username", illoPassword: "Password",
+    platforms: { mac: "macOS", ios: "iPhone / iPad", win: "Windows", android: "Android" }
+  },
+  fr: {
+    back: "Tous les guides", back2: "Retour", keys: "Les flèches marchent aussi",
+    eyebrow: "Campus de Londres · WiFi eduroam",
+    h1: "eduroam.",
+    sub: "Un seul identifiant, tous les campus ESCP et des centaines d'universités. À configurer une seule fois.",
+    step: "Étape", warnLabel: "À ne pas manquer",
+    catBtn: "Ouvrir le site eduroam CAT",
+    nextStep: "Étape suivante", startOver: "Recommencer",
+    faqTitle: "En cas de problème",
+    help1: "Problèmes de compte :", help2a: "Besoin d'aide ? Écrivez à", help2b: "ou passez au bureau IT au rez-de-chaussée, G12",
+    illoDownload: "Télécharger l'installateur", illoStudent: "Étudiant", illoStaff: "Personnel",
+    illoFile: "eduroam-ESCP.mobileconfig", illoInstall: "Installer",
+    illoUsername: "Nom d'utilisateur", illoPassword: "Mot de passe",
+    platforms: { mac: "macOS", ios: "iPhone / iPad", win: "Windows", android: "Android" }
+  }
+};
+
+const STEPS = {
+  en: {
+    mac: [
+      { kicker: "Start", illo: "browser", title: "Open the eduroam CAT site in Safari", body: "Go to cat.eduroam.org and click the blue button, “Click here to download your eduroam installer”.", action: true,
+        aside: "Use Safari — other browsers download the profile without handing it to System Settings." },
+      { kicker: "Start", illo: "browser", title: "Not on any network yet?", body: "The CAT site needs an internet connection. Join the campus guest WiFi, or use your phone as a hotspot, just long enough to download the installer.",
+        aside: "You only need internet for this download. Once the profile is installed, eduroam connects on its own." },
+      { kicker: "Identify", illo: "picker", title: "Choose ESCP Business School", body: "The Organisation window opens filtered to one country. At the bottom, click “show all countries” — ESCP is registered in France, so it will not appear under United Kingdom. Then type ESCP into the search field and select ESCP Business School.",
+        warn: "Only ever use the ESCP installer, even when you are connecting at another university. Their tool sends your login to their servers, which will reject it.",
+        aside: "Type ESCP in capitals. The search is fussy about the exact spelling." },
+      { kicker: "Identify", illo: "profile", title: "Student or staff", body: "Choose the profile that matches you. Students authenticate with @edu.escp.eu, staff with @escp.eu." },
+      { kicker: "Download", illo: "download", title: "Download the macOS installer", body: "Click the large blue Apple macOS button. A .mobileconfig file lands in your Downloads folder.",
+        aside: "If the download does not start, use the direct download link shown underneath the button." },
+      { kicker: "Install", illo: "install", title: "Open the profile in System Settings", body: "Double-click the downloaded file. macOS shows a “Profile Downloaded” notice — click it, or open System Settings, then General, then Device Management. Double-click eduroam and click Install.",
+        aside: "On older macOS versions the panel lives under Privacy & Security, then Profiles, at the very bottom." },
+      { kicker: "Install", illo: "creds", title: "Enter your ESCP credentials", body: "Type your full email address as the username — yourname@edu.escp.eu if you are a student, yourname@escp.eu if you are staff — then your password, and click Install.",
+        warn: "The full address is required, not just the part before the @. Leaving it short is the single most common reason the connection fails later." },
+      { kicker: "Install", illo: "install", title: "Approve the certificate", body: "macOS asks you to confirm the profile and its certificate. Click Install again, then enter your Mac password to authorise it.",
+        aside: "Your Mac password is the one you use to unlock the laptop, not your ESCP password." },
+      { kicker: "Done", illo: "wifi", title: "You are connected", body: "eduroam now appears in Profiles as Verified, and your Mac joins the network automatically whenever it is in range — here or at any other eduroam campus.",
+        aside: "eduroam gives internet access only. Staff who need internal applications still require VPN." }
+    ],
+    ios: [
+      { kicker: "Start", illo: "browser", title: "Open the eduroam CAT site in Safari", body: "On your iPhone or iPad, go to cat.eduroam.org and tap “Click here to download your eduroam installer”.", action: true,
+        aside: "Safari is required. iOS will not hand a configuration profile to Settings from another browser." },
+      { kicker: "Identify", illo: "picker", title: "Choose ESCP Business School", body: "The Organisation window opens filtered to one country. Tap “show all countries” at the bottom — ESCP is registered in France. Then type ESCP and select ESCP Business School.",
+        warn: "Always use the ESCP installer, even when connecting at another institution.",
+        aside: "Type ESCP in capitals — the search is fussy about the exact spelling." },
+      { kicker: "Identify", illo: "profile", title: "Student or staff", body: "Choose your profile, then tap the Apple iOS mobile devices button." },
+      { kicker: "Download", illo: "download", title: "Allow the profile download", body: "Safari asks permission to download a configuration profile. Tap Allow, then Close on the “Profile Downloaded” message." },
+      { kicker: "Install", illo: "install", title: "Install it from Settings", body: "Open Settings. A Profile Downloaded row appears near the top — tap it. On older versions, go to General, then VPN & Device Management. Tap the eduroam profile, then Install.",
+        aside: "Enter your device passcode when asked. A warning about the certificate is expected — tap Install again." },
+      { kicker: "Install", illo: "creds", title: "Enter your ESCP credentials", body: "Type your full email address — yourname@edu.escp.eu for students, yourname@escp.eu for staff — and your password.",
+        warn: "The full address is required. Just the username will fail." },
+      { kicker: "Done", illo: "wifi", title: "You are connected", body: "The profile shows as installed and your device joins eduroam automatically from now on, on any participating campus.",
+        aside: "There is also a geteduroam app in the App Store. The CAT profile above is what ESCP supports — use it unless IT tells you otherwise." }
+    ],
+    android: [
+      { kicker: "Start", illo: "browser", title: "Install the geteduroam app", body: "On Android, the CAT site hands you off to the geteduroam app. Install it from the Play Store first, then open it.", action: true,
+        aside: "You can also start at cat.eduroam.org — it will point you to the same app." },
+      { kicker: "Identify", illo: "picker", title: "Choose ESCP Business School", body: "In the app, search for your institution. Type ESCP and select ESCP Business School.",
+        aside: "Type ESCP in capitals. If nothing appears, check the app is not filtering by country." },
+      { kicker: "Identify", illo: "profile", title: "Student or staff", body: "Pick the profile that matches you. Students authenticate with @edu.escp.eu, staff with @escp.eu." },
+      { kicker: "Install", illo: "creds", title: "Enter your ESCP credentials", body: "Type your full email address — yourname@edu.escp.eu for students, yourname@escp.eu for staff — and your password, then tap Connect.",
+        warn: "The full address is required, not just the part before the @." },
+      { kicker: "Install", illo: "install", title: "Allow the WiFi configuration", body: "Android asks permission to add a WiFi network and install a certificate. Accept both — this is what lets your phone trust the ESCP authentication servers." },
+      { kicker: "Done", illo: "wifi", title: "You are connected", body: "eduroam is now saved on your device and joins automatically whenever you are in range, on any participating campus.",
+        aside: "Only use the ESCP profile, even at other universities. Their configuration sends your login to their servers, which will reject it." }
+    ],
+    win: [
+      { kicker: "Start", illo: "browser", title: "Open the eduroam CAT site", body: "Go to cat.eduroam.org and click the button to start the configuration.", action: true },
+      { kicker: "Identify", illo: "picker", title: "Choose ESCP Business School", body: "The Organisation window opens filtered to one country. Click “show all countries” at the bottom — ESCP is registered in France, not the United Kingdom. Then type ESCP and select ESCP Business School.",
+        warn: "Use only the ESCP tool, whichever eduroam network you are connecting to. Another school's tool sends your request to their servers and it will be rejected.",
+        aside: "Type ESCP in capitals. The search is fussy about the exact spelling." },
+      { kicker: "Identify", illo: "profile", title: "Student or staff", body: "Select the configuration that matches you, then click the eduroam square to start the download." },
+      { kicker: "Download", illo: "download", title: "Run the installer", body: "Find the file in your Downloads folder or in your browser's download list, and run it. Click Next on the first page, then OK." },
+      { kicker: "Install", illo: "creds", title: "Enter your credentials", body: "Enter your email address — yourname@edu.escp.eu if you are a student, yourname@escp.eu if you are staff — and your password.",
+        warn: "Use the full email address, not just the part before the @." },
+      { kicker: "Install", illo: "install", title: "Grant the certificate", body: "Allow the certificate to be installed when Windows asks. This is what lets your laptop trust the ESCP authentication servers." },
+      { kicker: "Done", illo: "wifi", title: "You are connected", body: "Windows joins eduroam automatically from now on, here and at any other eduroam institution.",
+        aside: "eduroam gives internet access only. Staff who need internal applications still require VPN." }
+    ]
+  },
+  fr: {
+    mac: [
+      { kicker: "Départ", illo: "browser", title: "Ouvrez le site eduroam CAT dans Safari", body: "Rendez-vous sur cat.eduroam.org et cliquez sur le bouton bleu « Click here to download your eduroam installer ».", action: true,
+        aside: "Utilisez Safari — les autres navigateurs ne transmettent pas le profil aux Réglages Système." },
+      { kicker: "Départ", illo: "browser", title: "Pas encore de connexion ?", body: "Le site CAT nécessite un accès internet. Connectez-vous au WiFi invité du campus, ou utilisez votre téléphone en partage de connexion, le temps du téléchargement.",
+        aside: "Internet n'est nécessaire que pour ce téléchargement. Une fois le profil installé, eduroam se connecte seul." },
+      { kicker: "Identité", illo: "picker", title: "Choisissez ESCP Business School", body: "La fenêtre Organisation s'ouvre filtrée sur un seul pays. En bas, cliquez sur « show all countries » : l'ESCP est enregistrée en France et n'apparaît donc pas sous United Kingdom. Tapez ensuite ESCP dans le champ de recherche et sélectionnez ESCP Business School.",
+        warn: "N'utilisez jamais que l'installateur ESCP, même lorsque vous vous connectez depuis une autre université. Leur outil enverrait vos identifiants à leurs serveurs, qui les refuseraient.",
+        aside: "Tapez ESCP en majuscules : la recherche est sensible à l'orthographe exacte." },
+      { kicker: "Identité", illo: "profile", title: "Étudiant ou personnel", body: "Choisissez le profil qui vous correspond. Les étudiants s'authentifient avec @edu.escp.eu, le personnel avec @escp.eu." },
+      { kicker: "Téléchargement", illo: "download", title: "Téléchargez l'installateur macOS", body: "Cliquez sur le grand bouton bleu Apple macOS. Un fichier .mobileconfig arrive dans votre dossier Téléchargements.",
+        aside: "Si le téléchargement ne démarre pas, utilisez le lien direct affiché sous le bouton." },
+      { kicker: "Installation", illo: "install", title: "Ouvrez le profil dans les Réglages Système", body: "Double-cliquez sur le fichier téléchargé. macOS affiche « Profil téléchargé » — cliquez dessus, ou ouvrez Réglages Système, puis Général, puis Gestion des appareils. Double-cliquez sur eduroam et cliquez sur Installer.",
+        aside: "Sur les versions plus anciennes de macOS, le panneau se trouve dans Confidentialité et sécurité, puis Profils, tout en bas." },
+      { kicker: "Installation", illo: "creds", title: "Saisissez vos identifiants ESCP", body: "Saisissez votre adresse e-mail complète comme nom d'utilisateur — prenom.nom@edu.escp.eu pour les étudiants, prenom.nom@escp.eu pour le personnel — puis votre mot de passe, et cliquez sur Installer.",
+        warn: "L'adresse complète est obligatoire, pas seulement la partie avant le @. C'est de loin la première cause d'échec de connexion." },
+      { kicker: "Installation", illo: "install", title: "Autorisez le certificat", body: "macOS vous demande de confirmer le profil et son certificat. Cliquez à nouveau sur Installer, puis saisissez le mot de passe de votre Mac pour autoriser l'opération.",
+        aside: "Le mot de passe du Mac est celui qui déverrouille l'ordinateur, pas votre mot de passe ESCP." },
+      { kicker: "Terminé", illo: "wifi", title: "Vous êtes connecté", body: "eduroam apparaît désormais comme Vérifié dans les Profils, et votre Mac rejoint le réseau automatiquement dès qu'il est à portée — ici comme sur tout autre campus eduroam.",
+        aside: "eduroam ne donne qu'un accès internet. Le personnel qui utilise les applications internes a toujours besoin du VPN." }
+    ],
+    ios: [
+      { kicker: "Départ", illo: "browser", title: "Ouvrez le site eduroam CAT dans Safari", body: "Depuis votre iPhone ou iPad, rendez-vous sur cat.eduroam.org et touchez « Click here to download your eduroam installer ».", action: true,
+        aside: "Safari est indispensable : iOS ne transmet pas un profil de configuration aux Réglages depuis un autre navigateur." },
+      { kicker: "Identité", illo: "picker", title: "Choisissez ESCP Business School", body: "La fenêtre Organisation s'ouvre filtrée sur un seul pays. Touchez « show all countries » en bas : l'ESCP est enregistrée en France. Tapez ensuite ESCP et sélectionnez ESCP Business School.",
+        warn: "Utilisez toujours l'installateur ESCP, même en vous connectant depuis un autre établissement.",
+        aside: "Tapez ESCP en majuscules : la recherche est sensible à l'orthographe exacte." },
+      { kicker: "Identité", illo: "profile", title: "Étudiant ou personnel", body: "Choisissez votre profil, puis touchez le bouton Apple iOS mobile devices." },
+      { kicker: "Téléchargement", illo: "download", title: "Autorisez le téléchargement du profil", body: "Safari demande l'autorisation de télécharger un profil de configuration. Touchez Autoriser, puis Fermer sur le message « Profil téléchargé »." },
+      { kicker: "Installation", illo: "install", title: "Installez-le depuis les Réglages", body: "Ouvrez Réglages. Une ligne Profil téléchargé apparaît en haut — touchez-la. Sur les versions plus anciennes, allez dans Général, puis VPN et gestion de l'appareil. Touchez le profil eduroam, puis Installer.",
+        aside: "Saisissez le code de votre appareil si on vous le demande. Un avertissement sur le certificat est normal — touchez Installer à nouveau." },
+      { kicker: "Installation", illo: "creds", title: "Saisissez vos identifiants ESCP", body: "Saisissez votre adresse e-mail complète — prenom.nom@edu.escp.eu pour les étudiants, prenom.nom@escp.eu pour le personnel — et votre mot de passe.",
+        warn: "L'adresse complète est obligatoire. Le nom d'utilisateur seul échouera." },
+      { kicker: "Terminé", illo: "wifi", title: "Vous êtes connecté", body: "Le profil s'affiche comme installé et votre appareil rejoint eduroam automatiquement, sur tous les campus participants.",
+        aside: "Une application geteduroam existe aussi sur l'App Store. Le profil CAT ci-dessus est celui pris en charge par l'ESCP — utilisez-le, sauf indication contraire du service IT." }
+    ],
+    android: [
+      { kicker: "Départ", illo: "browser", title: "Installez l'application geteduroam", body: "Sur Android, le site CAT vous renvoie vers l'application geteduroam. Installez-la depuis le Play Store, puis ouvrez-la.", action: true,
+        aside: "Vous pouvez aussi partir de cat.eduroam.org : il vous orientera vers la même application." },
+      { kicker: "Identité", illo: "picker", title: "Choisissez ESCP Business School", body: "Dans l'application, recherchez votre établissement. Tapez ESCP et sélectionnez ESCP Business School.",
+        aside: "Tapez ESCP en majuscules. Si rien n'apparaît, vérifiez que l'application ne filtre pas par pays." },
+      { kicker: "Identité", illo: "profile", title: "Étudiant ou personnel", body: "Choisissez le profil qui vous correspond. Les étudiants s'authentifient avec @edu.escp.eu, le personnel avec @escp.eu." },
+      { kicker: "Installation", illo: "creds", title: "Saisissez vos identifiants ESCP", body: "Saisissez votre adresse e-mail complète — prenom.nom@edu.escp.eu pour les étudiants, prenom.nom@escp.eu pour le personnel — et votre mot de passe, puis touchez Connect.",
+        warn: "L'adresse complète est obligatoire, pas seulement la partie avant le @." },
+      { kicker: "Installation", illo: "install", title: "Autorisez la configuration WiFi", body: "Android demande l'autorisation d'ajouter un réseau WiFi et d'installer un certificat. Acceptez les deux : c'est ce qui permet à votre téléphone de faire confiance aux serveurs d'authentification ESCP." },
+      { kicker: "Terminé", illo: "wifi", title: "Vous êtes connecté", body: "eduroam est désormais enregistré sur votre appareil et s'y connecte automatiquement dès que vous êtes à portée, sur tous les campus participants.",
+        aside: "N'utilisez que le profil ESCP, même dans d'autres universités. Leur configuration enverrait vos identifiants à leurs serveurs, qui les refuseraient." }
+    ],
+    win: [
+      { kicker: "Départ", illo: "browser", title: "Ouvrez le site eduroam CAT", body: "Rendez-vous sur cat.eduroam.org et cliquez sur le bouton pour démarrer la configuration.", action: true },
+      { kicker: "Identité", illo: "picker", title: "Choisissez ESCP Business School", body: "La fenêtre Organisation s'ouvre filtrée sur un seul pays. Cliquez sur « show all countries » en bas : l'ESCP est enregistrée en France, pas au Royaume-Uni. Tapez ensuite ESCP et sélectionnez ESCP Business School.",
+        warn: "N'utilisez que l'outil ESCP, quel que soit le réseau eduroam auquel vous vous connectez. L'outil d'un autre établissement enverrait votre demande à ses serveurs, qui la refuseraient.",
+        aside: "Tapez ESCP en majuscules : la recherche est sensible à l'orthographe exacte." },
+      { kicker: "Identité", illo: "profile", title: "Étudiant ou personnel", body: "Sélectionnez la configuration qui vous correspond, puis cliquez sur le carré eduroam pour lancer le téléchargement." },
+      { kicker: "Téléchargement", illo: "download", title: "Lancez l'installateur", body: "Retrouvez le fichier dans votre dossier Téléchargements ou dans la liste des téléchargements de votre navigateur, et exécutez-le. Cliquez sur Suivant sur la première page, puis sur OK." },
+      { kicker: "Installation", illo: "creds", title: "Saisissez vos identifiants", body: "Saisissez votre adresse e-mail — prenom.nom@edu.escp.eu pour les étudiants, prenom.nom@escp.eu pour le personnel — et votre mot de passe.",
+        warn: "Utilisez l'adresse e-mail complète, pas seulement la partie avant le @." },
+      { kicker: "Installation", illo: "install", title: "Autorisez le certificat", body: "Autorisez l'installation du certificat lorsque Windows le demande. C'est ce qui permet à votre ordinateur de faire confiance aux serveurs d'authentification ESCP." },
+      { kicker: "Terminé", illo: "wifi", title: "Vous êtes connecté", body: "Windows rejoint eduroam automatiquement, ici comme dans tout autre établissement eduroam.",
+        aside: "eduroam ne donne qu'un accès internet. Le personnel qui utilise les applications internes a toujours besoin du VPN." }
+    ]
+  }
+};
+
+const FAQS = {
+  en: [
+    { q: "It says your username or password is wrong", a: "Almost always the address is incomplete. Use the full yourname@edu.escp.eu or yourname@escp.eu, not just the part before the @." },
+    { q: "ESCP is not in the organisation list", a: "The window filters by country and defaults to where you are. Click “show all countries” at the bottom — ESCP is registered in France." },
+    { q: "eduroam does not appear in your WiFi list", a: "The network is broadcast on every ESCP campus but the profile must be installed first. Check Profiles in System Settings for a Verified eduroam entry." },
+    { q: "You changed your ESCP password", a: "The saved credentials are now stale. Remove the eduroam profile and install it again with the new password." },
+    { q: "It works here but not at another university", a: "Check you installed the ESCP profile. Another institution's installer sends your login to their servers, which will reject it." },
+    { q: "Some ESCP applications will not load", a: "eduroam only provides internet access. Staff need VPN for internal applications." },
+    { q: "The profile will not install", a: "An older eduroam profile may be in the way. Remove any existing eduroam profile first, then install the new one." }
+  ],
+  fr: [
+    { q: "Identifiant ou mot de passe refusé", a: "L'adresse est presque toujours incomplète. Utilisez prenom.nom@edu.escp.eu ou prenom.nom@escp.eu en entier, pas seulement la partie avant le @." },
+    { q: "L'ESCP n'est pas dans la liste des établissements", a: "La fenêtre filtre par pays selon votre position. Cliquez sur « show all countries » en bas : l'ESCP est enregistrée en France." },
+    { q: "eduroam n'apparaît pas dans la liste WiFi", a: "Le réseau est diffusé sur tous les campus ESCP, mais le profil doit d'abord être installé. Vérifiez dans les Profils des Réglages Système qu'une entrée eduroam est Vérifiée." },
+    { q: "Vous avez changé votre mot de passe ESCP", a: "Les identifiants enregistrés ne sont plus valides. Supprimez le profil eduroam et réinstallez-le avec le nouveau mot de passe." },
+    { q: "Ça marche ici mais pas dans une autre université", a: "Vérifiez que vous avez bien installé le profil ESCP. L'installateur d'un autre établissement envoie vos identifiants à ses serveurs, qui les refusent." },
+    { q: "Certaines applications ESCP ne s'ouvrent pas", a: "eduroam ne fournit qu'un accès internet. Le personnel a besoin du VPN pour les applications internes." },
+    { q: "Le profil refuse de s'installer", a: "Un ancien profil eduroam peut bloquer l'installation. Supprimez tout profil eduroam existant, puis installez le nouveau." }
+  ]
+};
+
+const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzéèàçôûêÉÀ@#%&/\\{}[]<>0123456789";
+const PLATFORM_ORDER = ["mac", "ios", "android", "win"];
+
+class Component extends DCLogic {
+  state = { lang: "en", plat: "mac", i: 0, out: false, p: 1 };
+
+  componentDidMount() {
+    this._key = (e) => {
+      if (e.key === "ArrowRight") this.go(this.state.i + 1);
+      if (e.key === "ArrowLeft") this.go(this.state.i - 1);
+    };
+    window.addEventListener("keydown", this._key);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("keydown", this._key);
+    clearTimeout(this._t);
+    cancelAnimationFrame(this._raf);
+  }
+
+  go(n) {
+    const list = STEPS[this.state.lang][this.state.plat];
+    const t = Math.max(0, Math.min(list.length - 1, n));
+    if (t === this.state.i) return;
+    this.setState({ out: true });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ i: t, out: false }), 190);
+  }
+
+  setPlat(p) {
+    if (p === this.state.plat) return;
+    this.setState({ out: true });
+    clearTimeout(this._t);
+    this._t = setTimeout(() => this.setState({ plat: p, i: 0, out: false }), 190);
+  }
+
+  setLang(lang) {
+    if (lang === this.state.lang) return;
+    cancelAnimationFrame(this._raf);
+    const len = STEPS[lang][this.state.plat].length;
+    this.setState({ lang, i: Math.min(this.state.i, len - 1), p: 0 });
+    const start = performance.now(), dur = 760;
+    const tick = (now) => {
+      const p = Math.min(1, (now - start) / dur);
+      this.setState({ p });
+      if (p < 1) this._raf = requestAnimationFrame(tick);
+    };
+    this._raf = requestAnimationFrame(tick);
+  }
+
+  scr(str, p) {
+    if (p >= 1 || !str) return str;
+    const n = str.length;
+    let out = "";
+    for (let i = 0; i < n; i++) {
+      const c = str[i];
+      if (c === " ") { out += c; continue; }
+      const threshold = (i / n) * 0.62 + 0.14;
+      out += p > threshold ? c : GLYPHS[(Math.random() * GLYPHS.length) | 0];
+    }
+    return out;
+  }
+
+  renderVals() {
+    const { lang, plat, i, p } = this.state;
+    const ui = UI[lang];
+    const list = STEPS[lang][plat];
+    const idx = Math.min(i, list.length - 1);
+    const step = list[idx];
+    const total = list.length;
+    const accent = this.props.accent ?? "#EEC242";
+    const s = (str) => this.scr(str, p);
+    const t = {};
+    for (const k in ui) if (typeof ui[k] === "string") t[k] = s(ui[k]);
+    const iv = (name) => (step.illo === name ? "flex" : "none");
+    return {
+      t,
+      platforms: PLATFORM_ORDER.map(k => ({
+        label: ui.platforms[k],
+        bg: k === plat ? "rgba(255,255,255,.18)" : "rgba(255,255,255,.05)",
+        border: k === plat ? "rgba(255,255,255,.4)" : "rgba(255,255,255,.16)",
+        color: k === plat ? "#fff" : "rgba(255,255,255,.6)",
+        go: () => this.setPlat(k)
+      })),
+      total, humanIndex: String(idx + 1).padStart(2, "0"),
+      segments: list.map((st, n) => ({
+        title: st.title,
+        bg: n < idx ? accent : n === idx ? "#fff" : "rgba(255,255,255,.2)",
+        glow: n === idx ? "0 0 8px 1px rgba(255,255,255,.32)" : "none",
+        go: () => this.go(n)
+      })),
+      step: {
+        num: String(idx + 1).padStart(2, "0"),
+        kicker: s(step.kicker), title: s(step.title), body: s(step.body),
+        hasWarn: !!step.warn, warn: s(step.warn || ""),
+        hasAside: !!step.aside && (this.props.showAsides ?? true), aside: s(step.aside || ""),
+        hasAction: !!step.action
+      },
+      iBrowser: iv("browser"), iPicker: iv("picker"), iProfile: iv("profile"),
+      iDownload: iv("download"), iInstall: iv("install"), iCreds: iv("creds"), iWifi: iv("wifi"),
+      cardOpacity: this.state.out ? 0 : 1,
+      cardShift: this.state.out ? "10px" : "0px",
+      cardScale: this.state.out ? "0.985" : "1",
+      atStart: idx === 0, prevOpacity: idx === 0 ? 0.35 : 1,
+      nextLabel: idx === total - 1 ? t.startOver : t.nextStep,
+      prev: () => this.go(idx - 1),
+      next: () => (idx === total - 1 ? this.go(0) : this.go(idx + 1)),
+      faqs: FAQS[lang].map(f => ({ q: s(f.q), a: s(f.a) }))
+    };
+  }
+}
+
+</script>
+
+</body>
+</html>

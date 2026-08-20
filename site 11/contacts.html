@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{background:#1B0066;margin:0}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1B0066;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(max-width:620px){.pgwrap{padding:16px 18px 48px !important;gap:16px !important}.routecard{padding:24px 22px 26px !important;border-radius:22px !important}}
+a{color:#EEC242}a:hover{color:#fff}
+@keyframes crise{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+.crise{animation:crise .6s cubic-bezier(.2,.7,.3,1) both}
+@view-transition{navigation:auto}
+@keyframes vtOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.985)}}
+@keyframes vtIn{from{opacity:0;transform:scale(1.012) translateY(8px)}to{opacity:1;transform:none}}
+::view-transition-old(root){animation:vtOut .22s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vtIn .34s cubic-bezier(.2,.7,.3,1) both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+@supports (view-transition-name:none){[style*="pagein"]{animation:none !important}}
+@media(prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="animation:pagein .3s ease both;position:relative;min-height:100vh;background:#1B0066;font-family:Karla,system-ui,sans-serif;overflow:hidden">
+
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0">
+    <div style="position:absolute;top:-14%;left:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9"></div>
+    <div style="position:absolute;bottom:-20%;right:-10%;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85"></div>
+    <div style="position:absolute;top:38%;left:42%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8"></div>
+  </div>
+
+  <div class="pgwrap" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:28px 40px 72px;display:flex;flex-direction:column;gap:22px">
+
+    <div style="display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap">
+      <a href="./index.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:9px 16px 9px 13px;border:1px solid rgba(255,255,255,.2);border-radius:99px;background:rgba(255,255,255,.08);transition:background .25s ease,color .25s ease,border-color .25s ease" style-hover="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)"><span style="font-size:14px;line-height:1">&#8592;</span>All setup guides</a>
+      <div style="display:flex;align-items:center;margin-left:auto">
+        <img src="assets/escp-logo.png" alt="ESCP" style="width:112px;height:auto;flex:none;margin:10px 6px 0 0">
+      </div>
+    </div>
+
+    <div class="crise" style="display:flex;flex-direction:column;gap:14px;padding-top:4px">
+      <div style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 16px 8px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1)">
+        <span style="width:7px;height:7px;border-radius:50%;background:#EEC242"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)">London Campus · IT Services</span>
+      </div>
+      <h1 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.96;letter-spacing:-.038em;color:#fff;max-width:900px;text-wrap:balance">Who to contact.</h1>
+      <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:560px;text-wrap:pretty">Find your problem below and email the address next to it. Writing to the right team first saves a day or two.</p>
+    </div>
+
+    <sc-for list="{{ routes }}" as="r" hint-placeholder-count="3">
+      <div class="routecard crise" style="border-radius:26px;border:1px solid {{ r.border }};background:{{ r.bg }};padding:30px 36px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;align-items:start;box-shadow:inset 0 1px 0 rgba(255,255,255,.24);animation-delay:{{ r.delay }}">
+        <div style="display:flex;flex-direction:column;gap:13px;min-width:0">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:{{ r.kickerColor }}">{{ r.kicker }}</span>
+          <div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(22px,2vw,27px);line-height:1.1;letter-spacing:-.03em;color:#fff;text-wrap:balance">{{ r.title }}</div>
+          <a href="{{ r.mailto }}" style="align-self:flex-start;display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:{{ r.btnBg }};color:{{ r.btnColor }};padding:14px 22px;border-radius:99px;box-shadow:0 12px 26px -18px rgba(0,0,0,.6);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 30px -18px rgba(0,0,0,.7)">
+            <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15.5px;letter-spacing:-.012em;word-break:break-all">{{ r.email }}</span>
+          </a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:9px;min-width:0">
+          <sc-for list="{{ r.items }}" as="it" hint-placeholder-count="4">
+            <div style="display:flex;align-items:flex-start;gap:11px;padding:12px 15px;border-radius:13px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06)">
+              <span style="width:7px;height:7px;border-radius:50%;background:#EEC242;flex:none;margin-top:6px"></span>
+              <span style="font-size:15.5px;font-weight:500;line-height:1.45;color:rgba(255,255,255,.88);text-wrap:pretty">{{ it }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+
+    <div class="crise" style="border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.11);padding:30px 36px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28);animation-delay:.4s">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)">In person</span>
+        <div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:22px;letter-spacing:-.028em;color:#fff">The IT office is in G12</div>
+        <div style="font-size:15.5px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.78);text-wrap:pretty">Ground floor. Come by if something is faster to show than to describe — a laptop that will not connect, a login that will not take.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)">Before you write</span>
+        <div style="font-size:15.5px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.78);text-wrap:pretty">Include your full name, your student number, and a screenshot of the error. It is usually the difference between one reply and four.</div>
+      </div>
+    </div>
+
+    <div class="crise" style="display:flex;flex-wrap:wrap;gap:12px;animation-delay:.55s">
+      <sc-for list="{{ guides }}" as="g" hint-placeholder-count="5">
+        <a href="{{ g.href }}" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:14.5px;font-weight:600;color:rgba(255,255,255,.82);padding:12px 20px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);transition:background .22s ease,color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(255,255,255,.16);color:#fff;transform:translateY(-2px)">{{ g.label }}<span style="font-size:13px;color:#EEC242">&#8594;</span></a>
+      </sc-for>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEC242&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEC242&quot;,&quot;#76D0E9&quot;,&quot;#0E00FF&quot;,&quot;#FFFFFF&quot;]}}">
+const ROUTES = [
+  {
+    kicker: "Accounts, email and licences",
+    title: "Anything to do with your ESCP account",
+    email: "assistance.dtd@escp.eu",
+    items: [
+      "Gmail access",
+      "Microsoft Office 365",
+      "Campus licence access for software",
+      "eduroam WiFi",
+      "Passwords, two-factor authentication and locked accounts"
+    ],
+    accent: "gold"
+  },
+  {
+    kicker: "Teaching and coursework",
+    title: "Blackboard, the learning management system",
+    email: "supportbbu@escp.eu",
+    items: [
+      "Blackboard will not load or log you in",
+      "A course is missing from your Blackboard",
+      "Problems submitting or uploading work",
+      "Grades or announcements not appearing"
+    ],
+    accent: "blue"
+  },
+  {
+    kicker: "London campus",
+    title: "Everything else, and anything you are unsure about",
+    email: "ITUK@escp.eu",
+    items: [
+      "Printing and PaperCut",
+      "Campus WiFi, but not eduroam",
+      "Campus computers and Bloomberg terminals",
+      "Study room booking problems",
+      "Classroom and projector equipment",
+      "Anything you cannot place — write here and we will route it"
+    ],
+    accent: "plain"
+  }
+];
+
+const LINKS = [
+  { label: "Blackboard", note: "Courses and coursework", href: "https://escpeurope.blackboard.com" },
+  { label: "Campus Life", note: "Student portal", href: "https://campuslife.escp.eu" },
+  { label: "Room search", note: "Find a room on campus", href: "https://ent.escpeurope.eu/RoomsManager/RoomSearch/index/campus/LO" },
+  { label: "Room screens", note: "Live London timetable display", href: "https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&refresh=120&pagetime=20&pagesize=20&fontsize=24&hide_after=15&print_logo=1&print_clock=0&print_programme=1&hide_after=30" }
+];
+
+const GUIDES = [
+  { label: "Microsoft 365", href: "./microsoft-365.html" },
+  { label: "Printing", href: "./papercut.html" },
+  { label: "eduroam WiFi", href: "./eduroam.html" },
+  { label: "Bloomberg login", href: "./bloomberg.html" },
+  { label: "Study rooms", href: "./study-rooms.html" }
+];
+
+const SKIN = {
+  gold:  { border: "rgba(238,194,66,.45)", bg: "rgba(238,194,66,.12)", kickerColor: "#EEC242", btnBg: "#EEC242", btnColor: "#1B0066" },
+  blue:  { border: "rgba(118,208,233,.42)", bg: "rgba(118,208,233,.1)", kickerColor: "#76D0E9", btnBg: "#76D0E9", btnColor: "#0A1A33" },
+  plain: { border: "rgba(255,255,255,.2)", bg: "rgba(255,255,255,.1)", kickerColor: "rgba(255,255,255,.6)", btnBg: "#fff", btnColor: "#1B0066" }
+};
+
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      routes: ROUTES.map((r, n) => ({
+        ...SKIN[r.accent],
+        kicker: r.kicker,
+        title: r.title,
+        email: r.email,
+        mailto: "mailto:" + r.email,
+        items: r.items,
+        delay: (0.06 + n * 0.08).toFixed(2) + "s"
+      })),
+      links: LINKS,
+      guides: GUIDES
+    };
+  }
+}
+</script>
+
+</body>
+</html>
