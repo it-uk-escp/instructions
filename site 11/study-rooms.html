@@ -61,10 +61,10 @@ a{color:#EEC242}a:hover{color:#fff}
     <div style="display:flex;flex-direction:column;gap:14px;padding-top:4px">
       <div style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 16px 8px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1)">
         <span style="width:7px;height:7px;border-radius:50%;background:#EEC242"></span>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)">London Campus · Study Rooms</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)">London Campus · Study Booths</span>
       </div>
-      <h1 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.96;letter-spacing:-.038em;color:#fff;max-width:900px;text-wrap:balance">Book a study room.</h1>
-      <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:560px;text-wrap:pretty">Pick a duration, pick a room, pick a time. Booking one takes about a minute.</p>
+      <h1 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.96;letter-spacing:-.038em;color:#fff;max-width:900px;text-wrap:balance">Book a study booth.</h1>
+      <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:560px;text-wrap:pretty">Pick a duration, pick a booth, pick a time. Booking one takes about a minute.</p>
     </div>
 
     <a href="https://escplondonstudyrooms.simplybook.it/v2/" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;text-decoration:none;background:#EEC242;color:#1B0066;padding:16px 28px;border-radius:99px;box-shadow:0 12px 26px -16px rgba(238,194,66,.6);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 32px -16px rgba(238,194,66,.75)">
@@ -217,11 +217,11 @@ a{color:#EEC242}a:hover{color:#fff}
               </div>
               <div style="margin-top:14px;border-radius:12px;border:1px dashed rgba(255,255,255,.3);background:rgba(255,255,255,.05);padding:18px 14px;text-align:center;animation:remptyPulse 3.4s ease-in-out infinite">
                 <div style="font-family:Montserrat,sans-serif;font-size:11px;font-weight:700;color:rgba(255,255,255,.8)">No times shown</div>
-                <div style="margin-top:5px;font-size:9.5px;font-weight:500;color:rgba(255,255,255,.55);line-height:1.4">Every slot in this room is taken</div>
+                <div style="margin-top:5px;font-size:9.5px;font-weight:500;color:rgba(255,255,255,.55);line-height:1.4">Every slot in this booth is taken</div>
               </div>
               <div style="margin-top:12px;display:flex;align-items:center;gap:7px">
                 <div style="width:8px;height:8px;border-radius:50%;background:#EEC242"></div>
-                <div style="font-size:9.5px;font-weight:500;color:rgba(255,255,255,.6)">Try another room or another day</div>
+                <div style="font-size:9.5px;font-weight:500;color:rgba(255,255,255,.6)">Try another booth or another day</div>
               </div>
             </div>
           </div>
@@ -294,20 +294,20 @@ const STEPS = [
   {
     num: "01", kicker: "Start",
     title: "Open the booking site and click Book Now",
-    body: "Go to the study rooms site and click Book Now. Sign in with your ESCP account when it asks.",
+    body: "Go to the study booths site and click Book Now. Sign in with your ESCP account when it asks.",
     aside: "My Bookings at the top right shows what you have already booked, and lets you cancel."
   },
   {
     num: "02", kicker: "Duration",
     title: "Choose one hour or two",
-    body: "The first screen asks how long you want the room for. Pick 1 Hour or 2 Hours and click Select.",
+    body: "The first screen asks how long you want the booth for. Pick 1 Hour or 2 Hours and click Select.",
     aside: "Two hours is the daily maximum, so choosing 2 Hours uses your whole allowance for the day."
   },
   {
-    num: "03", kicker: "Room",
-    title: "Pick a room",
-    body: "Next you see every bookable room — Fortune Green, Belsize Park, Camden Square, Berlin, Torino 1, Torino 2, Madrid, Warsaw 1 and Warsaw 2. Click Select under the one you want.",
-    aside: "Read more under a room name shows what is in it before you commit."
+    num: "03", kicker: "Booth",
+    title: "Pick a booth",
+    body: "Next you see every bookable booth — Fortune Green, Belsize Park, Camden Square, Berlin, Torino 1, Torino 2, Madrid, Warsaw 1 and Warsaw 2. Click Select under the one you want.",
+    aside: "Read more under a booth name shows what is in it before you commit."
   },
   {
     num: "04", kicker: "Time",
@@ -317,9 +317,9 @@ const STEPS = [
   },
   {
     num: "05", kicker: "Time",
-    title: "If no times appear, the room is fully booked",
-    body: "An empty list does not mean the system is broken. It means every slot in that room, on that day, has already been taken by another student.",
-    warn: "Go back and try a different room, or a different day. Rooms are booked individually, so one being full says nothing about the others.",
+    title: "If no times appear, the booth is fully booked",
+    body: "An empty list does not mean the system is broken. It means every slot in that booth, on that day, has already been taken by another student.",
+    warn: "Go back and try a different booth, or a different day. Booths are booked individually, so one being full says nothing about the others.",
     aside: "Popular slots go early. If you need a specific afternoon, book it a few days ahead."
   },
   {
@@ -332,10 +332,10 @@ const STEPS = [
 
 const RULES = [
   { q: "Two hours a day, maximum", a: "You can book up to two hours per day across the whole system." },
-  { q: "One room per day", a: "You cannot hold two different rooms on the same day." },
+  { q: "One booth per day", a: "You cannot hold two different booths on the same day." },
   { q: "Bookings are individual", a: "Every booking is made by one person, in their own name." },
   { q: "Group work means everyone books", a: "There is no group booking. Each person in the group makes their own booking." },
-  { q: "Misuse gets bookings cancelled", a: "Abusing the system, or complaints about behaviour in a room, can lead to bookings being cancelled." }
+  { q: "Misuse gets bookings cancelled", a: "Abusing the system, or complaints about behaviour in a booth, can lead to bookings being cancelled." }
 ];
 
 const HOURS = [
