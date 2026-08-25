@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{background:#1B0066;margin:0}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#1B0066;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+@media(max-width:620px){
+.pgwrap{padding:16px 16px 44px !important;gap:14px !important}
+.bigcard{padding:22px 19px 24px !important;border-radius:20px !important}
+.planrow{grid-template-columns:1fr !important;gap:10px !important}
+.tabrow{width:100%}
+.tabrow button{flex:1 1 0;padding:12px 10px !important;font-size:14px !important}
+.rulegrid{grid-template-columns:1fr !important}
+.boothrow span{font-size:14px !important;padding:8px 13px !important}
+.libcard{gap:10px !important;padding:13px 15px !important}
+.libmeta{align-items:flex-start !important;text-align:left !important;flex-direction:row !important;gap:9px !important;flex-wrap:wrap}
+.plabel{font-size:10px !important;padding:4px 8px !important;border-width:1.5px !important}
+.tlabel{font-size:5.5px !important;padding:1px 4px !important}
+}
+a{color:#EEC242}a:hover{color:#fff}
+@keyframes crise{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+.crise{animation:crise .6s cubic-bezier(.2,.7,.3,1) both}
+@view-transition{navigation:auto}
+@keyframes vtOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.985)}}
+@keyframes vtIn{from{opacity:0;transform:scale(1.012) translateY(8px)}to{opacity:1;transform:none}}
+::view-transition-old(root){animation:vtOut .22s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vtIn .34s cubic-bezier(.2,.7,.3,1) both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+@supports (view-transition-name:none){[style*="pagein"]{animation:none !important}}
+@media(prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="animation:pagein .3s ease both;position:relative;min-height:100vh;background:#1B0066;font-family:Karla,system-ui,sans-serif;overflow:hidden">
+
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0">
+    <div style="position:absolute;top:-14%;left:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9"></div>
+    <div style="position:absolute;bottom:-20%;right:-10%;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85"></div>
+    <div style="position:absolute;top:38%;left:42%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8"></div>
+  </div>
+
+  <div class="pgwrap" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:28px 40px 72px;display:flex;flex-direction:column;gap:20px">
+
+    <div style="display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap">
+      <a href="./index.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:9px 16px 9px 13px;border:1px solid rgba(255,255,255,.2);border-radius:99px;background:rgba(255,255,255,.08);transition:background .25s ease,color .25s ease,border-color .25s ease" style-hover="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)"><span style="font-size:14px;line-height:1">&#8592;</span>All setup guides</a>
+      <div style="display:flex;align-items:center;margin-left:auto">
+        <img src="assets/escp-logo.png" alt="ESCP" style="width:112px;height:auto;flex:none;margin:10px 6px 0 0">
+      </div>
+    </div>
+
+    <div class="crise" style="display:flex;flex-direction:column;gap:14px;padding-top:4px">
+      <div style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 16px 8px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1)">
+        <span style="width:7px;height:7px;border-radius:50%;background:#EEC242"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)">London Campus · Free Space</span>
+      </div>
+      <h1 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.96;letter-spacing:-.038em;color:#fff;max-width:900px;text-wrap:balance">Somewhere to work.</h1>
+      <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:640px;text-wrap:pretty">Empty classrooms, staff offices released for the day, eleven acoustic booths, and free places to sit within a short walk of campus.</p>
+    </div>
+
+    <div class="bigcard crise" style="border-radius:24px;border:1px solid rgba(238,194,66,.45);background:rgba(238,194,66,.13);padding:26px 32px 28px;display:flex;flex-direction:column;gap:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.24);animation-delay:.06s">
+      <div style="display:flex;align-items:center;gap:11px">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;color:#1B0066;background:#EEC242;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none">!</span>
+        <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.026em;color:#fff">Code of conduct</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-left:auto">Applies to all free space</span>
+      </div>
+      <div class="rulegrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px">
+        <sc-for list="{{ rules }}" as="r" hint-placeholder-count="5">
+          <div style="display:flex;align-items:flex-start;gap:11px;padding:13px 16px;border-radius:13px;border:1px solid rgba(255,255,255,.15);background:rgba(0,0,0,.16)">
+            <span style="width:7px;height:7px;border-radius:50%;background:#EEC242;flex:none;margin-top:6px"></span>
+            <span style="font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.9);text-wrap:pretty">{{ r }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="tabrow crise" style="display:flex;align-items:center;gap:6px;padding:5px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);align-self:flex-start;flex-wrap:wrap;animation-delay:.12s">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+        <button type="button" onClick="{{ t.go }}" style="border:0;cursor:pointer;font-family:Montserrat,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:-.014em;padding:11px 22px;border-radius:99px;background:{{ t.bg }};color:{{ t.color }};transition:background .25s ease,color .25s ease">{{ t.label }}</button>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ onCampus }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;flex-direction:column;gap:16px">
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px">
+          <sc-for list="{{ onsite }}" as="c" hint-placeholder-count="2">
+            <div class="bigcard crise" style="border-radius:26px;border:1px solid {{ c.border }};background:{{ c.bg }};padding:28px 30px 30px;display:flex;flex-direction:column;gap:13px;box-shadow:inset 0 1px 0 rgba(255,255,255,.24);animation-delay:{{ c.delay }}">
+              <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:14px">
+                <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:{{ c.kickerColor }}">{{ c.kicker }}</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.04em;color:#EEC242;text-align:right;flex:none;max-width:170px;line-height:1.45">{{ c.when }}</span>
+              </div>
+              <div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(21px,1.9vw,26px);line-height:1.1;letter-spacing:-.03em;color:#fff;text-wrap:balance">{{ c.title }}</div>
+              <div style="font-size:15.5px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.82);text-wrap:pretty">{{ c.body }}</div>
+              <sc-if value="{{ c.hasNote }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:flex-start;gap:10px;padding:13px 15px;border-radius:13px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.07)">
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;color:#EEC242;flex:none;margin-top:2px">i</span>
+                  <span style="font-size:14.5px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.84);text-wrap:pretty">{{ c.note }}</span>
+                </div>
+              </sc-if>
+              <sc-if value="{{ c.hasAction }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ c.href }}" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:6px;display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:{{ c.btnBg }};color:{{ c.btnColor }};padding:14px 22px;border-radius:99px;box-shadow:0 12px 26px -18px rgba(0,0,0,.6);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 30px -18px rgba(0,0,0,.7)">
+                  <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15.5px;letter-spacing:-.012em">{{ c.action }}</span>
+                  <span style="font-size:13px;opacity:.65">&#8599;</span>
+                </a>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+
+        <div class="bigcard crise" style="border-radius:26px;border:1px solid rgba(118,208,233,.4);background:rgba(118,208,233,.1);padding:30px 34px 32px;display:flex;flex-direction:column;gap:20px;box-shadow:inset 0 1px 0 rgba(255,255,255,.24);animation-delay:.22s">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap">
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#76D0E9">Acoustic booths</span>
+              <div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(21px,1.9vw,26px);letter-spacing:-.03em;color:#fff">Eleven booths, across two floors</div>
+            </div>
+            <a href="./study-rooms.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:#76D0E9;color:#0A1A33;padding:13px 21px;border-radius:99px;font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;box-shadow:0 12px 26px -18px rgba(0,0,0,.6);transition:transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="transform:translateY(-2px)">How to book one<span style="font-size:13px;opacity:.65">&#8594;</span></a>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px">
+            <sc-for list="{{ floors }}" as="f" hint-placeholder-count="3">
+              <div style="display:flex;flex-direction:column;gap:11px;min-width:0">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55)">{{ f.label }}</div>
+                <div class="boothrow" style="display:flex;flex-wrap:wrap;gap:8px">
+                  <sc-for list="{{ f.booths }}" as="b" hint-placeholder-count="3">
+                    <span style="font-size:14.5px;font-weight:600;color:rgba(255,255,255,.92);padding:9px 15px;border-radius:99px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08)">{{ b.name }}</span>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-size:14.5px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.72);text-wrap:pretty">Each booth has a QR code on it for booking. Two hours a day, one booth at a time.</div>
+
+          <div style="display:flex;flex-direction:column;gap:12px;padding-top:6px;border-top:1px solid rgba(255,255,255,.14)">
+            <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:14px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55)">Floor plans</span>
+              <span style="font-size:13.5px;font-weight:500;color:rgba(255,255,255,.6)">Booths are marked in gold — tap a plan to see it full size</span>
+            </div>
+            <div class="planrow" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+              <button type="button" onClick="{{ openGround }}" style="display:flex;flex-direction:column;gap:11px;width:100%;text-align:left;cursor:pointer;border-radius:16px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.22);padding:14px;font-family:Karla,system-ui,sans-serif;transition:border-color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="border-color:rgba(238,194,66,.5);transform:translateY(-2px)">
+                <span style="position:relative;display:block;width:100%;aspect-ratio:0.8916">
+                  <img src="assets/floor-ground.png" alt="Ground floor plan, London campus" style="display:block;width:100%;height:100%;object-fit:contain;border-radius:6px">
+                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible">
+                    <sc-for list="{{ groundMarks }}" as="m" hint-placeholder-count="3">
+                      <line x1="{{ m.ax }}" y1="{{ m.ay }}" x2="{{ m.lx }}" y2="{{ m.ly }}" stroke="#1B0066" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></line>
+                      <line x1="{{ m.ax }}" y1="{{ m.ay }}" x2="{{ m.lx }}" y2="{{ m.ly }}" stroke="#EEC242" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"></line>
+                    </sc-for>
+                  </svg>
+                  <sc-for list="{{ groundMarks }}" as="m" hint-placeholder-count="3">
+                    <span class="tlabel" style="position:absolute;left:{{ m.lxp }};top:{{ m.lyp }};transform:translate(-50%,-50%);white-space:nowrap;font-family:Montserrat,sans-serif;font-weight:800;font-size:7px;letter-spacing:-.005em;color:#1B0066;background:#EEC242;border:1px solid #1B0066;padding:2px 5px;border-radius:99px">{{ m.t }}</span>
+                  </sc-for>
+                </span>
+                <span style="display:flex;align-items:center;gap:8px">
+                  <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:-.014em;color:#fff">Ground floor</span>
+                  <span style="font-size:12.5px;font-weight:600;color:#EEC242;margin-left:auto">Expand &#10530;</span>
+                </span>
+              </button>
+              <button type="button" onClick="{{ openFirst }}" style="display:flex;flex-direction:column;gap:11px;width:100%;text-align:left;cursor:pointer;border-radius:16px;border:1px solid rgba(255,255,255,.16);background:rgba(0,0,0,.22);padding:14px;font-family:Karla,system-ui,sans-serif;transition:border-color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="border-color:rgba(238,194,66,.5);transform:translateY(-2px)">
+                <span style="position:relative;display:block;width:100%;aspect-ratio:0.9738">
+                  <img src="assets/floor-first.png" alt="First floor plan, London campus" style="display:block;width:100%;height:100%;object-fit:contain;border-radius:6px">
+                  <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible">
+                    <sc-for list="{{ firstMarks }}" as="m" hint-placeholder-count="3">
+                      <line x1="{{ m.ax }}" y1="{{ m.ay }}" x2="{{ m.lx }}" y2="{{ m.ly }}" stroke="#1B0066" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"></line>
+                      <line x1="{{ m.ax }}" y1="{{ m.ay }}" x2="{{ m.lx }}" y2="{{ m.ly }}" stroke="#EEC242" stroke-width="1.4" stroke-linecap="round" vector-effect="non-scaling-stroke"></line>
+                    </sc-for>
+                  </svg>
+                  <sc-for list="{{ firstMarks }}" as="m" hint-placeholder-count="3">
+                    <span class="tlabel" style="position:absolute;left:{{ m.lxp }};top:{{ m.lyp }};transform:translate(-50%,-50%);white-space:nowrap;font-family:Montserrat,sans-serif;font-weight:800;font-size:7px;letter-spacing:-.005em;color:#1B0066;background:#EEC242;border:1px solid #1B0066;padding:2px 5px;border-radius:99px">{{ m.t }}</span>
+                  </sc-for>
+                </span>
+                <span style="display:flex;align-items:center;gap:8px">
+                  <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:-.014em;color:#fff">First floor</span>
+                  <span style="font-size:12.5px;font-weight:600;color:#EEC242;margin-left:auto">Expand &#10530;</span>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ nearby }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:16px">
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px">
+          <sc-for list="{{ cafes }}" as="c" hint-placeholder-count="2">
+            <div class="bigcard crise" style="border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);padding:28px 30px 30px;display:flex;flex-direction:column;gap:13px;box-shadow:inset 0 1px 0 rgba(255,255,255,.26);animation-delay:{{ c.delay }}">
+              <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#EEC242">Free entry</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.52)">{{ c.walk }}</span>
+              </div>
+              <div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(21px,1.9vw,26px);line-height:1.1;letter-spacing:-.03em;color:#fff">{{ c.name }}</div>
+              <div style="font-size:15.5px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.82);text-wrap:pretty">{{ c.what }}</div>
+              <div style="display:flex;flex-direction:column;gap:7px;padding:14px 16px;border-radius:13px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06)">
+                <div style="font-size:14.5px;font-weight:600;color:rgba(255,255,255,.9)">{{ c.address }}</div>
+                <div style="font-size:14px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.7);text-wrap:pretty">{{ c.hours }}</div>
+              </div>
+              <a href="{{ c.href }}" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:4px;display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:#fff;color:#1B0066;padding:13px 21px;border-radius:99px;font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;transition:transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="transform:translateY(-2px)">Website<span style="font-size:13px;opacity:.55">&#8599;</span></a>
+            </div>
+          </sc-for>
+        </div>
+
+        <div class="bigcard crise" style="border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);padding:30px 34px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.26);animation-delay:.2s">
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)">Camden libraries</span>
+            <div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(21px,1.9vw,26px);letter-spacing:-.03em;color:#fff">Eight libraries, one free card</div>
+            <div style="font-size:15.5px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.8);max-width:640px;text-wrap:pretty">Register free with photo ID and proof of address — the address does not have to be in Camden. One card gives you all of them. Sorted by how far they are from campus.</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <sc-for list="{{ libraries }}" as="l" hint-placeholder-count="8">
+              <a href="{{ l.href }}" target="_blank" rel="noopener" class="libcard" style="display:flex;align-items:center;gap:16px;text-decoration:none;padding:15px 18px;border-radius:15px;border:1px solid {{ l.border }};background:{{ l.bg }};flex-wrap:wrap;transition:background .2s ease,transform .2s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(255,255,255,.15);transform:translateX(3px)">
+                <div style="flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:5px">
+                  <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16.5px;letter-spacing:-.02em;color:{{ l.nameColor }}">{{ l.name }}</div>
+                  <div style="font-size:14px;font-weight:500;line-height:1.45;color:rgba(255,255,255,.68);text-wrap:pretty">{{ l.hours }}</div>
+                </div>
+                <div class="libmeta" style="flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:5px;text-align:right">
+                  <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;color:#EEC242">{{ l.travel }}</div>
+                  <div style="font-size:13px;font-weight:500;color:rgba(255,255,255,.55)">{{ l.note }}</div>
+                </div>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+
+      </div>
+    </sc-if>
+
+    <div class="crise" style="display:flex;flex-wrap:wrap;gap:12px;animation-delay:.4s">
+      <sc-for list="{{ guides }}" as="g" hint-placeholder-count="3">
+        <a href="{{ g.href }}" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:14.5px;font-weight:600;color:rgba(255,255,255,.82);padding:12px 20px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);transition:background .22s ease,color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(255,255,255,.16);color:#fff;transform:translateY(-2px)">{{ g.label }}<span style="font-size:13px;color:#EEC242">&#8594;</span></a>
+      </sc-for>
+    </div>
+
+  </div>
+
+  <sc-if value="{{ zoom }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closePlan }}" style="position:fixed;inset:0;z-index:40;background:rgba(12,3,44,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:18px;overflow-y:auto;animation:crise .28s cubic-bezier(.2,.7,.3,1) both;cursor:zoom-out">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center">
+        <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:17px;letter-spacing:-.024em;color:#fff">{{ planLabel }}</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)">Booths are marked in gold</span>
+      </div>
+      <div class="planstage" style="position:relative;height:min(calc(96vw / {{ planAspect }}),calc(100vh - 160px));aspect-ratio:{{ planAspect }}">
+        <img src="{{ planSrc }}" alt="{{ planAlt }}" style="display:block;width:100%;height:100%;object-fit:contain">
+        <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible">
+          <sc-for list="{{ marks }}" as="m" hint-placeholder-count="3">
+            <line x1="{{ m.ax }}" y1="{{ m.ay }}" x2="{{ m.lx }}" y2="{{ m.ly }}" stroke="#1B0066" stroke-width="5" stroke-linecap="round" vector-effect="non-scaling-stroke"></line>
+            <line x1="{{ m.ax }}" y1="{{ m.ay }}" x2="{{ m.lx }}" y2="{{ m.ly }}" stroke="#EEC242" stroke-width="2.6" stroke-linecap="round" vector-effect="non-scaling-stroke"></line>
+          </sc-for>
+        </svg>
+        <sc-for list="{{ marks }}" as="m" hint-placeholder-count="3">
+          <span class="plabel" style="position:absolute;left:{{ m.lxp }};top:{{ m.lyp }};transform:translate(-50%,-50%);white-space:nowrap;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(11px,1.35vh,17px);letter-spacing:-.008em;color:#1B0066;background:#EEC242;border:2px solid #1B0066;padding:5px 11px;border-radius:99px;box-shadow:0 4px 14px -6px rgba(0,0,0,.8)">{{ m.t }}</span>
+        </sc-for>
+      </div>
+      <button type="button" onClick="{{ closePlan }}" style="cursor:pointer;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.12);color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:-.012em;padding:12px 24px;border-radius:99px">Close</button>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1180},&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEC242&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEC242&quot;,&quot;#76D0E9&quot;,&quot;#0E00FF&quot;,&quot;#FFFFFF&quot;]}}">
+const ROOM_BOOKINGS = "https://ent.escpeurope.eu/RoomsManager/RoomSearch/index/campus/LO";
+
+const RULES = [
+  "No food or drink except water in classrooms and staff offices.",
+  "Staff office doors stay open while released, so security can patrol.",
+  "Do not move furniture in classrooms or staff offices.",
+  "The student lounge is for eating and socialising at lunch, not study or group work.",
+  "Vacate classrooms 10 minutes before the next class starts — check the room bookings first."
+];
+
+const ONSITE = [
+  {
+    kicker: "Classroom release",
+    when: "Weekdays 7.45am – 8pm",
+    title: "Any classroom that is not in use",
+    body: "Empty classrooms are open to you during the day. Check the room bookings to see which rooms are taken and which are free right now, then find one and sit down.",
+    note: "G100 and G101 are 8am to 6pm only. The same information runs on the display screens in the corridor by G62 and in the student lounge, with a QR code you can scan.",
+    action: "Room bookings",
+    href: ROOM_BOOKINGS,
+    accent: "gold"
+  },
+  {
+    kicker: "Office release",
+    when: "Weekdays 7.45am – 8pm",
+    title: "Staff offices released for the day",
+    body: "Staff release their offices to students when they are away. Look for the sign boards at the main entrance and in the main reception — they list which offices are free that day, where they are, and how many people fit.",
+    note: "A “Free Space Today” sign sits by each released office door, so you can spot them from the corridor.",
+    accent: "plain"
+  }
+];
+
+const FLOORS = [
+  {
+    key: "ground", label: "Ground floor", plan: "assets/floor-ground-lg.png", aspect: 0.8916,
+    booths: ["Berlin", "Warsaw 1", "Warsaw 2"],
+    marks: [
+      { t: "Berlin", ax: 44.79, ay: 26.90, lx: 62, ly: 17 },
+      { t: "Warsaw 1", ax: 83.61, ay: 68.88, lx: 60, ly: 60 },
+      { t: "Warsaw 2", ax: 91.70, ay: 68.72, lx: 72, ly: 84 }
+    ]
+  },
+  {
+    key: "first", label: "First floor", plan: "assets/floor-first-lg.png", aspect: 0.9738,
+    booths: ["Madrid", "Paris 1", "Paris 2", "Torino 1", "Torino 2", "Camden Square", "Belsize Park", "Fortune Green"],
+    marks: [
+      { t: "Madrid", ax: 38.11, ay: 20.56, lx: 55, ly: 10 },
+      { t: "Paris 1", ax: 33.49, ay: 30.08, lx: 13, ly: 22 },
+      { t: "Paris 2", ax: 39.83, ay: 30.08, lx: 58, ly: 25 },
+      { t: "Torino 1", ax: 60.40, ay: 57.79, lx: 42, ly: 49 },
+      { t: "Torino 2", ax: 67.94, ay: 57.79, lx: 85, ly: 49 },
+      { t: "Camden Square", ax: 19.60, ay: 68.98, lx: 44, ly: 64 },
+      { t: "Belsize Park", ax: 29.89, ay: 75.82, lx: 52, ly: 73 },
+      { t: "Fortune Green", ax: 21.49, ay: 76.49, lx: 30, ly: 90 }
+    ]
+  }
+];
+
+const CAFES = [
+  {
+    name: "Camden Art Centre",
+    walk: "5 min walk",
+    what: "Free entry, a café with seating, a garden and a covered terrace. Opposite JW3.",
+    address: "Arkwright Road, NW3 6DG",
+    hours: "Tue, Wed, Fri, Sat, Sun 11am – 6pm · Thu 11am – 9pm · Mon closed",
+    href: "https://camdenartcentre.org/"
+  },
+  {
+    name: "JW3",
+    walk: "5 min walk",
+    what: "Free entry, a café with seating, a garden and a covered terrace.",
+    address: "341–351 Finchley Road, NW3 6ET",
+    hours: "Sun to Thu from 10am",
+    href: "https://www.jw3.org.uk/"
+  }
+];
+
+const LIBRARIES = [
+  { name: "West Hampstead", travel: "8 min walk", hours: "Mon 11am–7pm · Tue–Thu 11am–6pm · Fri, Sat 11am–5pm · Sun closed", note: "Study spaces", href: "https://www.camden.gov.uk/west-hampstead-library" },
+  { name: "Swiss Cottage", travel: "10 min bus", hours: "10am–8pm daily except Sunday", note: "Study spaces", href: "https://www.camden.gov.uk/swiss-cottage-library" },
+  { name: "Kentish Town", travel: "22 min", hours: "Mon–Thu 10am–7pm · Fri 10am–5pm · Sat 11am–5pm · Sun closed", note: "Study spaces", href: "https://www.camden.gov.uk/kentish-town-library" },
+  { name: "Pancras Square", travel: "22 min", hours: "Mon–Sat 8am–8pm · Sun 11am–5pm", note: "Study spaces", href: "https://www.camden.gov.uk/pancras-square-library" },
+  { name: "Kilburn", travel: "25 min", hours: "Mon–Thu 10am–7pm · Fri 10am–5pm · Sat 11am–5pm · Sun closed", note: "Study spaces", href: "https://www.camden.gov.uk/kilburn-library" },
+  { name: "Camden Town", travel: "30 min", hours: "Mon–Thu 10am–6pm · Fri, Sat 11am–5pm · Sun closed", note: "4 hours a day max", href: "https://www.camden.gov.uk/camden-town-library" },
+  { name: "Holborn", travel: "40 min", hours: "Mon–Thu 10am–7pm · Fri 10am–5pm · Sat 11am–5pm · Sun closed", note: "Study spaces", href: "https://www.camden.gov.uk/holborn-library" },
+  { name: "Highgate", travel: "50 min", hours: "Temporarily closed", note: "Closed", href: "https://www.camden.gov.uk/highgate-library", closed: true }
+];
+
+const GUIDES = [
+  { label: "Book a study booth", href: "./study-rooms.html" },
+  { label: "Set up printing", href: "./papercut.html" },
+  { label: "Campus WiFi", href: "./campus-wifi.html" },
+  { label: "Who to contact", href: "./contacts.html" }
+];
+
+const SKIN = {
+  gold:  { border: "rgba(238,194,66,.45)", bg: "rgba(238,194,66,.12)", kickerColor: "#EEC242", btnBg: "#EEC242", btnColor: "#1B0066" },
+  plain: { border: "rgba(255,255,255,.2)", bg: "rgba(255,255,255,.1)", kickerColor: "rgba(255,255,255,.6)", btnBg: "#fff", btnColor: "#1B0066" }
+};
+
+class Component extends DCLogic {
+  state = { tab: "campus", floor: "ground", zoom: false };
+
+  componentDidMount() {
+    const t = new URLSearchParams(location.search).get("tab");
+    if (t === "nearby") this.setState({ tab: "nearby" });
+    this._key = (e) => { if (e.key === "Escape" && this.state.zoom) this.setState({ zoom: false }); };
+    window.addEventListener("keydown", this._key);
+  }
+  componentWillUnmount() { window.removeEventListener("keydown", this._key); }
+
+  renderVals() {
+    const tab = this.state.tab;
+    return {
+      rules: RULES,
+      tabs: [
+        { key: "campus", label: "On campus" },
+        { key: "nearby", label: "Nearby" }
+      ].map(t => ({
+        label: t.label,
+        bg: tab === t.key ? "#EEC242" : "transparent",
+        color: tab === t.key ? "#1B0066" : "rgba(255,255,255,.72)",
+        go: () => this.setState({ tab: t.key })
+      })),
+      onCampus: tab === "campus",
+      nearby: tab === "nearby",
+      onsite: ONSITE.map((c, n) => ({
+        ...SKIN[c.accent],
+        kicker: c.kicker, when: c.when, title: c.title, body: c.body,
+        hasNote: !!c.note, note: c.note || "",
+        hasAction: !!c.action, action: c.action || "", href: c.href || "#",
+        delay: (0.14 + n * 0.07).toFixed(2) + "s"
+      })),
+      groundMarks: FLOORS[0].marks.map(m => ({ ...m, lxp: m.lx + "%", lyp: m.ly + "%" })),
+      firstMarks: FLOORS[1].marks.map(m => ({ ...m, lxp: m.lx + "%", lyp: m.ly + "%" })),
+      openGround: () => this.setState({ zoom: true, floor: "ground" }),
+      openFirst: () => this.setState({ zoom: true, floor: "first" }),
+      planSrc: (FLOORS.find(f => f.key === this.state.floor) || FLOORS[0]).plan,
+      planLabel: (FLOORS.find(f => f.key === this.state.floor) || FLOORS[0]).label,
+      planAspect: String((FLOORS.find(f => f.key === this.state.floor) || FLOORS[0]).aspect),
+      marks: (FLOORS.find(f => f.key === this.state.floor) || FLOORS[0]).marks.map(m => ({
+        t: m.t, ax: m.ax, ay: m.ay, lx: m.lx, ly: m.ly,
+        lxp: m.lx + "%", lyp: m.ly + "%"
+      })),
+      zoom: this.state.zoom,
+      closePlan: () => this.setState({ zoom: false }),
+      planAlt: (FLOORS.find(f => f.key === this.state.floor) || FLOORS[0]).label + " plan, London campus",
+      floors: FLOORS.map(f => ({
+        label: f.label,
+        booths: f.booths.map(b => ({ name: b }))
+      })),
+      cafes: CAFES.map((c, n) => ({ ...c, delay: (0.14 + n * 0.07).toFixed(2) + "s" })),
+      libraries: LIBRARIES.map(l => ({
+        name: l.name, hours: l.hours, travel: l.travel, note: l.note, href: l.href,
+        border: l.closed ? "rgba(255,255,255,.1)" : "rgba(255,255,255,.16)",
+        bg: l.closed ? "rgba(255,255,255,.03)" : "rgba(255,255,255,.08)",
+        nameColor: l.closed ? "rgba(255,255,255,.5)" : "#fff"
+      })),
+      guides: GUIDES
+    };
+  }
+}
+</script>
+</body>
+</html>

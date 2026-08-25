@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>html,body{background:#1B0066;margin:0}</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+html,body{background:#1B0066}
+body{margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#EEC242}a:hover{color:#fff}
+@keyframes crise{0%{opacity:0;transform:translateY(14px)}100%{opacity:1;transform:translateY(0)}}
+.crise{animation:crise .6s cubic-bezier(.2,.7,.3,1) both}
+@keyframes pagein{from{opacity:0}to{opacity:1}}
+@view-transition{navigation:auto}
+@keyframes vtOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.985)}}
+@keyframes vtIn{from{opacity:0;transform:scale(1.012) translateY(8px)}to{opacity:1;transform:none}}
+::view-transition-old(root){animation:vtOut .22s cubic-bezier(.4,0,1,1) both}
+::view-transition-new(root){animation:vtIn .34s cubic-bezier(.2,.7,.3,1) both}
+@supports (view-transition-name:none){[style*="pagein"]{animation:none !important}}
+@keyframes wpulse{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:1;transform:scale(1)}}
+@keyframes wslide{0%,100%{transform:translateX(0)}50%{transform:translateX(15px)}}
+@keyframes wknob{0%,45%{transform:translateX(15px);background:#5ED17A}55%,100%{transform:translateX(0);background:rgba(255,255,255,.45)}}
+@keyframes wtrack{0%,45%{background:rgba(94,209,122,.5)}55%,100%{background:rgba(255,255,255,.16)}}
+@keyframes wtype{0%,20%{width:0}60%,100%{width:74px}}
+@keyframes wcaret{0%,100%{opacity:0}50%{opacity:1}}
+@keyframes wfade{0%,40%{opacity:1}60%,100%{opacity:.18}}
+@keyframes wtick{0%{transform:scale(.4);opacity:0}55%{transform:scale(1.12);opacity:1}100%{transform:scale(1);opacity:1}}
+@keyframes wsweep{0%{transform:translateY(0);opacity:.9}100%{transform:translateY(74px);opacity:0}}
+@media(max-width:640px){
+.pgwrap{padding:16px 16px 44px !important;gap:14px !important}
+.bigcard{padding:22px 19px 24px !important;border-radius:20px !important}
+.stepgrid{grid-template-columns:1fr !important}
+.illo{order:-1}
+.tabrow{width:100%}
+.tabrow button{flex:1 1 40%;padding:11px 8px !important;font-size:13.5px !important}
+.netgrid{grid-template-columns:1fr !important}
+.faqgrid{grid-template-columns:1fr !important}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none !important}}
+</style>
+</helmet>
+<div style="animation:pagein .3s ease both;position:relative;min-height:100vh;background:#1B0066;font-family:Karla,system-ui,sans-serif;overflow:hidden">
+
+  <div style="position:fixed;inset:0;pointer-events:none;z-index:0">
+    <div style="position:absolute;top:-14%;left:-8%;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9"></div>
+    <div style="position:absolute;bottom:-20%;right:-10%;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85"></div>
+    <div style="position:absolute;top:38%;left:42%;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8"></div>
+  </div>
+
+  <div class="pgwrap" style="position:relative;z-index:1;max-width:1180px;margin:0 auto;padding:28px 40px 72px;display:flex;flex-direction:column;gap:20px">
+
+    <div style="display:flex;align-items:flex-start;gap:18px;flex-wrap:wrap">
+      <a href="./index.html" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.7);padding:9px 16px 9px 13px;border:1px solid rgba(255,255,255,.2);border-radius:99px;background:rgba(255,255,255,.08);transition:background .25s ease,color .25s ease,border-color .25s ease" style-hover="background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)"><span style="font-size:14px;line-height:1">&#8592;</span>All setup guides</a>
+      <div style="display:flex;align-items:center;margin-left:auto">
+        <img src="assets/escp-logo.png" alt="ESCP" style="width:112px;height:auto;flex:none;margin:10px 6px 0 0">
+      </div>
+    </div>
+
+    <div class="crise" style="display:flex;flex-direction:column;gap:14px;padding-top:4px">
+      <div style="display:inline-flex;align-items:center;gap:10px;align-self:flex-start;padding:8px 16px 8px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1)">
+        <span style="width:7px;height:7px;border-radius:50%;background:#EEC242"></span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)">London Campus · Campus WiFi</span>
+      </div>
+      <h1 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,56px);line-height:.96;letter-spacing:-.038em;color:#fff;max-width:900px;text-wrap:balance">Campus WiFi.</h1>
+      <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:660px;text-wrap:pretty">WiFi covers the whole campus. Pick ESCP, sign in with your username, and you are on for about a week. If it will not connect, one of the privacy settings below is almost always the reason.</p>
+    </div>
+
+    <div class="netgrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px">
+      <div class="bigcard crise" style="border-radius:22px;border:1px solid rgba(238,194,66,.45);background:rgba(238,194,66,.12);padding:24px 26px 26px;display:flex;flex-direction:column;gap:11px;box-shadow:inset 0 1px 0 rgba(255,255,255,.24);animation-delay:.06s">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:#EEC242">ESCP</span>
+          <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#1B0066;background:#EEC242;padding:5px 11px;border-radius:99px">Use this one</span>
+        </div>
+        <div style="font-size:15.5px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.86);text-wrap:pretty">For students and staff. Sign in with your ESCP username and password. You stay signed in for about a week, then it asks again.</div>
+      </div>
+      <div class="bigcard crise" style="border-radius:22px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09);padding:24px 26px 26px;display:flex;flex-direction:column;gap:11px;box-shadow:inset 0 1px 0 rgba(255,255,255,.24);animation-delay:.12s">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:14px;letter-spacing:.06em;color:rgba(255,255,255,.8)">ESCP_GUEST</span>
+          <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.25);padding:4px 11px;border-radius:99px">Visitors</span>
+        </div>
+        <div style="font-size:15.5px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.78);text-wrap:pretty">For visitors and guests. If you are a student, do not use this — it is slower and more limited than ESCP.</div>
+      </div>
+    </div>
+
+    <div class="crise" style="display:flex;flex-direction:column;gap:11px;padding-top:6px;animation-delay:.18s">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5)">Your device</span>
+      <div class="tabrow" style="display:flex;align-items:center;gap:6px;padding:5px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);align-self:flex-start;flex-wrap:wrap">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+          <button type="button" onClick="{{ t.go }}" style="border:0;cursor:pointer;font-family:Montserrat,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:-.014em;padding:11px 21px;border-radius:99px;background:{{ t.bg }};color:{{ t.color }};transition:background .25s ease,color .25s ease">{{ t.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <div class="bigcard crise" style="border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);padding:30px 34px 32px;display:flex;flex-direction:column;gap:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.26);animation-delay:.24s">
+
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#EEC242">{{ step.kicker }}</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-left:auto">Step {{ humanIndex }} / {{ total }}</span>
+      </div>
+
+      <div style="display:flex;gap:5px">
+        <sc-for list="{{ segments }}" as="s" hint-placeholder-count="8">
+          <span title="{{ s.title }}" style="flex:1 1 0;height:4px;border-radius:99px;background:{{ s.bg }};transition:background .3s ease"></span>
+        </sc-for>
+      </div>
+
+      <div class="stepgrid" style="display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:start">
+
+        <div style="display:flex;flex-direction:column;gap:15px;min-width:0">
+          <h2 style="margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(22px,2.3vw,31px);line-height:1.08;letter-spacing:-.032em;color:#fff;text-wrap:balance">{{ step.title }}</h2>
+          <div style="font-size:16.5px;font-weight:500;line-height:1.58;color:rgba(255,255,255,.84);text-wrap:pretty">{{ step.body }}</div>
+          <sc-if value="{{ step.hasPath }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:13px 16px;border-radius:13px;border:1px solid rgba(118,208,233,.35);background:rgba(118,208,233,.1)">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#76D0E9;flex:none">Where</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.5;color:rgba(255,255,255,.92)">{{ step.path }}</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ step.hasWarn }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:7px;padding:15px 17px;border-radius:14px;border:1px solid rgba(238,194,66,.45);background:rgba(238,194,66,.13)">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#EEC242">Do not skip this</span>
+              <span style="font-size:15.5px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.9);text-wrap:pretty">{{ step.warn }}</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ step.hasAside }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:15px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.6);text-wrap:pretty">{{ step.aside }}</div>
+          </sc-if>
+        </div>
+
+        <div class="illo" style="border-radius:20px;border:1px solid rgba(255,255,255,.14);background:rgba(0,0,0,.26);padding:22px;min-height:250px;display:flex;align-items:center;justify-content:center">
+
+          <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+            <div style="width:100%;max-width:270px;display:flex;flex-direction:column;gap:9px">
+              <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:9px;border-bottom:1px solid rgba(255,255,255,.12)">
+                <span style="font-size:12.5px;font-weight:600;color:rgba(255,255,255,.6)">Wi-Fi</span>
+                <span style="width:30px;height:17px;border-radius:99px;background:rgba(94,209,122,.55);position:relative;display:inline-block"><span style="position:absolute;top:2px;left:15px;width:13px;height:13px;border-radius:50%;background:#5ED17A"></span></span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:11px;background:rgba(238,194,66,.2);border:1px solid rgba(238,194,66,.5)">
+                <span style="font-size:13.5px;font-weight:700;color:#fff;font-family:'JetBrains Mono',monospace">ESCP</span>
+                <span style="margin-left:auto;display:flex;gap:2px;align-items:flex-end">
+                  <span style="width:3px;height:5px;border-radius:1px;background:#EEC242;animation:wpulse 1.6s ease-in-out infinite"></span>
+                  <span style="width:3px;height:8px;border-radius:1px;background:#EEC242;animation:wpulse 1.6s ease-in-out .18s infinite"></span>
+                  <span style="width:3px;height:11px;border-radius:1px;background:#EEC242;animation:wpulse 1.6s ease-in-out .36s infinite"></span>
+                </span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:11px;background:rgba(255,255,255,.06)">
+                <span style="font-size:13px;font-weight:600;color:rgba(255,255,255,.55);font-family:'JetBrains Mono',monospace">ESCP_GUEST</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:11px;background:rgba(255,255,255,.04)">
+                <span style="font-size:13px;font-weight:600;color:rgba(255,255,255,.32);font-family:'JetBrains Mono',monospace">eduroam</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isToggle }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;max-width:290px;display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 15px;border-radius:13px;background:rgba(255,255,255,.07);border:1px solid rgba(238,194,66,.4)">
+                <span style="display:flex;flex-direction:column;gap:5px;min-width:0;flex:1">
+                  <span style="font-size:13.5px;font-weight:700;color:#fff">{{ toggleName }}</span>
+                  <span style="font-size:11.5px;font-weight:500;line-height:1.4;color:rgba(255,255,255,.5)">{{ toggleHint }}</span>
+                </span>
+                <span style="flex:none;width:36px;height:21px;border-radius:99px;position:relative;display:inline-block;animation:wtrack 2.6s ease-in-out infinite"><span style="position:absolute;top:3px;left:3px;width:15px;height:15px;border-radius:50%;animation:wknob 2.6s ease-in-out infinite"></span></span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:12px 15px;border-radius:12px;background:rgba(255,255,255,.04)">
+                <span style="font-size:12.5px;font-weight:600;color:rgba(255,255,255,.4)">Wi-Fi address</span>
+                <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:rgba(255,255,255,.35)">d0:11:e5:b5:23:ab</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:12px 15px;border-radius:12px;background:rgba(255,255,255,.04)">
+                <span style="font-size:12.5px;font-weight:600;color:rgba(255,255,255,.4)">IP address</span>
+                <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:rgba(255,255,255,.35)">10.99.10.158</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding-top:2px">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)">Turn it</span>
+                <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:11px;letter-spacing:.08em;color:#1B0066;background:#EEC242;padding:4px 10px;border-radius:99px">Off</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isVpn }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;max-width:250px;display:flex;flex-direction:column;align-items:center;gap:18px">
+              <div style="position:relative;width:96px;height:96px;display:flex;align-items:center;justify-content:center;border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);animation:wfade 2.8s ease-in-out infinite">
+                <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:25px;letter-spacing:-.02em;color:rgba(255,255,255,.75)">VPN</span>
+                <span style="position:absolute;left:12px;right:12px;top:50%;height:4px;border-radius:99px;background:#EEC242;transform:rotate(-38deg)"></span>
+              </div>
+              <div style="font-size:13.5px;font-weight:600;line-height:1.5;text-align:center;color:rgba(255,255,255,.68)">ESCP WiFi does not work with a VPN running</div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isDns }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;max-width:280px;display:flex;flex-direction:column;gap:11px">
+              <sc-for list="{{ dnsRows }}" as="r" hint-placeholder-count="2">
+                <div style="display:flex;align-items:center;gap:10px;padding:13px 15px;border-radius:12px;background:rgba(255,255,255,.07);border:1px solid rgba(238,194,66,.4)">
+                  <span style="font-size:12.5px;font-weight:700;color:#fff">{{ r.label }}</span>
+                  <span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#EEC242">{{ r.value }}</span>
+                </div>
+              </sc-for>
+              <sc-if value="{{ dnsStrike }}" hint-placeholder-val="{{ true }}">
+                <div style="position:relative;overflow:hidden;display:flex;flex-direction:column;gap:7px;padding:13px 15px;border-radius:12px;background:rgba(255,255,255,.03);border:1px dashed rgba(255,255,255,.2)">
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.3);text-decoration:line-through">8.8.8.8</span>
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(255,255,255,.3);text-decoration:line-through">1.1.1.1</span>
+                  <span style="position:absolute;left:0;right:0;top:0;height:2px;background:#EEC242;animation:wsweep 2.4s ease-in-out infinite"></span>
+                </div>
+                <div style="font-size:12.5px;font-weight:600;text-align:center;color:rgba(255,255,255,.5)">Delete anything you typed in yourself</div>
+              </sc-if>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isPortal }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;max-width:250px;display:flex;flex-direction:column;gap:13px;padding:19px 17px;border-radius:16px;background:#fff">
+              <div style="display:flex;align-items:center;justify-content:center;gap:8px;padding-bottom:4px">
+                <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:15px;letter-spacing:-.02em;color:#1B0066">ESCP</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:9.5px;letter-spacing:.1em;color:#555">USERNAME</span>
+                <span style="position:relative;display:flex;align-items:center;height:30px;border-radius:7px;border:1px solid #c9c9c9;padding:0 9px;overflow:hidden">
+                  <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#1B0066;white-space:nowrap;overflow:hidden;animation:wtype 3.4s ease-in-out infinite">jsmith</span>
+                  <span style="width:1.5px;height:14px;background:#1B0066;animation:wcaret 1s step-end infinite"></span>
+                </span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:5px">
+                <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:9.5px;letter-spacing:.1em;color:#555">PASSWORD</span>
+                <span style="display:flex;align-items:center;height:30px;border-radius:7px;border:1px solid #c9c9c9;padding:0 9px;letter-spacing:.22em;font-size:12px;color:#1B0066">••••••••</span>
+              </div>
+              <span style="display:flex;align-items:center;justify-content:center;height:32px;border-radius:7px;background:#3B2BB3;color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:13px">Sign In</span>
+              <span style="font-size:10.5px;font-weight:600;line-height:1.45;text-align:center;color:#b03030">Username only — not your full email</span>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:17px">
+              <div style="position:relative;width:86px;height:86px;display:flex;align-items:center;justify-content:center">
+                <span style="position:absolute;inset:0;border-radius:50%;background:rgba(94,209,122,.16);border:1px solid rgba(94,209,122,.5)"></span>
+                <span style="font-size:38px;line-height:1;color:#5ED17A;animation:wtick .7s cubic-bezier(.2,.7,.3,1) both">&#10003;</span>
+              </div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+                <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:16px;letter-spacing:-.022em;color:#fff">Connected to ESCP</span>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)">Signed in for about a week</span>
+              </div>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isForget }}" hint-placeholder-val="{{ false }}">
+            <div style="width:100%;max-width:260px;display:flex;flex-direction:column;gap:10px">
+              <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:11px;background:rgba(255,255,255,.07);animation:wfade 2.8s ease-in-out infinite">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:rgba(255,255,255,.85)">ESCP</span>
+                <span style="margin-left:auto;font-size:12px;font-weight:700;color:#EEC242">Forget</span>
+              </div>
+              <div style="display:flex;align-items:center;justify-content:center;padding:8px 0">
+                <span style="font-size:20px;color:rgba(255,255,255,.35);animation:wslide 2.2s ease-in-out infinite">&#8635;</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:11px;background:rgba(238,194,66,.18);border:1px solid rgba(238,194,66,.45)">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:700;color:#fff">ESCP</span>
+                <span style="margin-left:auto;font-size:12px;font-weight:700;color:#EEC242">Join</span>
+              </div>
+              <div style="font-size:12.5px;font-weight:600;text-align:center;line-height:1.45;color:rgba(255,255,255,.5)">Forgetting clears the old settings and starts fresh</div>
+            </div>
+          </sc-if>
+
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding-top:4px">
+        <button type="button" onClick="{{ prev }}" style="cursor:pointer;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.09);color:#fff;font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:13px 24px;border-radius:99px;opacity:{{ prevOpacity }};transition:background .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(255,255,255,.18);transform:translateY(-1px)">Back</button>
+        <button type="button" onClick="{{ next }}" style="cursor:pointer;border:0;background:#EEC242;color:#1B0066;font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.012em;padding:13px 26px;border-radius:99px;box-shadow:0 12px 26px -18px rgba(0,0,0,.7);transition:transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="transform:translateY(-2px)">{{ nextLabel }}</button>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-left:auto">Arrow keys work too</span>
+      </div>
+    </div>
+
+    <div class="bigcard crise" style="border-radius:26px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.1);padding:30px 34px 32px;display:flex;flex-direction:column;gap:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.26);animation-delay:.32s">
+      <div style="display:flex;align-items:center;gap:12px">
+        <span style="font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(21px,1.9vw,26px);letter-spacing:-.03em;color:#fff">If it still will not connect</span>
+      </div>
+      <div class="faqgrid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px">
+        <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="6">
+          <div style="display:flex;flex-direction:column;gap:9px;padding:19px 20px;border-radius:16px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06)">
+            <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.02em;line-height:1.3;color:#fff;text-wrap:balance">{{ faq.q }}</div>
+            <div style="font-size:15px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.76);text-wrap:pretty">{{ faq.a }}</div>
+            <sc-if value="{{ faq.hasJump }}" hint-placeholder-val="{{ true }}">
+              <button type="button" onClick="{{ faq.jump }}" style="align-self:flex-start;margin-top:2px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1px solid rgba(238,194,66,.45);background:rgba(238,194,66,.14);color:#EEC242;font-family:Montserrat,sans-serif;font-weight:700;font-size:13.5px;letter-spacing:-.008em;padding:9px 16px;border-radius:99px;transition:background .2s ease,transform .2s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(238,194,66,.24);transform:translateY(-2px)">{{ faq.jumpLabel }}<span style="font-size:13px">&#8599;</span></button>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px;padding-top:8px;border-top:1px solid rgba(255,255,255,.14);font-size:15px;font-weight:500;color:rgba(255,255,255,.72)">
+        <span style="flex:1 1 250px">Account problems: <a href="mailto:assistance.dtd@escp.eu" style="color:#EEC242">assistance.dtd@escp.eu</a></span>
+        <span style="flex:1 1 250px">Need more help? Email <a href="mailto:ITUK@escp.eu" style="color:#EEC242">ITUK@escp.eu</a> or visit the IT office on the ground floor, G12</span>
+      </div>
+    </div>
+
+    <div class="crise" style="display:flex;flex-wrap:wrap;gap:12px;animation-delay:.4s">
+      <sc-for list="{{ guides }}" as="g" hint-placeholder-count="3">
+        <a href="{{ g.href }}" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:14.5px;font-weight:600;color:rgba(255,255,255,.82);padding:12px 20px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);transition:background .22s ease,color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(255,255,255,.16);color:#fff;transform:translateY(-2px)">{{ g.label }}<span style="font-size:13px;color:#EEC242">&#8594;</span></a>
+      </sc-for>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEC242&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEC242&quot;,&quot;#76D0E9&quot;,&quot;#0E00FF&quot;,&quot;#FFFFFF&quot;]}}">
+const APPLE_TAIL = [
+  {
+    kicker: "Privacy", illo: "dns",
+    dns: { rows: [["Configure IPv4", "Automatic"], ["DNS servers", "Automatic"]], strike: true },
+    title: "Set IP and DNS back to automatic",
+    body: "Open the network details and make sure Configure IPv4 and DNS are both set to Automatic. Delete any DNS server you typed in yourself.",
+    path: "Wi-Fi ▸ Details ▸ TCP/IP and DNS",
+    aside: "Custom DNS from a previous network is one of the most common reasons the sign-in page never appears."
+  },
+  {
+    kicker: "Sign in", illo: "portal",
+    title: "Sign in with your username only",
+    body: "A sign-in page opens by itself. Enter your ESCP username and password, then Sign In.",
+    warn: "Type your username on its own — jsmith, not jsmith@escp.eu. The full email address is rejected.",
+    aside: "No page? Open a browser and go to neverssl.com, which forces the sign-in page to appear."
+  },
+  {
+    kicker: "Done", illo: "done",
+    title: "You are connected",
+    body: "ESCP keeps you signed in for about a week, then asks again. Your device reconnects on its own anywhere on campus."
+  }
+];
+
+const STEPS = {
+  mac: [
+    { kicker: "Connect", illo: "list", title: "Choose ESCP from the WiFi menu",
+      body: "Click the WiFi icon in the menu bar and pick ESCP. Not ESCP_GUEST — that one is for visitors.",
+      path: "Menu bar ▸ Wi-Fi" },
+    { kicker: "Privacy", illo: "toggle", toggle: ["Private Wi-Fi address", "Using a private address helps reduce tracking of your Mac by Wi-Fi network operators."],
+      title: "Turn off Private Wi-Fi address",
+      body: "Open Wi-Fi settings, click Details next to ESCP, and set Private Wi-Fi address to Off.",
+      path: "System Settings ▸ Wi-Fi ▸ ESCP ▸ Details",
+      warn: "This is the single most common cause of Macs failing on ESCP. A private address changes every time, so the network cannot recognise your device." },
+    { kicker: "Privacy", illo: "toggle", toggle: ["Limit IP address tracking", "Limit IP address tracking by hiding your IP address from known trackers in Mail and Safari."],
+      title: "Turn off Limit IP address tracking",
+      body: "In the same Details panel, switch Limit IP address tracking off.",
+      path: "System Settings ▸ Wi-Fi ▸ ESCP ▸ Details" },
+    { kicker: "Privacy", illo: "toggle", toggle: ["iCloud Private Relay", "Private Relay hides your IP address and browsing activity from network providers."],
+      title: "Turn off iCloud Private Relay",
+      body: "Private Relay routes your traffic through Apple's servers, which stops the campus sign-in page loading. Turn it off, at least while you are on campus.",
+      path: "System Settings ▸ Apple Account ▸ iCloud ▸ Private Relay" },
+    { kicker: "Privacy", illo: "vpn", title: "Turn off or uninstall any VPN",
+      body: "Quit and disconnect any VPN app, and check for a leftover VPN profile in network settings.",
+      path: "System Settings ▸ VPN",
+      warn: "The ESCP network does not allow VPN traffic. If a VPN is running you will connect but nothing will load." },
+    ...APPLE_TAIL
+  ],
+  ios: [
+    { kicker: "Connect", illo: "list", title: "Choose ESCP in WiFi settings",
+      body: "Open Settings, tap Wi-Fi and choose ESCP. Not ESCP_GUEST — that one is for visitors.",
+      path: "Settings ▸ Wi-Fi" },
+    { kicker: "Privacy", illo: "toggle", toggle: ["Private Wi-Fi Address", "A private address reduces tracking of your iPhone across Wi-Fi networks."],
+      title: "Turn off Private Wi-Fi Address",
+      body: "Tap the ⓘ next to ESCP and turn Private Wi-Fi Address off. Confirm when it warns you.",
+      path: "Settings ▸ Wi-Fi ▸ ESCP ▸ ⓘ",
+      warn: "This is the most common reason iPhones and iPads fail on ESCP. The address changes each time, so the network cannot recognise your device." },
+    { kicker: "Privacy", illo: "toggle", toggle: ["Limit IP Address Tracking", "Hides your IP address from known trackers in Mail and Safari."],
+      title: "Turn off Limit IP Address Tracking",
+      body: "In the same panel for ESCP, switch Limit IP Address Tracking off.",
+      path: "Settings ▸ Wi-Fi ▸ ESCP ▸ ⓘ" },
+    { kicker: "Privacy", illo: "toggle", toggle: ["iCloud Private Relay", "Routes your traffic through Apple's servers to hide your IP address."],
+      title: "Turn off iCloud Private Relay",
+      body: "Private Relay stops the campus sign-in page from loading. Turn it off while you are on campus.",
+      path: "Settings ▸ Apple Account ▸ iCloud ▸ Private Relay" },
+    { kicker: "Privacy", illo: "vpn", title: "Turn off any VPN",
+      body: "Switch off any VPN app, then check Settings for a VPN toggle left switched on.",
+      path: "Settings ▸ General ▸ VPN & Device Management",
+      warn: "The ESCP network does not allow VPN traffic. With a VPN on you will appear connected but nothing will load." },
+    ...APPLE_TAIL
+  ],
+  win: [
+    { kicker: "Connect", illo: "list", title: "Choose ESCP from the network list",
+      body: "Click the WiFi icon in the taskbar and pick ESCP. Not ESCP_GUEST — that one is for visitors.",
+      path: "Taskbar ▸ Wi-Fi" },
+    { kicker: "Privacy", illo: "toggle", toggle: ["Random hardware addresses", "Windows uses a different address each time you connect, to reduce tracking."],
+      title: "Turn off random hardware addresses",
+      body: "This is Windows' version of Apple's private address, and it causes the same problem. Switch it off both globally and for ESCP itself.",
+      path: "Settings ▸ Network & internet ▸ Wi-Fi",
+      warn: "Turn it off before connecting. If it is already on, forget ESCP afterwards and rejoin so the network sees your real address." },
+    { kicker: "Privacy", illo: "vpn", title: "Turn off or uninstall any VPN",
+      body: "Disconnect any VPN app and check for a leftover VPN connection in network settings.",
+      path: "Settings ▸ Network & internet ▸ VPN",
+      warn: "The ESCP network does not allow VPN traffic. With a VPN running you will connect but nothing will load." },
+    { kicker: "Privacy", illo: "dns",
+      dns: { rows: [["IP assignment", "Automatic (DHCP)"], ["DNS server assignment", "Automatic (DHCP)"]], strike: true },
+      title: "Set IP and DNS to automatic",
+      body: "Open the ESCP network's properties and set both IP assignment and DNS server assignment to Automatic (DHCP). Delete any DNS server you entered yourself.",
+      path: "Settings ▸ Network & internet ▸ Wi-Fi ▸ Hardware properties",
+      aside: "Custom DNS left over from another network is a common reason the sign-in page never appears." },
+    { kicker: "Sign in", illo: "portal", title: "Sign in with your username only",
+      body: "A sign-in page opens by itself. Enter your ESCP username and password, then Sign In.",
+      warn: "Type your username on its own — jsmith, not jsmith@escp.eu. The full email address is rejected.",
+      aside: "No page? Open a browser and go to neverssl.com, which forces the sign-in page to appear." },
+    { kicker: "Fix", illo: "forget", title: "Still stuck? Forget ESCP and rejoin",
+      body: "Forget the network, then connect again with the settings above already corrected. This clears any bad settings saved from an earlier attempt.",
+      path: "Settings ▸ Network & internet ▸ Wi-Fi ▸ Manage known networks",
+      aside: "Also worth installing pending Windows updates — outdated WiFi drivers cause the same symptoms." },
+    { kicker: "Done", illo: "done", title: "You are connected",
+      body: "ESCP keeps you signed in for about a week, then asks again. Your laptop reconnects on its own anywhere on campus." }
+  ],
+  android: [
+    { kicker: "Connect", illo: "list", title: "Choose ESCP in WiFi settings",
+      body: "Open Settings, tap Network & internet, then Internet, and pick ESCP. Not ESCP_GUEST — that one is for visitors.",
+      path: "Settings ▸ Network & internet ▸ Internet" },
+    { kicker: "Privacy", illo: "toggle", toggle: ["Randomised MAC", "Android uses a randomised address for each network to reduce tracking."],
+      title: "Switch MAC address to Device MAC",
+      body: "Tap the gear next to ESCP, open Privacy, and change Use randomised MAC to Use device MAC. This is Android's version of Apple's private address.",
+      path: "Settings ▸ Network & internet ▸ Internet ▸ ESCP ▸ Privacy",
+      warn: "A randomised address changes every time, so the network cannot recognise your device. Samsung phones call this MAC address type." },
+    { kicker: "Privacy", illo: "toggle", toggle: ["Private DNS", "Sends your DNS queries to an encrypted provider instead of the network's own."],
+      title: "Set Private DNS to Off",
+      body: "Private DNS stops the campus sign-in page from loading. Set it to Off — not Automatic — while you are on campus.",
+      path: "Settings ▸ Network & internet ▸ Private DNS" },
+    { kicker: "Privacy", illo: "vpn", title: "Turn off any VPN",
+      body: "Switch off any VPN app, then check network settings for a VPN left connected.",
+      path: "Settings ▸ Network & internet ▸ VPN",
+      warn: "The ESCP network does not allow VPN traffic. With a VPN on you will appear connected but nothing will load." },
+    { kicker: "Privacy", illo: "dns",
+      dns: { rows: [["IP settings", "DHCP"]], strike: false },
+      title: "Set IP settings to DHCP",
+      body: "In the ESCP network's advanced settings, make sure IP settings is DHCP rather than Static.",
+      path: "Settings ▸ Network & internet ▸ Internet ▸ ESCP ▸ Advanced" },
+    { kicker: "Sign in", illo: "portal", title: "Sign in with your username only",
+      body: "A sign-in page opens by itself. Enter your ESCP username and password, then Sign In.",
+      warn: "Type your username on its own — jsmith, not jsmith@escp.eu. The full email address is rejected.",
+      aside: "No page? Open a browser and go to neverssl.com, which forces the sign-in page to appear." },
+    { kicker: "Fix", illo: "forget", title: "Still stuck? Forget ESCP and rejoin",
+      body: "Forget the network, then connect again with the settings above already corrected. This clears any bad settings saved from an earlier attempt.",
+      path: "Settings ▸ Network & internet ▸ Internet ▸ ESCP ▸ Forget" },
+    { kicker: "Done", illo: "done", title: "You are connected",
+      body: "ESCP keeps you signed in for about a week, then asks again. Your phone reconnects on its own anywhere on campus." }
+  ]
+};
+
+const FAQS = {
+  mac: [
+    { q: "No sign-in page appears", a: "Open a browser and go to neverssl.com. It is a plain page that cannot be cached, so it forces the sign-in screen to load. If it still fails, Private Relay or custom DNS is usually the reason.", step: 5 },
+    { q: "It says connected but nothing loads", a: "A VPN is almost always running, or Private Relay is still on. Turn both off and try again.", step: 4 },
+    { q: "It keeps asking me to sign in", a: "Private Wi-Fi address is still on, so your Mac looks like a new device each time. Turn it off, forget ESCP, and rejoin.", step: 1 },
+    { q: "My username and password are rejected", a: "Enter your username on its own, without @escp.eu. If it still fails, your account password may need resetting — email assistance.dtd@escp.eu." },
+    { q: "Should I use ESCP or ESCP_GUEST?", a: "Students and staff use ESCP. ESCP_GUEST is for visitors and is slower and more limited." },
+    { q: "Nothing above worked", a: "Bring your laptop to the IT office on the ground floor, G12. Bring it awake and unlocked so we can check the settings with you." }
+  ],
+  ios: [
+    { q: "No sign-in page appears", a: "Open Safari and go to neverssl.com, which forces the sign-in screen to load. If it still fails, Private Relay is usually the reason.", step: 5 },
+    { q: "It says connected but nothing loads", a: "A VPN is almost always running, or Private Relay is still on. Turn both off and try again.", step: 3 },
+    { q: "It keeps asking me to sign in", a: "Private Wi-Fi Address is still on, so your device looks new each time. Turn it off, forget ESCP, and rejoin.", step: 1 },
+    { q: "My username and password are rejected", a: "Enter your username on its own, without @escp.eu. If it still fails, email assistance.dtd@escp.eu about your account." },
+    { q: "Should I use ESCP or ESCP_GUEST?", a: "Students and staff use ESCP. ESCP_GUEST is for visitors and is slower and more limited." },
+    { q: "Nothing above worked", a: "Come to the IT office on the ground floor, G12, with your phone unlocked." }
+  ],
+  win: [
+    { q: "No sign-in page appears", a: "Open a browser and go to neverssl.com, which forces the sign-in screen to load. Custom DNS is the usual culprit.", step: 3 },
+    { q: "It says connected but nothing loads", a: "A VPN is almost always still running. Disconnect it and check network settings for a leftover VPN connection.", step: 2 },
+    { q: "It keeps asking me to sign in", a: "Random hardware addresses is still on, so Windows looks like a new device each time. Turn it off, forget ESCP, and rejoin.", step: 1 },
+    { q: "My username and password are rejected", a: "Enter your username on its own, without @escp.eu. If it still fails, email assistance.dtd@escp.eu about your account." },
+    { q: "It connects then drops repeatedly", a: "Install pending Windows updates — outdated WiFi drivers cause exactly this. Then forget ESCP and rejoin.", step: 5 },
+    { q: "Nothing above worked", a: "Bring your laptop to the IT office on the ground floor, G12, awake and unlocked." }
+  ],
+  android: [
+    { q: "No sign-in page appears", a: "Open Chrome and go to neverssl.com, which forces the sign-in screen to load. Private DNS is the usual culprit.", step: 2 },
+    { q: "It says connected but nothing loads", a: "A VPN is almost always still running, or Private DNS is set to Automatic. Turn both off.", step: 3 },
+    { q: "It keeps asking me to sign in", a: "The MAC address is still randomised, so your phone looks new each time. Switch it to Use device MAC, forget ESCP, and rejoin.", step: 1 },
+    { q: "My username and password are rejected", a: "Enter your username on its own, without @escp.eu. If it still fails, email assistance.dtd@escp.eu about your account." },
+    { q: "I cannot find these settings", a: "Android menus differ by manufacturer. On Samsung, the MAC setting is under the network's gear icon as MAC address type. Search your settings for MAC or DNS." },
+    { q: "Nothing above worked", a: "Come to the IT office on the ground floor, G12, with your phone unlocked." }
+  ]
+};
+
+const TABS = [
+  { key: "mac", label: "macOS" },
+  { key: "ios", label: "iPhone / iPad" },
+  { key: "win", label: "Windows" },
+  { key: "android", label: "Android" }
+];
+
+const GUIDES = [
+  { label: "eduroam WiFi", href: "./eduroam.html" },
+  { label: "Set up printing", href: "./papercut.html" },
+  { label: "Who to contact", href: "./contacts.html" }
+];
+
+class Component extends DCLogic {
+  state = { plat: "mac", i: 0 };
+
+  componentDidMount() {
+    const q = new URLSearchParams(location.search);
+    const p = q.get("plat");
+    const n = parseInt(q.get("step"), 10);
+    if (p && STEPS[p]) this.setState({ plat: p });
+    if (!isNaN(n) && n > 0) this.setState({ i: n - 1 });
+    this._key = (e) => {
+      if (e.key === "ArrowRight") this.go(this.state.i + 1);
+      if (e.key === "ArrowLeft") this.go(this.state.i - 1);
+    };
+    window.addEventListener("keydown", this._key);
+  }
+  componentWillUnmount() { window.removeEventListener("keydown", this._key); }
+
+  go(n) {
+    const list = STEPS[this.state.plat];
+    this.setState({ i: Math.max(0, Math.min(list.length - 1, n)) });
+  }
+
+  renderVals() {
+    const plat = this.state.plat;
+    const list = STEPS[plat];
+    const i = Math.min(this.state.i, list.length - 1);
+    const step = list[i];
+    const total = list.length;
+    const illo = step.illo;
+    return {
+      tabs: TABS.map(t => ({
+        label: t.label,
+        bg: plat === t.key ? "#EEC242" : "transparent",
+        color: plat === t.key ? "#1B0066" : "rgba(255,255,255,.72)",
+        go: () => this.setState({ plat: t.key, i: 0 })
+      })),
+      total,
+      humanIndex: String(i + 1).padStart(2, "0"),
+      segments: list.map((s, n) => ({
+        title: s.title,
+        bg: n < i ? "rgba(238,194,66,.55)" : n === i ? "#EEC242" : "rgba(255,255,255,.16)"
+      })),
+      step: {
+        kicker: step.kicker, title: step.title, body: step.body,
+        hasPath: !!step.path, path: step.path || "",
+        hasWarn: !!step.warn, warn: step.warn || "",
+        hasAside: !!step.aside, aside: step.aside || ""
+      },
+      isList: illo === "list",
+      isToggle: illo === "toggle",
+      isVpn: illo === "vpn",
+      isDns: illo === "dns",
+      isPortal: illo === "portal",
+      isDone: illo === "done",
+      isForget: illo === "forget",
+      toggleName: step.toggle ? step.toggle[0] : "",
+      toggleHint: step.toggle ? step.toggle[1] : "",
+      dnsRows: step.dns ? step.dns.rows.map(r => ({ label: r[0], value: r[1] })) : [],
+      dnsStrike: !!(step.dns && step.dns.strike),
+      prevOpacity: i === 0 ? 0.35 : 1,
+      nextLabel: i === total - 1 ? "Start over" : "Next step",
+      prev: () => this.go(i - 1),
+      next: () => (i === total - 1 ? this.go(0) : this.go(i + 1)),
+      faqs: FAQS[plat].map(f => ({
+        q: f.q, a: f.a,
+        hasJump: f.step != null,
+        jumpLabel: "Go to step " + ((f.step || 0) + 1),
+        jump: () => { this.go(f.step); window.scrollTo({ top: 0, behavior: "smooth" }); }
+      })),
+      guides: GUIDES
+    };
+  }
+}
+</script>
+</body>
+</html>
