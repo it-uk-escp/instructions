@@ -40,6 +40,23 @@
   .s{font-size:14px;font-weight:500;color:rgba(255,255,255,.72);margin-top:5px;line-height:1.4}
   .arrow{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:17px;color:#EEC242;transition:background .25s ease,border-color .25s ease,color .25s ease,transform .25s ease}
   .card:hover .arrow{background:#EEC242;border-color:#EEC242;color:#1B0066;transform:translateX(3px)}
+  .searchwrap{position:relative}
+  .searchbox{display:flex;align-items:center;gap:12px;border-radius:16px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.28);padding:0 18px;transition:border-color .22s ease,background .22s ease}
+  .searchbox:focus-within{border-color:rgba(238,194,66,.6);background:rgba(255,255,255,.15)}
+  .searchbox svg{flex:none;opacity:.6}
+  #q{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#fff;font-family:Karla,system-ui,sans-serif;font-size:16.5px;font-weight:500;padding:16px 0}
+  #q::placeholder{color:rgba(255,255,255,.52)}
+  #clear{flex:none;display:none;cursor:pointer;border:0;background:rgba(255,255,255,.14);color:rgba(255,255,255,.8);width:26px;height:26px;border-radius:50%;font-size:14px;line-height:1;font-family:inherit}
+  #clear:hover{background:rgba(255,255,255,.26);color:#fff}
+  .results{display:none;flex-direction:column;gap:7px}
+  .results.on{display:flex}
+  .hit{display:flex;align-items:center;justify-content:space-between;gap:14px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);padding:14px 17px;transition:background .18s ease,border-color .18s ease,transform .18s cubic-bezier(.2,.7,.3,1)}
+  .hit:hover,.hit.sel{background:rgba(255,255,255,.17);border-color:rgba(238,194,66,.5);transform:translateX(3px)}
+  .hit-q{font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.018em;line-height:1.25;min-width:0}
+  .hit-g{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#EEC242;margin-top:5px}
+  .hit-a{flex:none;font-size:15px;color:#EEC242;opacity:.75}
+  .empty{border-radius:14px;border:1px dashed rgba(255,255,255,.22);background:rgba(255,255,255,.05);padding:18px 19px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.76)}
+  .empty a{color:#EEC242;font-weight:700}
   .linkhead{display:flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
   .linkhead span{width:20px;height:1px;background:rgba(255,255,255,.28);flex:none}
   .links{display:flex;flex-wrap:wrap;gap:9px}
@@ -64,6 +81,10 @@
     .linkhead{font-size:9px;margin-top:2px}
     .links{gap:7px}
     .links a{font-size:13px;padding:9px 14px;gap:6px}
+    #q{font-size:15.5px;padding:13px 0}
+    .searchbox{padding:0 15px;gap:10px;border-radius:14px}
+    .hit{padding:12px 14px;border-radius:12px}
+    .hit-q{font-size:15px}
   }
   @media(max-width:640px) and (min-height:760px){
     .s{display:block;font-size:13.5px}
@@ -85,7 +106,17 @@
       </div>
     </div>
 
-    <div class="grid">
+
+    <div class="searchwrap rise" style="animation-delay:.08s">
+      <div class="searchbox">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#EEC242" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+        <input id="q" type="search" autocomplete="off" placeholder="What do you need help with? Try &ldquo;can&rsquo;t print&rdquo;">
+        <button id="clear" type="button" aria-label="Clear">&times;</button>
+      </div>
+    </div>
+    <div class="results" id="results"></div>
+
+    <div class="grid" id="grid">
       <a class="card rise" href="./microsoft-365.html" style="animation-delay:.1s">
         <div>
           <div class="num" data-i="c1n">Windows, macOS, iPadOS &amp; Android</div>
@@ -145,5 +176,130 @@
       <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<span>&#8599;</span></a>
     </div>
   </div>
+<script>
+(function(){
+  var IDX = [
+    // Microsoft 365
+    ["Install Word, Excel and PowerPoint","Microsoft 365","./microsoft-365.html?step=8","word excel powerpoint office apps install download teams outlook onenote software"],
+    ["Get a free Microsoft 365 account","Microsoft 365","./microsoft-365.html?step=1","free licence license account sign up signup register education student office365 365"],
+    ["My verification code never arrived","Microsoft 365","./microsoft-365.html?step=5","code verification verify email arrive resend spam junk didnt receive"],
+    ["Set up two-factor authentication","Microsoft 365","./microsoft-365.html?step=7","2fa two factor authenticator mfa qr security phone verification app microsoft authenticator"],
+    ["I changed phone and lost Authenticator","Microsoft 365","./microsoft-365.html?step=7","new phone lost changed device locked out authenticator recovery 2fa mfa"],
+    ["Word says my licence has expired","Microsoft 365","./microsoft-365.html?step=9","licence expired license subscription activate sign in word excel product"],
+    ["Windows blocked the installer","Microsoft 365","./microsoft-365.html?step=8","blocked windows protected smartscreen run anyway installer defender security warning"],
+    ["The sign-up form will not accept my details","Microsoft 365","./microsoft-365.html?step=4","date birth field required form error country region cannot continue next"],
+    // Printing
+    ["Set up printing on my laptop","Printing","./papercut.html?step=1","print printing setup install papercut mobility driver printer laptop"],
+    ["The Student printers are not in my list","Printing","./papercut.html?step=2","printers missing not showing list student colour color black white cannot find"],
+    ["Nothing happened when I clicked Get printers","Printing","./papercut.html?step=2","get printers nothing happened link broken not working button"],
+    ["I printed something but nothing came out","Printing","./papercut.html?step=5","nothing printed came out job missing didnt print disappeared lost queue"],
+    ["No sign-in window appeared after printing","Printing","./papercut.html?step=5","sign in window popup login prompt appear missing hidden"],
+    ["Invalid username or password at the printer","Printing","./papercut.html?step=6","invalid username password wrong login rejected printer screen"],
+    ["Collect my print job at the printer","Printing","./papercut.html?step=6","release collect pick up printer touchscreen card badge queue held"],
+    // eduroam
+    ["Connect to eduroam WiFi","eduroam WiFi","./eduroam.html?step=1","wifi wi-fi eduroam internet connect network wireless online"],
+    ["ESCP is not in the organisation list","eduroam WiFi","./eduroam.html?step=3","escp missing organisation institution list country france show all countries search"],
+    ["eduroam does not appear in my WiFi list","eduroam WiFi","./eduroam.html?step=9","eduroam missing wifi list not showing appear network unavailable"],
+    ["Which email do I use for eduroam?","eduroam WiFi","./eduroam.html?step=7","username email edu.escp.eu full address login wifi credentials password"],
+    ["Set up eduroam on Android","eduroam WiFi","./eduroam.html?plat=android&step=1","android phone samsung pixel geteduroam google play store"],
+    ["Set up eduroam on my iPhone or iPad","eduroam WiFi","./eduroam.html?plat=ios&step=1","iphone ipad ios apple phone tablet mobile"],
+    ["eduroam keeps asking for my password","eduroam WiFi","./eduroam.html?step=7","password keeps asking rejected authentication failed cannot join incorrect"],
+    // Bloomberg
+    ["Create a Bloomberg login","Bloomberg","./bloomberg.html?step=2","bloomberg terminal account login create register finance"],
+    ["Where are the Bloomberg terminals?","Bloomberg","./bloomberg.html?step=1","where bloomberg room f51 location find terminals access"],
+    ["Bloomberg Market Concepts (BMC)","Bloomberg","./bloomberg.html?step=7","bmc market concepts course certificate training module learning"],
+    // Study booths
+    ["Book a study booth","Study booths","./study-rooms.html?step=1","book booth study room reserve library group work space"],
+    ["No times are available to book","Study booths","./study-rooms.html?step=5","no times full booked unavailable slots nothing free taken"],
+    ["How long can I book a booth for?","Study booths","./study-rooms.html?step=2","how long hours duration two hours limit maximum rules"],
+    ["Cancel or change my booking","Study booths","./study-rooms.html?step=6","cancel change booking amend delete reschedule no show"],
+    // Contacts
+    ["A course is missing from Blackboard","Contacts","./contacts.html","blackboard course missing module programme office unit class"],
+    ["I cannot submit an assignment","Contacts","./contacts.html","assignment submit submission upload turnitin blackboard coursework deadline"],
+    ["I forgot my ESCP password","Contacts","./contacts.html","password forgot reset locked account login credentials username"],
+    ["Who do I email about my ESCP account?","Contacts","./contacts.html","email contact who account help support assistance dtd it office"],
+    ["Campus WiFi problem (not eduroam)","Contacts","./contacts.html","campus wifi guest network problem internet down slow"],
+    ["Software licence for my course","Contacts","./contacts.html","software licence license spss stata campus access download tool"]
+  ];
+
+  var q = document.getElementById('q');
+  var clear = document.getElementById('clear');
+  var box = document.getElementById('results');
+  var grid = document.getElementById('grid');
+  var links = document.querySelectorAll('.linkhead, .links');
+  var sel = -1, hits = [];
+
+  function norm(s){ return s.toLowerCase().replace(/[^a-z0-9. ]/g,' ').replace(/\s+/g,' ').trim(); }
+
+  function score(entry, tokens){
+    var title = norm(entry[0]), keys = norm(entry[3]), guide = norm(entry[1]);
+    var total = 0;
+    for (var i = 0; i < tokens.length; i++){
+      var t = tokens[i], got = 0;
+      if (title.indexOf(t) > -1) got = title.indexOf(' ' + t) > -1 || title.indexOf(t) === 0 ? 6 : 4;
+      else if (guide.indexOf(t) > -1) got = 4;
+      else if (keys.indexOf(t) > -1) got = 3;
+      else if (t.length > 4){
+        var stem = t.slice(0, Math.max(4, t.length - 2));
+        if (title.indexOf(stem) > -1 || keys.indexOf(stem) > -1) got = 1.5;
+      }
+      if (!got) return 0;
+      total += got;
+    }
+    return total;
+  }
+
+  function render(){
+    var raw = norm(q.value);
+    clear.style.display = q.value ? 'block' : 'none';
+    if (raw.length < 2){
+      box.classList.remove('on'); box.innerHTML = '';
+      grid.style.display = ''; links.forEach(function(n){ n.style.display = ''; });
+      hits = []; sel = -1;
+      return;
+    }
+    var stop = {the:1,a:1,an:1,my:1,i:1,to:1,is:1,it:1,of:1,on:1,in:1,for:1,and:1,do:1,how:1,can:1,cant:1,'i\'m':1,with:1,me:1,'t':1};
+    var tokens = raw.split(' ').filter(function(t){ return t.length > 1 && !stop[t]; });
+    if (!tokens.length) tokens = raw.split(' ');
+
+    hits = IDX.map(function(e){ return { e: e, s: score(e, tokens) }; })
+              .filter(function(h){ return h.s > 0; })
+              .sort(function(a,b){ return b.s - a.s; })
+              .slice(0, 6);
+
+    grid.style.display = 'none';
+    links.forEach(function(n){ n.style.display = 'none'; });
+    box.classList.add('on');
+
+    if (!hits.length){
+      box.innerHTML = '<div class="empty">Nothing matched that. Try a word like <strong>print</strong>, <strong>wifi</strong>, <strong>password</strong> or <strong>booth</strong> — or see <a href="./contacts.html">who to contact</a>.</div>';
+      sel = -1;
+      return;
+    }
+    sel = 0;
+    box.innerHTML = hits.map(function(h, n){
+      return '<a class="hit' + (n === 0 ? ' sel' : '') + '" href="' + h.e[2] + '">' +
+             '<div><div class="hit-q">' + h.e[0] + '</div><div class="hit-g">' + h.e[1] + '</div></div>' +
+             '<div class="hit-a">&#8594;</div></a>';
+    }).join('');
+  }
+
+  function move(d){
+    if (!hits.length) return;
+    sel = (sel + d + hits.length) % hits.length;
+    var nodes = box.querySelectorAll('.hit');
+    nodes.forEach(function(n, i){ n.classList.toggle('sel', i === sel); });
+  }
+
+  q.addEventListener('input', render);
+  q.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowDown'){ e.preventDefault(); move(1); }
+    else if (e.key === 'ArrowUp'){ e.preventDefault(); move(-1); }
+    else if (e.key === 'Enter' && sel > -1 && hits[sel]){ location.href = hits[sel].e[2]; }
+    else if (e.key === 'Escape'){ q.value = ''; render(); q.blur(); }
+  });
+  clear.addEventListener('click', function(){ q.value = ''; render(); q.focus(); });
+})();
+</script>
 </body>
 </html>

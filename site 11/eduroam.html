@@ -469,6 +469,11 @@ class Component extends DCLogic {
   state = { lang: "en", plat: "mac", i: 0, out: false, p: 1 };
 
   componentDidMount() {
+    const q = new URLSearchParams(location.search);
+    const p = q.get("plat");
+    const n = parseInt(q.get("step"), 10);
+    if (p && ["mac","ios","android","win"].includes(p)) this.setState({ plat: p });
+    if (!isNaN(n) && n > 0) this.setState({ i: n - 1 });
     this._key = (e) => {
       if (e.key === "ArrowRight") this.go(this.state.i + 1);
       if (e.key === "ArrowLeft") this.go(this.state.i - 1);

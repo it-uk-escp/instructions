@@ -252,6 +252,9 @@ a{color:#EEC242}a:hover{color:#fff}
             <div style="border-radius:16px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);padding:18px 19px;display:flex;flex-direction:column;gap:8px;transition:background .22s ease,border-color .22s ease" style-hover="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)">
               <div style="font-family:Montserrat,sans-serif;font-weight:700;font-size:15px;letter-spacing:-.014em;color:#fff;line-height:1.3">{{ faq.q }}</div>
               <div style="font-size:15px;font-weight:500;line-height:1.55;color:rgba(255,255,255,.76);text-wrap:pretty">{{ faq.a }}</div>
+              <sc-if value="{{ faq.hasJump }}" hint-placeholder-val="{{ true }}">
+                <button type="button" onClick="{{ faq.jump }}" style="align-self:flex-start;margin-top:2px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:1px solid rgba(238,194,66,.45);background:rgba(238,194,66,.14);color:#EEC242;font-family:Montserrat,sans-serif;font-weight:700;font-size:13.5px;letter-spacing:-.008em;padding:9px 16px;border-radius:99px;transition:background .2s ease,transform .2s cubic-bezier(.2,.7,.3,1)" style-hover="background:rgba(238,194,66,.24);transform:translateY(-2px)">{{ faq.jumpLabel }}<span style="font-size:13px">&#8599;</span></button>
+              </sc-if>
             </div>
           </sc-for>
         </div>
@@ -374,23 +377,23 @@ const STEPS_FR = [
 ];
 
 const FAQS_FR = [
-  { q: "L'installateur est bloqué", a: "Sur Windows, un encadré bleu « Windows protected your PC » : choisissez More info, puis Run anyway. Sur Mac, le mot de passe de la machine peut être demandé." },
-  { q: "Les imprimantes Student n'apparaissent pas", a: "Vous vous êtes probablement arrêté après le téléchargement. Revenez sur cette page, cliquez sur Get printers, puis choisissez Ouvrir PaperCut Mobility Print." },
-  { q: "Rien ne se passe quand je clique sur Get printers", a: "L'installateur doit être en cours d'exécution. Relancez Mobility Print, vérifiez que vous êtes sur le réseau du campus, puis recliquez sur Get printers." },
-  { q: "On me demande un identifiant et un mot de passe", a: "C'est normal. Saisissez vos identifiants ESCP, les mêmes que pour le portail étudiant." },
-  { q: "Aucune fenêtre Sign In après l'impression", a: "Regardez derrière votre document, dans la barre des tâches ou le Dock. Sans connexion sur votre appareil, le travail n'est jamais rattaché à votre compte." },
-  { q: "« Invalid username or password »", a: "Saisissez votre identifiant ESCP seul, sans @escp.eu, avec le mot de passe du portail étudiant." },
-  { q: "J'ai envoyé un document mais rien n'est sorti", a: "Rien ne s'imprime avant que vous ne vous identifiiez à l'imprimante pour libérer le travail. Les travaux sont conservés un temps limité : récupérez-les le jour même." }
+  { q: "L'installateur est bloqué", a: "Sur Windows, un encadré bleu « Windows protected your PC » : choisissez More info, puis Run anyway. Sur Mac, le mot de passe de la machine peut être demandé.", step: 0 },
+  { q: "Les imprimantes Student n'apparaissent pas", a: "Vous vous êtes probablement arrêté après le téléchargement. Retournez à l'étape 2 et cliquez sur Get printers, puis choisissez Ouvrir PaperCut Mobility Print.", step: 1 },
+  { q: "Rien ne se passe quand je clique sur Get printers", a: "L'installateur doit être en cours d'exécution. Relancez Mobility Print, vérifiez que vous êtes sur le réseau du campus, puis recliquez sur Get printers.", step: 1 },
+  { q: "On me demande un identifiant et un mot de passe", a: "C'est normal. Saisissez vos identifiants ESCP, les mêmes que pour le portail étudiant.", step: 4 },
+  { q: "Aucune fenêtre Sign In après l'impression", a: "Regardez derrière votre document, dans la barre des tâches ou le Dock. Sans connexion sur votre appareil, le travail n'est jamais rattaché à votre compte.", step: 4 },
+  { q: "« Invalid username or password »", a: "Saisissez votre identifiant ESCP seul, sans @escp.eu, avec le mot de passe du portail étudiant.", step: 4 },
+  { q: "J'ai envoyé un document mais rien n'est sorti", a: "Rien ne s'imprime avant que vous ne vous identifiiez à l'imprimante pour libérer le travail. Les travaux sont conservés un temps limité : récupérez-les le jour même.", step: 5 }
 ];
 
 const FAQS_EN = [
-  { q: "The installer is blocked", a: "On Windows, a blue “Windows protected your PC” box means choose More info, then Run anyway. On a Mac you may be asked for your Mac password." },
-  { q: "The Student printers are not in my list", a: "You most likely stopped after the download. Come back to this page and click Get printers, then choose Open PaperCut Mobility Print when the browser asks." },
-  { q: "Nothing happened when I clicked Get printers", a: "The installer has to be running. Reopen Mobility Print on your laptop, make sure you are on the campus network, then click Get printers again." },
-  { q: "It is asking for a username and password", a: "That is expected. Enter your ESCP login, the same one you use for the student portal." },
-  { q: "No Sign In window appeared after printing", a: "Check behind your document window and in the taskbar or Dock. Without signing in on your device, the job is never linked to your account." },
-  { q: "“Invalid username or password”", a: "Enter your ESCP username on its own, without @escp.eu, and the password you use for the student portal." },
-  { q: "I sent a job but nothing came out", a: "Nothing prints until you log in at a printer and release it. Jobs are held for a limited time, so collect them the same day." }
+  { q: "The installer is blocked", a: "On Windows, a blue “Windows protected your PC” box means choose More info, then Run anyway. On a Mac you may be asked for your Mac password.", step: 0 },
+  { q: "The Student printers are not in my list", a: "You most likely stopped after the download. Return to step 2 and click Get printers, then choose Open PaperCut Mobility Print when the browser asks.", step: 1 },
+  { q: "Nothing happened when I clicked Get printers", a: "The installer has to be running. Reopen Mobility Print on your laptop, make sure you are on the campus network, then click Get printers again.", step: 1 },
+  { q: "It is asking for a username and password", a: "That is expected. Enter your ESCP login, the same one you use for the student portal.", step: 4 },
+  { q: "No Sign In window appeared after printing", a: "Check behind your document window and in the taskbar or Dock. Without signing in on your device, the job is never linked to your account.", step: 4 },
+  { q: "“Invalid username or password”", a: "Enter your ESCP username on its own, without @escp.eu, and the password you use for the student portal.", step: 4 },
+  { q: "I sent a job but nothing came out", a: "Nothing prints until you log in at a printer and release it. Jobs are held for a limited time, so collect them the same day.", step: 5 }
 ];
 
 const STEPS = { en: STEPS_EN, fr: STEPS_FR };
@@ -401,6 +404,10 @@ class Component extends DCLogic {
   state = { i: 0, out: false, lang: "en", p: 1 };
 
   componentDidMount() {
+    const q = new URLSearchParams(location.search);
+    const p = q.get("plat");
+    const n = parseInt(q.get("step"), 10);
+    if (!isNaN(n) && n > 0) this.setState({ i: n - 1 });
     this._key = (e) => {
       if (e.key === "ArrowRight") this.go(this.state.i + 1);
       if (e.key === "ArrowLeft") this.go(this.state.i - 1);
@@ -481,7 +488,15 @@ class Component extends DCLogic {
       prev: () => this.go(i - 1),
       next: () => (i === total - 1 ? this.go(0) : this.go(i + 1)),
       showHelp: this.props.showTroubleshooting ?? true,
-      faqs: FAQS[lang].map(f => ({ q: sc(f.q), a: sc(f.a) }))
+      faqs: FAQS[lang].map(f => ({
+        q: sc(f.q), a: sc(f.a),
+        hasJump: f.step != null,
+        jumpLabel: sc((lang === "fr" ? "Aller à l'étape " : "Go to step ") + (f.step + 1)),
+        jump: () => {
+          this.go(f.step);
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }))
     };
   }
 }
