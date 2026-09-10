@@ -1,0 +1,13 @@
+{
+  "name": "escp-london-it-setup-guides",
+  "version": "1.0.0",
+  "description": "IT Setup Guides for ESCP London Campus",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Static HTML site - no build needed'",
+    "lint": "echo 'No linter configured for static HTML'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.3.1"
+  }
+}
