@@ -2,49 +2,55 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>IT Setup Guides — ESCP London</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Karla:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   html{background:#1B0066}
-  @view-transition{navigation:auto}
-  @keyframes vtOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.985)}}
-  @keyframes vtIn{from{opacity:0;transform:scale(1.012) translateY(8px)}to{opacity:1;transform:none}}
-  ::view-transition-old(root){animation:vtOut .22s cubic-bezier(.4,0,1,1) both}
-  ::view-transition-new(root){animation:vtIn .34s cubic-bezier(.2,.7,.3,1) both}
-
   *{box-sizing:border-box}
-  body{margin:0;min-height:100vh;background:#1B0066;color:#fff;font-family:Karla,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;display:flex;align-items:center;justify-content:center;padding:34px 28px}
+  body{margin:0;background:#1B0066;font-family:Karla,system-ui,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;overflow:hidden}
+  a{color:#EEC242;text-decoration:none}
+  a:hover{color:#fff}
+
   .blobs{position:fixed;inset:0;pointer-events:none;z-index:0}
-  .blobs div{position:absolute;border-radius:50%}
-  .b1{top:-14%;left:-8%;width:640px;height:640px;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9}
-  .b2{bottom:-20%;right:-10%;width:720px;height:720px;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85}
-  .b3{top:38%;left:42%;width:520px;height:520px;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8}
-  .veil{position:absolute;inset:0;border-radius:0 !important;background:linear-gradient(180deg,rgba(27,0,102,.34) 0%,rgba(27,0,102,.62) 100%)}
-  .wrap{position:relative;z-index:1;max-width:1000px;width:100%;display:flex;flex-direction:column;gap:16px}
-  a{text-decoration:none;color:inherit}
-  .rise{opacity:0;transform:translateY(16px);animation:rise .75s cubic-bezier(.2,.7,.3,1) forwards}
-  @keyframes rise{to{opacity:1;transform:none}}
-  .pill{display:inline-flex;align-self:flex-start;align-items:center;gap:10px;padding:7px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09)}
-  .pill span:first-child{width:6px;height:6px;border-radius:50%;background:#EEC242}
-  .pill span:last-child{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
-  .head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px}
-  h1{margin:12px 0 0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,54px);line-height:.98;letter-spacing:-.038em}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-  .card{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;border-radius:18px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.11);box-shadow:0 18px 44px -28px rgba(0,0,0,.5),inset 0 1px 0 rgba(255,255,255,.3);padding:20px 22px;transition:background .25s ease,border-color .25s ease,transform .25s cubic-bezier(.2,.7,.3,1)}
-  .card:hover{background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.36);transform:translateY(-3px)}
-  .num{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#EEC242}
-  .t{font-family:Montserrat,sans-serif;font-weight:700;font-size:19px;letter-spacing:-.024em;margin-top:7px;line-height:1.15}
-  .s{font-size:14px;font-weight:500;color:rgba(255,255,255,.72);margin-top:5px;line-height:1.4}
-  .arrow{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:17px;color:#EEC242;transition:background .25s ease,border-color .25s ease,color .25s ease,transform .25s ease}
-  .card:hover .arrow{background:#EEC242;border-color:#EEC242;color:#1B0066;transform:translateX(3px)}
-  .searchwrap{position:relative}
+  .b1,.b2,.b3{position:absolute;border-radius:50%}
+  .b1{top:-14%;left:-8%;width:620px;height:620px;background:radial-gradient(circle,rgba(120,60,255,.85) 0%,rgba(120,60,255,0) 68%);opacity:.9}
+  .b2{bottom:-20%;right:-10%;width:620px;height:620px;background:radial-gradient(circle,rgba(238,194,66,.42) 0%,rgba(238,194,66,0) 66%);opacity:.85}
+  .b3{top:38%;left:42%;width:620px;height:620px;background:radial-gradient(circle,rgba(118,208,233,.4) 0%,rgba(118,208,233,0) 68%);opacity:.8}
+
+  .viewport{position:fixed;inset:0;overflow:hidden;z-index:1}
+  .world{position:absolute;inset:0;transition:transform .74s cubic-bezier(.72,.02,.22,1)}
+  .world[data-at="setup"]{transform:translateX(-100%)}
+  .world[data-at="spaces"]{transform:translateX(100%)}
+  .world[data-at="help"]{transform:translateY(-100%)}
+
+  .panel{position:absolute;top:0;left:0;width:100%;height:100%;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;padding:22px 40px 34px;gap:14px}
+  #home{padding-bottom:40px}
+  #setup{transform:translateX(100%)}
+  #spaces{transform:translateX(-100%)}
+  #help{transform:translateY(100%)}
+  .inner{width:100%;max-width:1060px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+
+  .quick{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .quick a{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.72);padding:7px 13px;border-radius:99px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);transition:background .2s ease,color .2s ease}
+  .quick a:hover{background:rgba(255,255,255,.15);color:#fff}
+  .quick a i{font-size:10px;color:#EEC242;font-style:normal}
+  .quick b{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-right:3px}
+  .topbar{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px 8px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1)}
+  .eyebrow i{width:7px;height:7px;border-radius:50%;background:#EEC242;flex:none}
+  .eyebrow span{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+  .logo{width:112px;height:auto;flex:none;margin-left:auto}
+
+  h1{margin:0;font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,44px);line-height:.98;letter-spacing:-.038em;text-wrap:balance}
+  .sub{margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:600px;text-wrap:pretty}
+
+  /* ---- search ---- */
   .searchbox{display:flex;align-items:center;gap:12px;border-radius:16px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.28);padding:0 18px;transition:border-color .22s ease,background .22s ease}
   .searchbox:focus-within{border-color:rgba(238,194,66,.6);background:rgba(255,255,255,.15)}
-  .searchbox svg{flex:none;opacity:.6}
-  #q{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#fff;font-family:Karla,system-ui,sans-serif;font-size:16.5px;font-weight:500;padding:16px 0}
+  #q{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#fff;font-family:Karla,system-ui,sans-serif;font-size:16.5px;font-weight:500;padding:14px 0}
   #q::placeholder{color:rgba(255,255,255,.52)}
   #clear{flex:none;display:none;cursor:pointer;border:0;background:rgba(255,255,255,.14);color:rgba(255,255,255,.8);width:26px;height:26px;border-radius:50%;font-size:14px;line-height:1;font-family:inherit}
   #clear:hover{background:rgba(255,255,255,.26);color:#fff}
@@ -52,167 +58,264 @@
   .results.on{display:flex}
   .hit{display:flex;align-items:center;justify-content:space-between;gap:14px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);padding:14px 17px;transition:background .18s ease,border-color .18s ease,transform .18s cubic-bezier(.2,.7,.3,1)}
   .hit:hover,.hit.sel{background:rgba(255,255,255,.17);border-color:rgba(238,194,66,.5);transform:translateX(3px)}
-  .hit-q{font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.018em;line-height:1.25;min-width:0}
+  .hit-q{font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.018em;line-height:1.25;min-width:0;color:#fff}
   .hit-g{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#EEC242;margin-top:5px}
   .hit-a{flex:none;font-size:15px;color:#EEC242;opacity:.75}
   .empty{border-radius:14px;border:1px dashed rgba(255,255,255,.22);background:rgba(255,255,255,.05);padding:18px 19px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.76)}
-  .empty a{color:#EEC242;font-weight:700}
-  .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-  .act{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:Montserrat,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:-.014em;color:#1B0066;background:#EEC242;padding:13px 21px;border-radius:99px;box-shadow:0 12px 26px -18px rgba(0,0,0,.6);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease}
-  .act:hover{transform:translateY(-2px);box-shadow:0 16px 30px -18px rgba(0,0,0,.7);color:#1B0066}
-  .act .ext{font-size:12.5px;opacity:.55}
-  .act .dot{width:7px;height:7px;border-radius:50%;background:#1B0066;flex:none;animation:pulse 2.4s ease-in-out infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-  .act.ghost{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.86)}
-  .act.ghost:hover{background:rgba(255,255,255,.17);color:#fff}
-  .act.ghost .ext{color:#EEC242;opacity:.85}
+
+  /* ---- hub triangle ---- */
+  .tri{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:0}
+  .hub{position:relative;display:flex;flex-direction:column;gap:9px;padding:20px 24px 18px;border-radius:24px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.26);cursor:pointer;text-align:left;font-family:inherit;color:#fff;transition:background .3s ease,border-color .3s ease,transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .3s ease}
+  .hub:hover{background:rgba(255,255,255,.16);border-color:rgba(238,194,66,.45);box-shadow:inset 0 1px 0 rgba(255,255,255,.34),0 22px 50px -30px rgba(0,0,0,.8)}
+  .hub[data-dir="right"]{grid-column:2}
+  .hub[data-dir="left"]{grid-column:1;grid-row:1}
+  .hub[data-dir="down"]{grid-column:1 / -1;max-width:calc(50% - 8px);margin:0 auto}
+  .hub[data-dir="right"]:hover{transform:translateX(9px)}
+  .hub[data-dir="left"]:hover{transform:translateX(-9px)}
+  .hub[data-dir="down"]:hover{transform:translateY(9px)}
+
+  .hub-head{display:flex;align-items:center;gap:13px}
+  .hub-ico{width:38px;height:38px;flex:none;border-radius:11px;border:1px solid rgba(238,194,66,.4);background:rgba(238,194,66,.14);display:flex;align-items:center;justify-content:center}
+  .hub-ico svg{width:19px;height:19px}
+  .hub-n{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.52);margin-left:auto}
+  .hub-t{font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(20px,2.1vw,25px);line-height:1.08;letter-spacing:-.03em}
+  .hub-s{font-size:14.5px;font-weight:500;line-height:1.45;color:rgba(255,255,255,.74);text-wrap:pretty}
+  .hub-go{display:flex;align-items:center;gap:9px;margin-top:2px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#EEC242}
+  .hub-go b{font-size:15px;line-height:1;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
+  .hub[data-dir="right"]:hover .hub-go b{transform:translateX(6px)}
+  .hub[data-dir="left"]:hover .hub-go b{transform:translateX(-6px)}
+  .hub[data-dir="down"]:hover .hub-go b{transform:translateY(5px)}
+
+  /* ---- category panels ---- */
+  .back{display:inline-flex;align-items:center;gap:9px;cursor:pointer;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:9px 16px 9px 13px;border-radius:99px;transition:background .25s ease,color .25s ease,border-color .25s ease}
+  .back:hover{background:rgba(255,255,255,.16);color:#fff;border-color:rgba(255,255,255,.4)}
+  .back b{font-size:14px;line-height:1}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:14px}
+  .card{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;border-radius:20px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.24);transition:background .24s ease,border-color .24s ease,transform .24s cubic-bezier(.2,.7,.3,1)}
+  .card:hover{background:rgba(255,255,255,.17);border-color:rgba(238,194,66,.45);transform:translateY(-3px)}
+  .card .num{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:#EEC242;margin-bottom:7px}
+  .card .t{font-family:Montserrat,sans-serif;font-weight:700;font-size:18px;letter-spacing:-.022em;color:#fff;line-height:1.15}
+  .card .s{font-size:14.5px;font-weight:500;line-height:1.45;color:rgba(255,255,255,.7);margin-top:6px;text-wrap:pretty}
+  .card .arrow{flex:none;font-size:17px;color:#EEC242;opacity:.7}
+
   .linkhead{display:flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
-  .linkhead span{width:20px;height:1px;background:rgba(255,255,255,.28);flex:none}
+  .linkhead i{width:20px;height:1px;background:rgba(255,255,255,.28);flex:none}
   .links{display:flex;flex-wrap:wrap;gap:9px}
   .links a{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:rgba(255,255,255,.78);padding:11px 17px;border-radius:99px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);transition:background .22s ease,color .22s ease,transform .22s cubic-bezier(.2,.7,.3,1)}
   .links a:hover{background:rgba(255,255,255,.16);color:#fff;transform:translateY(-2px)}
   .links a span{font-size:12px;color:#EEC242}
-  @media(max-width:860px){
-    .grid{grid-template-columns:1fr}
-  }
-  @media(max-width:640px){
-    body{padding:20px 16px;align-items:flex-start}
-    .wrap{gap:14px}
-    .head{gap:0}
-    h1{margin-top:10px;font-size:clamp(30px,8.6vw,40px)}
-    .grid{gap:9px}
-    .card{padding:14px 16px;gap:12px;border-radius:15px}
-    .num{font-size:9px;letter-spacing:.14em}
-    .t{font-size:17px;margin-top:5px}
-    .s{display:none}
-    .arrow{width:34px;height:34px;font-size:15px}
-    img[alt="ESCP"]{width:84px;margin:0 0 0 auto}
-    .linkhead{font-size:9px;margin-top:2px}
-    .links{gap:7px}
-    .links a{font-size:13px;padding:9px 14px;gap:6px}
-    .actions{gap:8px}
-    .act{font-size:13.5px;padding:12px 17px;gap:8px;flex:1 1 auto;justify-content:center}
+  .act{display:inline-flex;align-items:center;gap:10px;font-family:Montserrat,sans-serif;font-weight:700;font-size:14.5px;letter-spacing:-.014em;color:#1B0066;background:#EEC242;padding:13px 21px;border-radius:99px;box-shadow:0 12px 26px -18px rgba(0,0,0,.6);transition:transform .22s cubic-bezier(.2,.7,.3,1)}
+  .act:hover{transform:translateY(-2px);color:#1B0066}
+  .act i{width:7px;height:7px;border-radius:50%;background:#1B0066;flex:none;animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+  .foot{display:flex;flex-wrap:wrap;gap:10px 26px;font-size:14.5px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.72);border-top:1px solid rgba(255,255,255,.14);padding-top:18px;margin-top:auto}
+
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .rise{animation:rise .6s cubic-bezier(.2,.7,.3,1) both}
+
+  @media(max-width:880px){
+    .panel{padding:18px 18px 36px;gap:14px}
+    .tri{grid-template-columns:1fr}
+    .hub[data-dir="right"],.hub[data-dir="left"]{grid-column:1;grid-row:auto}
+    .hub[data-dir="down"]{grid-column:1;max-width:none;margin:0}
+    .hub{padding:20px 20px 18px;border-radius:20px}
+    .hub:hover{transform:none}
+    .logo{width:84px}
+    .quick a{font-size:12px;padding:6px 11px}
+    .quick b{display:none}
     #q{font-size:15.5px;padding:13px 0}
     .searchbox{padding:0 15px;gap:10px;border-radius:14px}
-    .hit{padding:12px 14px;border-radius:12px}
-    .hit-q{font-size:15px}
+    .card{padding:18px 19px;border-radius:16px}
+    .hub-t{font-size:20px}
   }
-  @media(max-width:640px) and (min-height:760px){
-    .s{display:block;font-size:13.5px}
+  @media(prefers-reduced-motion:reduce){
+    .world{transition:none}
+    .rise{animation:none;opacity:1;transform:none}
+    .hub,.hub-go b{transition:none}
   }
-  @media(prefers-reduced-motion:reduce){.rise{animation:none;opacity:1;transform:none}.wrap{transition:none}}
 </style>
 </head>
 <body>
-  <div class="blobs"><div class="b1"></div><div class="b2"></div><div class="b3"></div><div class="veil"></div></div>
-  <div class="wrap">
-    <div class="rise" style="display:flex;align-items:center;justify-content:flex-end">
-      <img src="assets/escp-logo.png" alt="ESCP" style="width:100px;height:auto;flex:none">
-    </div>
+<div class="blobs"><div class="b1"></div><div class="b2"></div><div class="b3"></div></div>
 
-    <div class="head rise" style="animation-delay:.06s">
-      <div>
-        <div class="pill"><span></span><span data-i="eyebrow">London Campus · IT Services</span></div>
-        <h1 data-i="h1">Setup guides.</h1>
+<div class="viewport">
+  <div class="world" data-at="home" id="world">
+    <section class="panel" id="home">
+      <div class="inner">
+        <div class="topbar rise">
+          <div class="eyebrow"><i></i><span>London Campus · IT Services</span></div>
+          <img class="logo" src="assets/escp-logo.png" alt="ESCP">
+        </div>
+        <div class="quick">
+          <b>Quick links</b>
+          <a href="https://escpeurope.blackboard.com" target="_blank" rel="noopener">Blackboard<i>&#8599;</i></a>
+          <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
+          <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
+          <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+          <a href="./contacts.html">Contacts<i>&#8594;</i></a>
+        </div>
+
+        <div class="rise" style="animation-delay:.06s;display:flex;flex-direction:column;gap:12px">
+          <h1>Setup guides.</h1>
+        </div>
+
+        <div class="rise" style="animation-delay:.12s">
+          <div class="searchbox">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#EEC242" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.2-4.2"></path></svg>
+            <input id="q" type="search" autocomplete="off" placeholder="What do you need help with? Try &ldquo;can&rsquo;t print&rdquo;" aria-label="Search the guides">
+            <button id="clear" type="button" aria-label="Clear">&times;</button>
+          </div>
+        </div>
+        <div class="results" id="results"></div>
+
+        <div class="tri rise" id="tri" style="animation-delay:.18s">
+
+          <button class="hub" type="button" data-go="spaces" data-dir="left">
+            <div class="hub-head">
+              <div class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#EEC242" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 10h8m0-7v18"></path></svg></div>
+              <div class="hub-n">3 guides</div>
+            </div>
+            <div class="hub-t">Find a space</div>
+            <div class="hub-s">Empty classrooms, released staff offices, the eleven study booths, and caf&eacute;s and libraries nearby.</div>
+            <div class="hub-go"><b>&#8592;</b>Slide left</div>
+          </button>
+
+          <button class="hub" type="button" data-go="setup" data-dir="right">
+            <div class="hub-head">
+              <div class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#EEC242" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M2 20h20"></path></svg></div>
+              <div class="hub-n">4 guides</div>
+            </div>
+            <div class="hub-t">Set up your devices</div>
+            <div class="hub-s">Printing, Microsoft 365, campus WiFi and eduroam &mdash; including what to do when they will not connect.</div>
+            <div class="hub-go">Slide right<b>&#8594;</b></div>
+          </button>
+
+          <button class="hub" type="button" data-go="help" data-dir="down">
+            <div class="hub-head">
+              <div class="hub-ico"><svg viewBox="0 0 24 24" fill="none" stroke="#EEC242" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 1 1-3.6-6.9"></path><path d="M9.6 9a2.6 2.6 0 1 1 3.6 2.4c-.8.4-1.2 1-1.2 1.8v.4"></path><path d="M12 17.4h.01"></path></svg></div>
+              <div class="hub-n">Contacts &amp; links</div>
+            </div>
+            <div class="hub-t">Get help</div>
+            <div class="hub-s">Who to email for accounts, Blackboard or printing, report a WiFi fault, and quick links to student services.</div>
+            <div class="hub-go">Slide down<b>&#8595;</b></div>
+          </button>
+
+        </div>
       </div>
-    </div>
-
-
-    <div class="searchwrap rise" style="animation-delay:.08s">
-      <div class="searchbox">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#EEC242" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4.2-4.2"></path></svg>
-        <input id="q" type="search" autocomplete="off" placeholder="What do you need help with? Try &ldquo;can&rsquo;t print&rdquo;">
-        <button id="clear" type="button" aria-label="Clear">&times;</button>
+    </section>
+    <section class="panel" id="setup">
+      <div class="inner">
+        <div class="topbar">
+          <button class="back" type="button" data-go="home"><b>&#8592;</b>All categories</button>
+          <img class="logo" src="assets/escp-logo.png" alt="ESCP">
+        </div>
+        <div class="quick">
+          <b>Quick links</b>
+          <a href="https://escpeurope.blackboard.com" target="_blank" rel="noopener">Blackboard<i>&#8599;</i></a>
+          <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
+          <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
+          <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+          <a href="./contacts.html">Contacts<i>&#8594;</i></a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div class="eyebrow" style="align-self:flex-start"><i></i><span>Category · Devices</span></div>
+          <h1>Set up your devices.</h1>
+          <p class="sub">Four guides, each one step at a time. Printing first — it is the one most people need on day one.</p>
+        </div>
+        <div class="grid">
+          <a class="card" href="./papercut.html">
+            <div><div class="num">macOS, Windows &amp; ChromeOS</div><div class="t">Set up printing</div><div class="s">Print from your own laptop anywhere on campus</div></div>
+            <div class="arrow">&#8594;</div>
+          </a>
+          <a class="card" href="./microsoft-365.html">
+            <div><div class="num">Windows, macOS, iPadOS &amp; Android</div><div class="t">Install Microsoft 365</div><div class="s">Word, Excel, PowerPoint and Teams, free with your ESCP email</div></div>
+            <div class="arrow">&#8594;</div>
+          </a>
+          <a class="card" href="./campus-wifi.html">
+            <div><div class="num">macOS, iOS, Windows &amp; Android</div><div class="t">Connect to campus WiFi</div><div class="s">Your main connection on London campus &mdash; start here</div></div>
+            <div class="arrow">&#8594;</div>
+          </a>
+          <a class="card" href="./eduroam.html">
+            <div><div class="num">macOS, iOS, Android &amp; Windows</div><div class="t">Connect to eduroam WiFi</div><div class="s">Best for travel &mdash; one login at other ESCP campuses and universities worldwide</div></div>
+            <div class="arrow">&#8594;</div>
+          </a>
+        </div>
+        <div class="foot"><span>Need more help? Email <a href="mailto:ITUK@escp.eu">ITUK@escp.eu</a> or visit the IT office on the ground floor, G12</span></div>
       </div>
-    </div>
-    <div class="results" id="results"></div>
-
-    <div class="grid" id="grid">
-      <a class="card rise" href="./papercut.html" style="animation-delay:.1s">
-        <div>
-          <div class="num" data-i="c2n">macOS, Windows &amp; ChromeOS</div>
-          <div class="t" data-i="c2t">Set up printing</div>
-          <div class="s" data-i="c2s">Print from your own laptop anywhere on campus</div>
+    </section>
+    <section class="panel" id="spaces">
+      <div class="inner">
+        <div class="topbar">
+          <button class="back" type="button" data-go="home"><b>&#8594;</b>All categories</button>
+          <img class="logo" src="assets/escp-logo.png" alt="ESCP">
         </div>
-        <div class="arrow">&#8594;</div>
-      </a>
-      <a class="card rise" href="./free-space.html" style="animation-delay:.18s">
-        <div>
-          <div class="num">Classrooms, offices &amp; booths</div>
-          <div class="t">Find somewhere to work</div>
-          <div class="s">Free space on campus, plus caf&eacute;s and libraries nearby</div>
+        <div class="quick">
+          <b>Quick links</b>
+          <a href="https://escpeurope.blackboard.com" target="_blank" rel="noopener">Blackboard<i>&#8599;</i></a>
+          <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
+          <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
+          <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+          <a href="./contacts.html">Contacts<i>&#8594;</i></a>
         </div>
-        <div class="arrow">&#8594;</div>
-      </a>
-      <a class="card rise" href="./study-rooms.html" style="animation-delay:.26s">
-        <div>
-          <div class="num">Two hours a day, one booth</div>
-          <div class="t">Book a study booth</div>
-          <div class="s">Reserve a study booth anywhere on campus</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div class="eyebrow" style="align-self:flex-start"><i></i><span>Category · Spaces</span></div>
+          <h1>Find a space.</h1>
+          <p class="sub">Where you can sit and work, on campus and within a short walk of it.</p>
         </div>
-        <div class="arrow">&#8594;</div>
-      </a>
-      <a class="card rise" href="./microsoft-365.html" style="animation-delay:.34s">
-        <div>
-          <div class="num" data-i="c1n">Windows, macOS, iPadOS &amp; Android</div>
-          <div class="t" data-i="c1t">Install Microsoft 365</div>
-          <div class="s" data-i="c1s">Word, Excel, PowerPoint and Teams, free with your ESCP email</div>
+        <div class="grid">
+          <a class="card" href="./free-space.html">
+            <div><div class="num">Classrooms, offices &amp; booths</div><div class="t">Find somewhere to work</div><div class="s">Free space on campus, plus caf&eacute;s and libraries nearby</div></div>
+            <div class="arrow">&#8594;</div>
+          </a>
+          <a class="card" href="./study-rooms.html">
+            <div><div class="num">Two hours a day, one booth</div><div class="t">Book a study booth</div><div class="s">Reserve one of eleven acoustic booths on campus</div></div>
+            <div class="arrow">&#8594;</div>
+          </a>
+          <a class="card" href="./bloomberg.html">
+            <div><div class="num">Bloomberg room, F51</div><div class="t">Bloomberg terminal login</div><div class="s">Create your login and get started on the terminals</div></div>
+            <div class="arrow">&#8594;</div>
+          </a>
         </div>
-        <div class="arrow">&#8594;</div>
-      </a>
-      <a class="card rise" href="./campus-wifi.html" style="animation-delay:.42s">
-        <div>
-          <div class="num">macOS, iOS, Windows &amp; Android</div>
-          <div class="t">Connect to campus WiFi</div>
-          <div class="s">Your main connection on London campus &mdash; start here</div>
+        <div class="foot"><span>Booth booking problems: <a href="mailto:info@escp.eu">info@escp.eu</a></span><span>Everything else: <a href="mailto:ITUK@escp.eu">ITUK@escp.eu</a></span></div>
+      </div>
+    </section>
+    <section class="panel" id="help">
+      <div class="inner">
+        <div class="topbar">
+          <button class="back" type="button" data-go="home"><b>&#8593;</b>All categories</button>
+          <img class="logo" src="assets/escp-logo.png" alt="ESCP">
         </div>
-        <div class="arrow">&#8594;</div>
-      </a>
-      <a class="card rise" href="./eduroam.html" style="animation-delay:.42s">
-        <div>
-          <div class="num" data-i="c3n">macOS, iOS, Android &amp; Windows</div>
-          <div class="t" data-i="c3t">Connect to eduroam WiFi</div>
-          <div class="s" data-i="c3s">Best for travel &mdash; one login at other ESCP campuses and universities worldwide</div>
+        <div class="quick">
+          <b>Quick links</b>
+          <a href="https://escpeurope.blackboard.com" target="_blank" rel="noopener">Blackboard<i>&#8599;</i></a>
+          <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
+          <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
+          <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+          <a href="./contacts.html">Contacts<i>&#8594;</i></a>
         </div>
-        <div class="arrow">&#8594;</div>
-      </a>
-      <a class="card rise" href="./bloomberg.html" style="animation-delay:.5s">
-        <div>
-          <div class="num">Bloomberg room, F51</div>
-          <div class="t">Create a Bloomberg login</div>
-          <div class="s">Your own account for the Bloomberg terminals, plus Market Concepts</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div class="eyebrow" style="align-self:flex-start"><i></i><span>Category · Help</span></div>
+          <h1>Get help.</h1>
+          <p class="sub">The right team for your problem, and quick links to the services you use most.</p>
         </div>
-        <div class="arrow">&#8594;</div>
-      </a>
-      <a class="card rise" href="./contacts.html" style="animation-delay:.58s">
-        <div>
-          <div class="num">Who to email</div>
-          <div class="t">Contacts</div>
-          <div class="s">Find the right team for accounts, Blackboard, printing or anything else</div>
+        <div class="grid">
+          <a class="card" href="./contacts.html">
+            <div><div class="num">Accounts, Blackboard, printing</div><div class="t">Who to contact</div><div class="s">Find the right team for accounts, Blackboard, printing or anything else</div></div>
+            <div class="arrow">&#8594;</div>
+          </a>
+          <a class="card" href="https://docs.google.com/forms/d/e/1FAIpQLSe1V1vEcdULCCtPaDut_I1KA2YAer_nlx_TLpJzUNbUSVmLzw/viewform" target="_blank" rel="noopener">
+            <div><div class="num">Goes straight to the IT team</div><div class="t">Report a WiFi problem</div><div class="s">Tell us where it happened and what you were on</div></div>
+            <div class="arrow">&#8599;</div>
+          </a>
         </div>
-        <div class="arrow">&#8594;</div>
-      </a>
-    </div>
-
-    <div class="linkhead rise" style="animation-delay:.64s"><span></span>Commonly used student services</div>
-    <div class="links rise" style="animation-delay:.66s">
-      <a href="https://escpeurope.blackboard.com" target="_blank" rel="noopener">Blackboard<span>&#8599;</span></a>
-      <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<span>&#8599;</span></a>
-      <a href="https://ent.escpeurope.eu/RoomsManager/RoomSearch/index/campus/LO" target="_blank" rel="noopener">Room search<span>&#8599;</span></a>
-      <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<span>&#8599;</span></a>
-    </div>
-
-    <div class="actions rise" style="animation-delay:.7s">
-      <a class="act" href="https://docs.google.com/forms/d/e/1FAIpQLSe1V1vEcdULCCtPaDut_I1KA2YAer_nlx_TLpJzUNbUSVmLzw/viewform" target="_blank" rel="noopener">
-        <span class="dot"></span>Report a WiFi problem<span class="ext">&#8599;</span>
-      </a>
-      <!-- Feedback form: paste the Google Forms URL into href, then delete these comment markers to show the button.
-      <a class="act ghost" href="#SITE_FEEDBACK_FORM" target="_blank" rel="noopener">
-        Feedback on these guides<span class="ext">&#8599;</span>
-      </a>
-      -->
-    </div>
+        <div class="foot"><span>Account problems: <a href="mailto:assistance.dtd@escp.eu">assistance.dtd@escp.eu</a></span><span>Need more help? Email <a href="mailto:ITUK@escp.eu">ITUK@escp.eu</a> or visit the IT office on the ground floor, G12</span></div>
+      </div>
+    </section>
   </div>
+</div>
+
 <script>
 (function(){
   var IDX = [
@@ -233,8 +336,18 @@
     ["No sign-in window appeared after printing","Printing","./papercut.html?step=5","sign in window popup login prompt appear missing hidden"],
     ["Invalid username or password at the printer","Printing","./papercut.html?step=6","invalid username password wrong login rejected printer screen"],
     ["Collect my print job at the printer","Printing","./papercut.html?step=6","release collect pick up printer touchscreen card badge queue held"],
+    // Campus WiFi
+    ["Connect to campus WiFi","Campus WiFi","./campus-wifi.html","wifi wi-fi wireless internet connect network online escp campus primary main get online web"],
+    ["Campus WiFi will not connect","Campus WiFi","./campus-wifi.html","wifi cannot wont fail failing connection drops disconnects keeps dropping unable"],
+    ["Connect to the ESCP network","Campus WiFi","./campus-wifi.html","escp network join sign in username password portal"],
+    ["No WiFi sign-in page appears","Campus WiFi","./campus-wifi.html","portal sign in page captive login screen neverssl not appearing blank"],
+    ["WiFi says connected but nothing loads","Campus WiFi","./campus-wifi.html","connected no internet nothing loads vpn private relay dns broken"],
+    ["Turn off private WiFi address","Campus WiFi","./campus-wifi.html?plat=mac&step=2","private address mac randomised random hardware address tracking apple ios limit ip"],
+    ["Fix campus WiFi on Windows","Campus WiFi","./campus-wifi.html?plat=win&step=1","windows laptop pc random hardware address dns dhcp driver"],
+    ["Fix campus WiFi on Android","Campus WiFi","./campus-wifi.html?plat=android&step=1","android samsung pixel phone mac address type private dns dhcp"],
+    ["ESCP or ESCP_GUEST?","Campus WiFi","./campus-wifi.html","escp guest which network visitor student difference"],
     // eduroam
-    ["Connect to eduroam WiFi","eduroam WiFi","./eduroam.html?step=1","wifi wi-fi eduroam internet connect network wireless online"],
+    ["Connect to eduroam WiFi","eduroam WiFi","./eduroam.html?step=1","eduroam travel travelling abroad other university universities campuses roaming exchange visiting worldwide"],
     ["ESCP is not in the organisation list","eduroam WiFi","./eduroam.html?step=3","escp missing organisation institution list country france show all countries search"],
     ["eduroam does not appear in my WiFi list","eduroam WiFi","./eduroam.html?step=9","eduroam missing wifi list not showing appear network unavailable"],
     ["Which email do I use for eduroam?","eduroam WiFi","./eduroam.html?step=7","username email edu.escp.eu full address login wifi credentials password"],
@@ -255,15 +368,8 @@
     ["Staff offices released to students","Free space","./free-space.html","office released free space today staff desk sign board capacity"],
     ["Somewhere free to work off campus","Free space","./free-space.html?tab=nearby","nearby off campus cafe caff library camden art centre jw3 outside external walk"],
     ["Camden libraries I can use","Free space","./free-space.html?tab=nearby","camden library libraries swiss cottage west hampstead kentish town pancras holborn kilburn card register"],
-    ["Campus WiFi will not connect","Campus WiFi","./campus-wifi.html","wifi wi-fi escp campus connect connection cannot wont fail internet network drops"],
-    ["Connect to the ESCP network","Campus WiFi","./campus-wifi.html","escp wifi network join connect sign in username password portal"],
-    ["No WiFi sign-in page appears","Campus WiFi","./campus-wifi.html","portal sign in page captive login screen neverssl not appearing blank"],
-    ["WiFi says connected but nothing loads","Campus WiFi","./campus-wifi.html","connected no internet nothing loads vpn private relay dns broken"],
-    ["Turn off private WiFi address","Campus WiFi","./campus-wifi.html?plat=mac&step=2","private address mac randomised random hardware address tracking apple ios limit ip"],
-    ["Fix campus WiFi on Windows","Campus WiFi","./campus-wifi.html?plat=win&step=1","windows laptop pc random hardware address dns dhcp driver"],
-    ["Fix campus WiFi on Android","Campus WiFi","./campus-wifi.html?plat=android&step=1","android samsung pixel phone mac address type private dns dhcp"],
-    ["ESCP or ESCP_GUEST?","Campus WiFi","./campus-wifi.html","escp guest which network visitor student difference"],
     ["Report a WiFi problem","Report","https://docs.google.com/forms/d/e/1FAIpQLSe1V1vEcdULCCtPaDut_I1KA2YAer_nlx_TLpJzUNbUSVmLzw/viewform","report wifi problem broken dropping issue fault complain form survey slow signal"],
+    ["Library, ebooks and databases","Library","https://libraries.escp.eu/#","library libraries books ebooks ebook articles databases journals research papers theses portal reading"],
     // Contacts
     ["A course is missing from Blackboard","Contacts","./contacts.html","blackboard course missing module programme office unit class"],
     ["I cannot submit an assignment","Contacts","./contacts.html","assignment submit submission upload turnitin blackboard coursework deadline"],
@@ -275,10 +381,51 @@
   var q = document.getElementById('q');
   var clear = document.getElementById('clear');
   var box = document.getElementById('results');
-  var grid = document.getElementById('grid');
-  var links = document.querySelectorAll('.linkhead, .links, .actions');
+  var tri = document.getElementById('tri');
+  var grid = tri;                 // search hides the hub triangle
+  var links = [];                 // no link row on the home panel
+  var world = document.getElementById('world');
   var sel = -1, hits = [];
+  var PANELS = ['home','setup','spaces','help'];
 
+  /* ---- spatial navigation ---- */
+  var isTouch = window.matchMedia('(hover:none)').matches;
+
+  function go(to, push, focusSearch){
+    if (PANELS.indexOf(to) === -1) to = 'home';
+    world.dataset.at = to;
+    var panel = document.getElementById(to);
+    if (panel) panel.scrollTop = 0;
+    PANELS.forEach(function(p){
+      var el = document.getElementById(p);
+      if (!el) return;
+      if (p === to) { el.removeAttribute('aria-hidden'); el.removeAttribute('inert'); }
+      else { el.setAttribute('aria-hidden', 'true'); el.setAttribute('inert', ''); }
+    });
+    if (push !== false) {
+      var h = to === 'home' ? ' ' : '#' + to;
+      if (location.hash.replace('#','') !== (to === 'home' ? '' : to)) history.pushState({at:to}, '', h);
+    }
+    if (focusSearch && to === 'home' && q && !isTouch) { setTimeout(function(){ q.focus({preventScroll:true}); }, 740); }
+  }
+  document.querySelectorAll('[data-go]').forEach(function(b){
+    b.addEventListener('click', function(){ go(b.dataset.go, true, b.dataset.go === 'home'); });
+  });
+  window.addEventListener('popstate', function(){ go(location.hash.replace('#',''), false); });
+  window.addEventListener('keydown', function(e){
+    if (document.activeElement === q && e.key !== 'Escape') return;
+    var at = world.dataset.at;
+    if (e.key === 'Escape') { if (at !== 'home') go('home'); else if (q.value) { q.value=''; render(); } }
+    else if (at === 'home' && e.key === 'ArrowRight') go('setup');
+    else if (at === 'home' && e.key === 'ArrowLeft') go('spaces');
+    else if (at === 'home' && e.key === 'ArrowDown') go('help');
+    else if (at === 'setup' && e.key === 'ArrowLeft') go('home');
+    else if (at === 'spaces' && e.key === 'ArrowRight') go('home');
+    else if (at === 'help' && e.key === 'ArrowUp') go('home');
+  });
+  go(location.hash.replace('#',''), false);
+
+  /* ---- search ---- */
   function norm(s){ return s.toLowerCase().replace(/[^a-z0-9. ]/g,' ').replace(/\s+/g,' ').trim(); }
 
   function score(entry, tokens){
@@ -353,7 +500,9 @@
     else if (e.key === 'Escape'){ q.value = ''; render(); q.blur(); }
   });
   clear.addEventListener('click', function(){ q.value = ''; render(); q.focus(); });
+
 })();
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

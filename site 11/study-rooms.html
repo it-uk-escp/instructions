@@ -38,8 +38,15 @@ a{color:#EEC242}a:hover{color:#fff}
 ::view-transition-new(root){animation:vtIn .34s cubic-bezier(.2,.7,.3,1) both}
 @keyframes pagein{from{opacity:0}to{opacity:1}}
 @supports (view-transition-name:none){[style*="pagein"]{animation:none !important}}
+.quicknav{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin-top:2px}
+.quicknav a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:12.5px;font-weight:600;color:rgba(255,255,255,.72);padding:7px 13px;border-radius:99px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);transition:background .2s ease,color .2s ease}
+.quicknav a:hover{background:rgba(255,255,255,.15);color:#fff}
+.quicknav a i{font-size:10px;color:#EEC242;font-style:normal}
+.quicknav em{font-family:'JetBrains Mono',monospace;font-size:9px;font-style:normal;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-right:3px}
+@media(max-width:620px){.quicknav a{font-size:12px;padding:6px 11px}.quicknav em{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none !important}}
 </style>
+<script defer src="/_vercel/insights/script.js"></script>
 </helmet>
 <div style="animation:pagein .3s ease both;position:relative;min-height:100vh;background:#1B0066;font-family:Karla,system-ui,sans-serif;overflow:hidden">
 
@@ -56,6 +63,14 @@ a{color:#EEC242}a:hover{color:#fff}
       <div style="display:flex;align-items:center;margin-left:auto">
         <img src="assets/escp-logo.png" alt="ESCP" style="width:112px;height:auto;flex:none;margin:10px 6px 0 0">
       </div>
+      <div class="quicknav">
+        <em>Quick links</em>
+        <a href="https://escpeurope.blackboard.com" target="_blank" rel="noopener">Blackboard<i>&#8599;</i></a>
+        <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
+        <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
+        <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+        <a href="./contacts.html">Contacts<i>&#8594;</i></a>
+      </div>
     </div>
 
     <div style="display:flex;flex-direction:column;gap:14px;padding-top:4px">
@@ -67,11 +82,14 @@ a{color:#EEC242}a:hover{color:#fff}
       <p style="margin:0;font-size:16.5px;line-height:1.5;color:rgba(255,255,255,.72);max-width:560px;text-wrap:pretty">Pick a duration, pick a booth, pick a time. Booking one takes about a minute.</p>
     </div>
 
-    <a href="https://escplondonstudyrooms.simplybook.it/v2/" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;text-decoration:none;background:#EEC242;color:#1B0066;padding:16px 28px;border-radius:99px;box-shadow:0 12px 26px -16px rgba(238,194,66,.6);transition:transform .22s cubic-bezier(.2,.7,.3,1),box-shadow .22s ease" style-hover="transform:translateY(-2px);box-shadow:0 16px 32px -16px rgba(238,194,66,.75)">
+
+    <a href="https://escplondonstudyrooms.simplybook.it/v2/" target="_blank" rel="noopener" style="align-self:flex-start;display:inline-flex;align-items:center;gap:12px;text-decoration:none;background:#EEC242;color:#1B0066;padding:16px 26px;border-radius:99px;box-shadow:0 14px 30px -18px rgba(0,0,0,.7);transition:transform .22s cubic-bezier(.2,.7,.3,1)" style-hover="transform:translateY(-2px)">
       <span style="font-family:Montserrat,sans-serif;font-weight:700;font-size:16px;letter-spacing:-.012em">Open the booking site</span>
       <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(27,0,102,.65);letter-spacing:.06em">simplybook.it</span>
     </a>
 
+    <sc-if value="{{ bookingLive }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex;flex-direction:column;gap:20px">
     <div style="display:flex;flex-direction:column;gap:13px;padding:4px">
       <div style="display:flex;gap:7px;align-items:stretch">
         <sc-for list="{{ segments }}" as="seg" hint-placeholder-count="6">
@@ -283,8 +301,11 @@ a{color:#EEC242}a:hover{color:#fff}
           </div>
         </div>
       </div>
-      <div style="border-top:1px solid rgba(255,255,255,.16);padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.78)"><span style="flex:1 1 250px">Booking problems: <a href="mailto:info@escp.eu" style="color:#EEC242">info@escp.eu</a></span><span style="flex:1 1 250px">Need more help? Email <a href="mailto:ITUK@escp.eu" style="color:#EEC242">ITUK@escp.eu</a> or visit the IT office on the ground floor, G12</span></div>
-    </div>
+      </div>
+      </div>
+    </sc-if>
+
+    <div style="border-top:1px solid rgba(255,255,255,.16);padding-top:22px;display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px;font-weight:500;line-height:1.5;color:rgba(255,255,255,.78)"><span style="flex:1 1 250px">Booking problems: <a href="mailto:info@escp.eu" style="color:#EEC242">info@escp.eu</a></span><span style="flex:1 1 250px">Need more help? Email <a href="mailto:ITUK@escp.eu" style="color:#EEC242">ITUK@escp.eu</a> or visit the IT office on the ground floor, G12</span></div>
 
   </div>
 </div>
@@ -369,10 +390,12 @@ class Component extends DCLogic {
   }
 
   renderVals() {
+    const bookingLive = true;
     const i = this.state.i, step = STEPS[i], total = STEPS.length;
     const accent = this.props.accent ?? "#EEC242";
     const vis = (n) => (i === n ? "flex" : "none");
     return {
+      bookingLive,
       total, humanIndex: String(i + 1).padStart(2, "0"),
       phaseLabel: step.kicker,
       segments: STEPS.map((s, n) => ({
