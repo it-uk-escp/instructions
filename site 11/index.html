@@ -80,6 +80,9 @@
   .hub-n{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.52);margin-left:auto}
   .hub-t{font-family:Montserrat,sans-serif;font-weight:800;font-size:clamp(20px,2.1vw,25px);line-height:1.08;letter-spacing:-.03em}
   .hub-s{font-size:14.5px;font-weight:500;line-height:1.45;color:rgba(255,255,255,.74);text-wrap:pretty}
+  .hub-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:3px}
+  .hub-list span{font-family:Montserrat,sans-serif;font-weight:700;font-size:12.5px;letter-spacing:-.01em;color:rgba(255,255,255,.9);padding:6px 12px;border-radius:99px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08)}
+  .hub:hover .hub-list span{border-color:rgba(238,194,66,.4);background:rgba(238,194,66,.14)}
   .hub-go{display:flex;align-items:center;gap:9px;margin-top:2px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#EEC242}
   .hub-go b{font-size:15px;line-height:1;transition:transform .4s cubic-bezier(.2,.7,.3,1)}
   .hub[data-dir="right"]:hover .hub-go b{transform:translateX(6px)}
@@ -129,6 +132,7 @@
     .searchbox{padding:0 15px;gap:10px;border-radius:14px}
     .card{padding:18px 19px;border-radius:16px}
     .hub-t{font-size:20px}
+    .hub-list span{font-size:12px;padding:5px 10px}
   }
   @media(prefers-reduced-motion:reduce){
     .world{transition:none}
@@ -154,6 +158,7 @@
           <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
           <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
           <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+          <a href="https://ent.escpeurope.eu/RoomsManager/RoomSearch/index/campus/LO" target="_blank" rel="noopener">Room search<i>&#8599;</i></a>
           <a href="./contacts.html">Contacts<i>&#8594;</i></a>
         </div>
 
@@ -178,7 +183,8 @@
               <div class="hub-n">3 guides</div>
             </div>
             <div class="hub-t">Find a space</div>
-            <div class="hub-s">Empty classrooms, released staff offices, the eleven study booths, and caf&eacute;s and libraries nearby.</div>
+            <div class="hub-s">Somewhere to sit and work, on campus or nearby.</div>
+            <div class="hub-list"><span>Free space</span><span>Study booths</span><span>Bloomberg room</span></div>
             <div class="hub-go"><b>&#8592;</b>Slide left</div>
           </button>
 
@@ -188,7 +194,8 @@
               <div class="hub-n">4 guides</div>
             </div>
             <div class="hub-t">Set up your devices</div>
-            <div class="hub-s">Printing, Microsoft 365, campus WiFi and eduroam &mdash; including what to do when they will not connect.</div>
+            <div class="hub-s">Get your laptop and phone working on campus.</div>
+            <div class="hub-list"><span>Printing</span><span>Microsoft 365</span><span>Campus WiFi</span><span>eduroam</span></div>
             <div class="hub-go">Slide right<b>&#8594;</b></div>
           </button>
 
@@ -198,7 +205,8 @@
               <div class="hub-n">Contacts &amp; links</div>
             </div>
             <div class="hub-t">Get help</div>
-            <div class="hub-s">Who to email for accounts, Blackboard or printing, report a WiFi fault, and quick links to student services.</div>
+            <div class="hub-s">When something is broken or you are not sure who to ask.</div>
+            <div class="hub-list"><span>Who to email</span><span>Report a WiFi fault</span><span>Student services</span></div>
             <div class="hub-go">Slide down<b>&#8595;</b></div>
           </button>
 
@@ -217,6 +225,7 @@
           <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
           <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
           <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+          <a href="https://ent.escpeurope.eu/RoomsManager/RoomSearch/index/campus/LO" target="_blank" rel="noopener">Room search<i>&#8599;</i></a>
           <a href="./contacts.html">Contacts<i>&#8594;</i></a>
         </div>
         <div style="display:flex;flex-direction:column;gap:11px">
@@ -257,6 +266,7 @@
           <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
           <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
           <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+          <a href="https://ent.escpeurope.eu/RoomsManager/RoomSearch/index/campus/LO" target="_blank" rel="noopener">Room search<i>&#8599;</i></a>
           <a href="./contacts.html">Contacts<i>&#8594;</i></a>
         </div>
         <div style="display:flex;flex-direction:column;gap:11px">
@@ -293,6 +303,7 @@
           <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
           <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
           <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+          <a href="https://ent.escpeurope.eu/RoomsManager/RoomSearch/index/campus/LO" target="_blank" rel="noopener">Room search<i>&#8599;</i></a>
           <a href="./contacts.html">Contacts<i>&#8594;</i></a>
         </div>
         <div style="display:flex;flex-direction:column;gap:11px">

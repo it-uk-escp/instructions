@@ -71,6 +71,7 @@ a{color:#EEC242}a:hover{color:#fff}
         <a href="https://campuslife.escp.eu" target="_blank" rel="noopener">Campus Life<i>&#8599;</i></a>
         <a href="https://libraries.escp.eu/#" target="_blank" rel="noopener">Library<i>&#8599;</i></a>
         <a href="https://ent.escp.eu/RoomsManager/RoomScreenCaster/Index?campus=LO&amp;refresh=120&amp;pagetime=20&amp;pagesize=20&amp;fontsize=24&amp;hide_after=15&amp;print_logo=1&amp;print_clock=0&amp;print_programme=1&amp;hide_after=30" target="_blank" rel="noopener">Timetable<i>&#8599;</i></a>
+        <a href="https://ent.escpeurope.eu/RoomsManager/RoomSearch/index/campus/LO" target="_blank" rel="noopener">Room search<i>&#8599;</i></a>
         <a href="./contacts.html">Contacts<i>&#8594;</i></a>
       </div>
     </div>
@@ -282,7 +283,7 @@ a{color:#EEC242}a:hover{color:#fff}
 
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;accent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#EEC242&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#EEC242&quot;,&quot;#76D0E9&quot;,&quot;#0E00FF&quot;,&quot;#FFFFFF&quot;]},&quot;showTroubleshooting&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;showAsides&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Content&quot;}}">
-const GET_PRINTERS = "mobilityprint://mp.cloud.papercut.com?token=eyJhbGciOiJSUzI1NiIsIm9yZyI6Im9yZy1GNUM3MUFRMSIsInNydiI6InNydi1TTUNRNFpLTCIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDY2MDEwMTAsImlzcyI6InNydi1TTUNRNFpLTCIsImp0aSI6IlcxQjVKN0NHIiwibG5rIjoiVzFCNUo3Q0ciLCJvcmciOiJvcmctRjVDNzFBUTEiLCJzcnYiOiJzcnYtU01DUTRaS0wiLCJzdWIiOiJ0b2tlbkNyZWF0aW9uIn0.XdXXA2MJEzebKtgB-0ud15nnQaI-TUBZ6o4AXlO2fJ1LxrbMBc-U_q-TVc1kn_ilNM8cQLS_4Gp9YMiTDKdJXTvjlT49Nd12wfb0Oa8AyeMaI_dk66iJAYAfiJ-PGiaHdIhBUNhGXX7M9qkg8zgiNS5KxMi0UbIIjF4LJzqdB_EIJbyhXFS16sIUpFT06oDfYws-iXUz_t8a712jqzdGy5yFrZCSdq9KcUfDQOWgBTK_f7629DM82JpGFjXSRH1be2sbPLovZpQ1Oi7Mi2HpY-XeFMIuxUEZTaMVkZWDz6vineF5N-4onpcwB2VVjq3ZlIfcFHwMm0BBOGvfxx6PVLO8iQFHb-bKW1Ud0ZLA4hfGrUokluQpG0E_-aSKDE_FTYjr7owxOJ1zutdmHqVaHn6G6nUdegowPGWj5rVbrGm3NfzAD1EQYzbt9v_WU5ultZIkGIdrdv8KSptGwOWbL78eL-indwtWaNdOqs-H9hQFAnpzskmMNvDxLKA1ETkeL-2WqpOWK5-0slqYSTw3nfQrtJ8tSWpxg6L35UzTQU91ZUXdPRzYPuHQU24RvS6N6LkncWpfHWZNJ9eBChQPeFCRD-QFuyN9dXn21W8hc4QLpNYsGno9ALLjhRYfcaEFZY5ckxUMDYmUOPaAtu2uydZsU0gN_IEQpVg3v3KHM18";
+const GET_PRINTERS = "mobilityprint://mp.cloud.papercut.com?token=eyJhbGciOiJSUzI1NiIsIm9yZyI6Im9yZy1GNUM3MUFRMSIsInNydiI6InNydi1TTUNRNFpLTCIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3NDU4Mzg4MDEsImlzcyI6InNydi1TTUNRNFpLTCIsImp0aSI6IloxWkxGQ1Q5IiwibG5rIjoiWjFaTEZDVDkiLCJvcmciOiJvcmctRjVDNzFBUTEiLCJzcnYiOiJzcnYtU01DUTRaS0wiLCJzdWIiOiJ0b2tlbkNyZWF0aW9uIn0.W2LnXctVRdAytMK57t8bzXdC96Epq2273kCtAug8szK8qqDv_NpXziFwVpFMFInVfFj6o3MSNpY8sbsLvrkbVOxva5jbz32I_RwwQIZL3Fwhl975cV0_R9NSaJy-Seyesa_dvb0TwtWJaagU8C6RHmE_SJjp1ExzpDJRb7LtSRHesZGCRqWmineQPPFGuEmquvYNnd-Gc5PygkWOBeDCsjv4GuzxtBHzZOzqWhhC0QObr8APDdqZEKZMF6OcbC41DzSZeVYXmWWyKFhOHI-NNJS5gnDyGgApFDKWI_7zBb9mC1wLKGn60wsAt4ZMmyFb0OYUVKuHu8SMWmebh0QA8ceHAMwHgVkvPKO7u4oW0V8b_YzqDDhSPXkh6HBrir5xFv3BNQKOSnaCX8yOyutUWWviCyqgl6l-IdOwg613HTkwgaAD3zWoqly4S9dRhEObMiguQo9lo0dZ1nMdK_eTOtFBYPugO_fwluAqDhgLutWr8Ub08CNaJkQEgl4glb7gB-Dyt0Tyz0I_ewSSPyc43i9TQwTIfQkwHptpdTyIaNxAi34YJqREqm3v2scUZuYK5PztxnjuHKBl_5nbDexWc1ZCYHZPjAW645K8xjqQamD40drLMRIwPk4dZey056NP3ex6XUgT0btNq3O6ioAbSdh6m_711x2Vb4g9fKR1N6s";
 
 const UI = {
   en: {
@@ -322,7 +323,7 @@ const STEPS_EN = [
     title: "Come back here and get your printers",
     body: "This is the step people miss. Return to this page and click the button below. When your browser asks, choose Open PaperCut Mobility Print.",
     actions: [{ label: "Get printers", hint: "opens Mobility Print", href: GET_PRINTERS }],
-    aside: "You may be asked for a username and password. Use your ESCP login, the same one you use for everything else."
+    aside: "Often nothing visible happens \u2014 no pop-up, no confirmation. That is normal and means it worked. Go straight to step 3 and check the printers are there. You may be asked for a username and password first: use your ESCP login."
   },
   {
     num: "03", kicker: "Check",
@@ -365,7 +366,7 @@ const STEPS_FR = [
     title: "Revenez ici pour récupérer vos imprimantes",
     body: "C'est l'étape que tout le monde oublie. Revenez sur cette page et cliquez sur le bouton ci-dessous. Quand le navigateur le demande, choisissez Ouvrir PaperCut Mobility Print.",
     actions: [{ label: "Get printers", hint: "ouvre Mobility Print", href: GET_PRINTERS }],
-    aside: "Un nom d'utilisateur et un mot de passe peuvent être demandés. Utilisez vos identifiants ESCP, les mêmes que partout ailleurs."
+    aside: "Souvent, rien ne se passe visiblement \u2014 aucune fen\u00eatre, aucune confirmation. C'est normal et cela signifie que \u00e7a a fonctionn\u00e9. Passez directement \u00e0 l'\u00e9tape 3 pour v\u00e9rifier que les imprimantes sont l\u00e0. Un identifiant et un mot de passe peuvent \u00eatre demand\u00e9s : utilisez vos identifiants ESCP."
   },
   {
     num: "03", kicker: "Vérification",
